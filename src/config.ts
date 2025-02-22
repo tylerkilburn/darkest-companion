@@ -14,10 +14,12 @@ const IMAGE = {
   NOTHING: "nothing" as "nothing",
   REMOVE_NEGATIVE_QUIRK: "remove-negative-quirk" as "remove-negative-quirk",
   SACK: "sack" as "sack",
+  SCONCE: "sconce" as "sconce",
   SCOUTING: "scouting" as "scouting",
   SHOVEL: "shovel" as "shovel",
   SKELETON_KEY: "skeleton-key" as "skeleton-key",
   STRESS: "stress" as "stress",
+  TORCH: "torch" as "torch",
 }
 
 const DUNGEON = {
@@ -257,6 +259,23 @@ export const CONFIG: IConfig = {
         },
       ],
     },
+    {
+      dungeon: DUNGEON.ANY,
+      name: "Sconce",
+      subtext: "Scrounging",
+      description: "No description.",
+      location: "This curio can only appear along corridors.",
+      imageName: IMAGE.SCONCE,
+      cleansing: [],
+      withoutCleansing: [
+        {
+          outcome: "Torch x1",
+          outcomeDescription: "You salvage the unburned torch.",
+          outcomeImage: IMAGE.TORCH,
+          probability: 1,
+        },
+      ],
+    },
   ],
 }
 
@@ -274,8 +293,10 @@ const imageMap: Record<ImageType, string> = {
   [IMAGE.NOTHING]: "/image/nothing.png",
   [IMAGE.REMOVE_NEGATIVE_QUIRK]: "/image/remove-negative-quirk.png",
   [IMAGE.SACK]: "/image/sack.png",
+  [IMAGE.SCONCE]: "/image/sconce.png",
   [IMAGE.SCOUTING]: "/image/scouting.png",
   [IMAGE.SHOVEL]: "/image/shovel.png",
   [IMAGE.SKELETON_KEY]: "/image/skeleton-key.png",
   [IMAGE.STRESS]: "/image/stress.png",
+  [IMAGE.TORCH]: "/image/torch.png",
 }
