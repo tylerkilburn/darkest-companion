@@ -18,15 +18,23 @@ const IMAGE = {
   STRESS: "stress" as "stress",
 }
 
+const DUNGEON = {
+  ANY: "any" as "any",
+  RUINS: "ruins" as "ruins",
+}
+
+type IDungeonType = ValueOf<typeof DUNGEON>
 type ImageType = ValueOf<typeof IMAGE>
 
 interface IConfig {
   curios: {
+    dungeon: IDungeonType
     name: string
     subtext: string
     description: string
     location: string
     imageName: ImageType
+    shouldIgnore?: true
     cleansing: {
       item: string
       itemImage: ImageType
@@ -46,6 +54,7 @@ interface IConfig {
 export const CONFIG: IConfig = {
   curios: [
     {
+      dungeon: DUNGEON.ANY,
       name: "Crate",
       subtext: "Treasure",
       description: "No description.",
@@ -68,6 +77,7 @@ export const CONFIG: IConfig = {
       ],
     },
     {
+      dungeon: DUNGEON.ANY,
       name: "Discarded Pack",
       subtext: "Scrounging; Treasure.",
       description: "No description.",
@@ -96,6 +106,7 @@ export const CONFIG: IConfig = {
       ],
     },
     {
+      dungeon: DUNGEON.ANY,
       name: "Eldritch Altar",
       imageName: IMAGE.ELDRITCH_ALTER,
       subtext: "Haunted; Unholy.",
@@ -133,6 +144,7 @@ export const CONFIG: IConfig = {
       ],
     },
     {
+      dungeon: DUNGEON.ANY,
       name: "Heirloom Chest (First Variant)",
       imageName: IMAGE.HEIRLOOM_CHEST,
       subtext: "Treasure.",
