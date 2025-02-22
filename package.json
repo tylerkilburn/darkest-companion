@@ -5,8 +5,9 @@
   "scripts": {
     "build": "next build",
     "lint": "next lint",
-    "start": "next dev --turbopack",
-    "deploy": "pnpm run build && gh-pages -d out"
+    "dev": "next dev --turbopack",
+    "start": "npm run dev",
+    "deploy": "npm run build && gh-pages -d out"
   },
   "dependencies": {
     "next": "15.1.7",
