@@ -11,8 +11,8 @@ const nextConfig: NextConfig = {
   reactStrictMode: true,
   output: "export",
   distDir: "dist",
-  assetPrefix: isProd ? repoName : "",
-  basePath: isProd ? repoName : "",
+  //assetPrefix: isProd ? repoName : "",
+  basePath: process.env.PAGES_BASE_PATH,
 }
 
 export default nextConfig
