@@ -13,6 +13,7 @@ const IMAGE = {
   HOLY_WATER: "holy-water" as "holy-water",
   NOTHING: "nothing" as "nothing",
   REMOVE_NEGATIVE_QUIRK: "remove-negative-quirk" as "remove-negative-quirk",
+  SACK: "sack" as "sack",
   SCOUTING: "scouting" as "scouting",
   SHOVEL: "shovel" as "shovel",
   SKELETON_KEY: "skeleton-key" as "skeleton-key",
@@ -233,6 +234,29 @@ export const CONFIG: IConfig = {
         },
       ],
     },
+    {
+      dungeon: DUNGEON.ANY,
+      name: "Sack",
+      subtext: "Scrounging",
+      description: "No description.",
+      location: "This curio can only appear along corridors.",
+      imageName: IMAGE.SACK,
+      cleansing: [],
+      withoutCleansing: [
+        {
+          outcome: "Gold",
+          outcomeDescription: "The sack's contents are yours...",
+          outcomeImage: IMAGE.GOLD,
+          probability: 0.75,
+        },
+        {
+          outcome: "Nothing",
+          outcomeDescription: "The sack is empty.",
+          outcomeImage: IMAGE.NOTHING,
+          probability: 0.25,
+        },
+      ],
+    },
   ],
 }
 
@@ -249,6 +273,7 @@ const imageMap: Record<ImageType, string> = {
   [IMAGE.HOLY_WATER]: "/image/holy-water.png",
   [IMAGE.NOTHING]: "/image/nothing.png",
   [IMAGE.REMOVE_NEGATIVE_QUIRK]: "/image/remove-negative-quirk.png",
+  [IMAGE.SACK]: "/image/sack.png",
   [IMAGE.SCOUTING]: "/image/scouting.png",
   [IMAGE.SHOVEL]: "/image/shovel.png",
   [IMAGE.SKELETON_KEY]: "/image/skeleton-key.png",
