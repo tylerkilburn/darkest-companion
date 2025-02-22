@@ -7,6 +7,7 @@
     "lint": "next lint",
     "dev": "next dev --turbopack",
     "start": "npm run dev",
+    "rebuild": "rm -rf node_modules pnpm-lock.yaml && pnpm install",
     "deploy": "npm run build && gh-pages -d out"
   },
 	"dependencies": {
