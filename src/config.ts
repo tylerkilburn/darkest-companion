@@ -14,6 +14,7 @@ const IMAGE = {
   NOTHING: "nothing" as "nothing",
   REMOVE_NEGATIVE_QUIRK: "remove-negative-quirk" as "remove-negative-quirk",
   SCOUTING: "scouting" as "scouting",
+  SHOVEL: "shovel" as "shovel",
   SKELETON_KEY: "skeleton-key" as "skeleton-key",
   STRESS: "stress" as "stress",
 }
@@ -148,8 +149,7 @@ export const CONFIG: IConfig = {
       name: "Heirloom Chest (First Variant)",
       imageName: IMAGE.HEIRLOOM_CHEST,
       subtext: "Treasure.",
-      description:
-        "A chest with your family's sigil.",
+      description: "A chest with your family's sigil.",
       location: "This curio can only appear inside rooms.",
       cleansing: [
         {
@@ -163,7 +163,8 @@ export const CONFIG: IConfig = {
           item: "Antivenom",
           itemImage: IMAGE.ANTIVENOM,
           outcome: "Heirloom x3.",
-          outcomeDescription: "The antivenom neutralizes a poison trap in a hidden compartment!",
+          outcomeDescription:
+            "The antivenom neutralizes a poison trap in a hidden compartment!",
           outcomeImage: IMAGE.HEIRLOOM,
         },
       ],
@@ -188,6 +189,50 @@ export const CONFIG: IConfig = {
         },
       ],
     },
+    {
+      dungeon: DUNGEON.ANY,
+      name: "Heirloom Chest (Second Variant)",
+      imageName: IMAGE.HEIRLOOM_CHEST,
+      subtext: "Treasure.",
+      description: "A chest with your family's sigil.",
+      location: "This curio can only appear inside rooms.",
+      cleansing: [
+        {
+          item: "Skeleton Key",
+          itemImage: IMAGE.SKELETON_KEY,
+          outcome: "Any Loot x3.",
+          outcomeDescription: "The key unlocks a hidden compartment!",
+          outcomeImage: IMAGE.GOLD,
+        },
+        {
+          item: "Shovel",
+          itemImage: IMAGE.SHOVEL,
+          outcome: "Any Loot x2. (66%) / Nothing (33%)",
+          outcomeDescription: "The contents are yours!",
+          outcomeImage: IMAGE.GOLD,
+        },
+      ],
+      withoutCleansing: [
+        {
+          outcome: "Any Loot x2.",
+          outcomeDescription: "The contents are yours!",
+          outcomeImage: IMAGE.GOLD,
+          probability: 0.5,
+        },
+        {
+          outcome: "Bleed",
+          outcomeDescription: "It's trapped!",
+          outcomeImage: IMAGE.BLEED,
+          probability: 0.25,
+        },
+        {
+          outcome: "Blight",
+          outcomeDescription: "It's trapped!",
+          outcomeImage: IMAGE.BLIGHT,
+          probability: 0.25,
+        },
+      ],
+    },
   ],
 }
 
@@ -205,6 +250,7 @@ const imageMap: Record<ImageType, string> = {
   [IMAGE.NOTHING]: "/image/nothing.png",
   [IMAGE.REMOVE_NEGATIVE_QUIRK]: "/image/remove-negative-quirk.png",
   [IMAGE.SCOUTING]: "/image/scouting.png",
+  [IMAGE.SHOVEL]: "/image/shovel.png",
   [IMAGE.SKELETON_KEY]: "/image/skeleton-key.png",
   [IMAGE.STRESS]: "/image/stress.png",
 }
