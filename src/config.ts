@@ -7,6 +7,7 @@ const IMAGE = {
   CRATE: "crate" as "crate",
   DISCARDED_PACK: "discarded-pack" as "discarded-pack",
   ELDRITCH_ALTER: "eldritch-alter" as "eldritch-alter",
+  FOOD: "food" as "food",
   GOLD: "gold" as "gold",
   HEIRLOOM: "heirloom" as "heirloom",
   HEIRLOOM_CHEST: "heirloom-chest" as "heirloom-chest",
@@ -30,29 +31,44 @@ const DUNGEON = {
 type IDungeonType = ValueOf<typeof DUNGEON>
 type ImageType = ValueOf<typeof IMAGE>
 
-interface IConfig {
-  curios: {
-    dungeon: IDungeonType
-    name: string
-    subtext: string
-    description: string
-    location: string
-    imageName: ImageType
-    shouldIgnore?: true
-    cleansing: {
-      item: string
-      itemImage: ImageType
-      outcome: string
-      outcomeDescription: string
-      outcomeImage: ImageType
-    }[]
-    withoutCleansing: {
-      probability: number
-      outcome: string
-      outcomeDescription: string
-      outcomeImage: ImageType
-    }[]
+interface ICurio {
+  dungeon: IDungeonType
+  name: string
+  subtext: string
+  description: string
+  location: string
+  image: ImageType
+  shouldIgnore?: true
+  cleansing: {
+    item: string
+    itemImage: ImageType
+    outcome: string
+    outcomeDescription: string
+    outcomeImage: ImageType
   }[]
+  withoutCleansing: {
+    probability: number
+    outcome: string
+    outcomeDescription: string
+    outcomeImage: ImageType
+  }[]
+}
+
+interface IProvision {
+  name: string
+  price: number
+  description: string
+  effort: string
+  stack: number
+  image: ImageType
+}
+
+interface IConfig {
+  curios: ICurio[]
+}
+
+const PROVISION = {
+  
 }
 
 export const CONFIG: IConfig = {
@@ -63,7 +79,7 @@ export const CONFIG: IConfig = {
       subtext: "Treasure",
       description: "No description.",
       location: "This curio can only appear along corridors.",
-      imageName: IMAGE.CRATE,
+      image: IMAGE.CRATE,
       cleansing: [],
       withoutCleansing: [
         {
@@ -86,7 +102,7 @@ export const CONFIG: IConfig = {
       subtext: "Scrounging; Treasure.",
       description: "No description.",
       location: "This curio can only appear along corridors.",
-      imageName: IMAGE.DISCARDED_PACK,
+      image: IMAGE.DISCARDED_PACK,
       cleansing: [],
       withoutCleansing: [
         {
@@ -112,7 +128,7 @@ export const CONFIG: IConfig = {
     {
       dungeon: DUNGEON.ANY,
       name: "Eldritch Altar",
-      imageName: IMAGE.ELDRITCH_ALTER,
+      image: IMAGE.ELDRITCH_ALTER,
       subtext: "Haunted; Unholy.",
       description:
         "An altar dedicated to unholy abominations. Perhaps a great power lies within.",
@@ -150,7 +166,7 @@ export const CONFIG: IConfig = {
     {
       dungeon: DUNGEON.ANY,
       name: "Heirloom Chest (First Variant)",
-      imageName: IMAGE.HEIRLOOM_CHEST,
+      image: IMAGE.HEIRLOOM_CHEST,
       subtext: "Treasure.",
       description: "A chest with your family's sigil.",
       location: "This curio can only appear inside rooms.",
@@ -195,7 +211,7 @@ export const CONFIG: IConfig = {
     {
       dungeon: DUNGEON.ANY,
       name: "Heirloom Chest (Second Variant)",
-      imageName: IMAGE.HEIRLOOM_CHEST,
+      image: IMAGE.HEIRLOOM_CHEST,
       subtext: "Treasure.",
       description: "A chest with your family's sigil.",
       location: "This curio can only appear inside rooms.",
@@ -242,7 +258,7 @@ export const CONFIG: IConfig = {
       subtext: "Scrounging",
       description: "No description.",
       location: "This curio can only appear along corridors.",
-      imageName: IMAGE.SACK,
+      image: IMAGE.SACK,
       cleansing: [],
       withoutCleansing: [
         {
@@ -265,7 +281,7 @@ export const CONFIG: IConfig = {
       subtext: "Scrounging",
       description: "No description.",
       location: "This curio can only appear along corridors.",
-      imageName: IMAGE.SCONCE,
+      image: IMAGE.SCONCE,
       cleansing: [],
       withoutCleansing: [
         {
@@ -286,6 +302,7 @@ const imageMap: Record<ImageType, string> = {
   [IMAGE.CRATE]: "/image/crate.png",
   [IMAGE.DISCARDED_PACK]: "/image/discarded-pack.png",
   [IMAGE.ELDRITCH_ALTER]: "/image/eldritch-alter.png",
+  [IMAGE.FOOD]: "/image/food.png",
   [IMAGE.GOLD]: "/image/gold.png",
   [IMAGE.HEIRLOOM]: "/image/portrait.png",
   [IMAGE.HEIRLOOM_CHEST]: "/image/heirloom-chest.png",
