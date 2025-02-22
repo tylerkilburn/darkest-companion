@@ -1,15 +1,20 @@
 export type ValueOf<T> = T[keyof T]
 
 const IMAGE = {
+  ANTIVENOM: "antivenom" as "antivenom",
+  BLEED: "bleed" as "bleed",
+  BLIGHT: "blight" as "blight",
   CRATE: "crate" as "crate",
   DISCARDED_PACK: "discarded-pack" as "discarded-pack",
   ELDRITCH_ALTER: "eldritch-alter" as "eldritch-alter",
   GOLD: "gold" as "gold",
   HEIRLOOM: "heirloom" as "heirloom",
+  HEIRLOOM_CHEST: "heirloom-chest" as "heirloom-chest",
   HOLY_WATER: "holy-water" as "holy-water",
   NOTHING: "nothing" as "nothing",
   REMOVE_NEGATIVE_QUIRK: "remove-negative-quirk" as "remove-negative-quirk",
   SCOUTING: "scouting" as "scouting",
+  SKELETON_KEY: "skeleton-key" as "skeleton-key",
   STRESS: "stress" as "stress",
 }
 
@@ -127,18 +132,67 @@ export const CONFIG: IConfig = {
         },
       ],
     },
+    {
+      name: "Heirloom Chest (First Variant)",
+      imageName: IMAGE.HEIRLOOM_CHEST,
+      subtext: "Treasure.",
+      description:
+        "A chest with your family's sigil.",
+      location: "This curio can only appear inside rooms.",
+      cleansing: [
+        {
+          item: "Skeleton Key",
+          itemImage: IMAGE.SKELETON_KEY,
+          outcome: "Heirloom x4.",
+          outcomeDescription: "The key unlocks a hidden compartment!",
+          outcomeImage: IMAGE.HEIRLOOM,
+        },
+        {
+          item: "Antivenom",
+          itemImage: IMAGE.ANTIVENOM,
+          outcome: "Heirloom x3.",
+          outcomeDescription: "The antivenom neutralizes a poison trap in a hidden compartment!",
+          outcomeImage: IMAGE.HEIRLOOM,
+        },
+      ],
+      withoutCleansing: [
+        {
+          outcome: "Heirloom x2.",
+          outcomeDescription: "The contents are yours!",
+          outcomeImage: IMAGE.HEIRLOOM,
+          probability: 0.75,
+        },
+        {
+          outcome: "Bleed",
+          outcomeDescription: "It's trapped!",
+          outcomeImage: IMAGE.BLEED,
+          probability: 0.125,
+        },
+        {
+          outcome: "Blight",
+          outcomeDescription: "It's trapped!",
+          outcomeImage: IMAGE.BLIGHT,
+          probability: 0.125,
+        },
+      ],
+    },
   ],
 }
 
 const imageMap: Record<ImageType, string> = {
+  [IMAGE.ANTIVENOM]: "/image/antivenom.png",
+  [IMAGE.BLEED]: "/image/bleed.png",
+  [IMAGE.BLIGHT]: "/image/blight.png",
   [IMAGE.CRATE]: "/image/crate.png",
   [IMAGE.DISCARDED_PACK]: "/image/discarded-pack.png",
   [IMAGE.ELDRITCH_ALTER]: "/image/eldritch-alter.png",
   [IMAGE.GOLD]: "/image/gold.png",
   [IMAGE.HEIRLOOM]: "/image/portrait.png",
+  [IMAGE.HEIRLOOM_CHEST]: "/image/heirloom-chest.png",
   [IMAGE.HOLY_WATER]: "/image/holy-water.png",
   [IMAGE.NOTHING]: "/image/nothing.png",
   [IMAGE.REMOVE_NEGATIVE_QUIRK]: "/image/remove-negative-quirk.png",
   [IMAGE.SCOUTING]: "/image/scouting.png",
+  [IMAGE.SKELETON_KEY]: "/image/skeleton-key.png",
   [IMAGE.STRESS]: "/image/stress.png",
 }
