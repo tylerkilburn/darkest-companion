@@ -229,7 +229,7 @@ const PROVISION: Record<ProvisionKeyType, IProvision> = {
 const DUNGEON_PROVISIONS: IDungeonProvision[] = [
   {
     dungeon: DUNGEON.RUINS,
-    length: DUNGEON_LENGTH.SHORT,
+    dungeonLength: DUNGEON_LENGTH.SHORT,
     provisions: [
       {
         provision: PROVISION.FOOD,
@@ -275,7 +275,7 @@ const DUNGEON_PROVISIONS: IDungeonProvision[] = [
   },
   {
     dungeon: DUNGEON.RUINS,
-    length: DUNGEON_LENGTH.MEDIUM,
+    dungeonLength: DUNGEON_LENGTH.MEDIUM,
     provisions: [
       {
         provision: PROVISION.FOOD,
@@ -321,7 +321,7 @@ const DUNGEON_PROVISIONS: IDungeonProvision[] = [
   },
   {
     dungeon: DUNGEON.RUINS,
-    length: DUNGEON_LENGTH.LONG,
+    dungeonLength: DUNGEON_LENGTH.LONG,
     provisions: [
       {
         provision: PROVISION.FOOD,
@@ -367,7 +367,7 @@ const DUNGEON_PROVISIONS: IDungeonProvision[] = [
   },
   {
     dungeon: DUNGEON.WARRENS,
-    length: DUNGEON_LENGTH.SHORT,
+    dungeonLength: DUNGEON_LENGTH.SHORT,
     provisions: [
       {
         provision: PROVISION.FOOD,
@@ -413,7 +413,7 @@ const DUNGEON_PROVISIONS: IDungeonProvision[] = [
   },
   {
     dungeon: DUNGEON.WARRENS,
-    length: DUNGEON_LENGTH.MEDIUM,
+    dungeonLength: DUNGEON_LENGTH.MEDIUM,
     provisions: [
       {
         provision: PROVISION.FOOD,
@@ -459,7 +459,7 @@ const DUNGEON_PROVISIONS: IDungeonProvision[] = [
   },
   {
     dungeon: DUNGEON.WARRENS,
-    length: DUNGEON_LENGTH.LONG,
+    dungeonLength: DUNGEON_LENGTH.LONG,
     provisions: [
       {
         provision: PROVISION.FOOD,
@@ -505,7 +505,7 @@ const DUNGEON_PROVISIONS: IDungeonProvision[] = [
   },
   {
     dungeon: DUNGEON.WEALD,
-    length: DUNGEON_LENGTH.SHORT,
+    dungeonLength: DUNGEON_LENGTH.SHORT,
     provisions: [
       {
         provision: PROVISION.FOOD,
@@ -551,7 +551,7 @@ const DUNGEON_PROVISIONS: IDungeonProvision[] = [
   },
   {
     dungeon: DUNGEON.WEALD,
-    length: DUNGEON_LENGTH.MEDIUM,
+    dungeonLength: DUNGEON_LENGTH.MEDIUM,
     provisions: [
       {
         provision: PROVISION.FOOD,
@@ -597,7 +597,7 @@ const DUNGEON_PROVISIONS: IDungeonProvision[] = [
   },
   {
     dungeon: DUNGEON.WEALD,
-    length: DUNGEON_LENGTH.LONG,
+    dungeonLength: DUNGEON_LENGTH.LONG,
     provisions: [
       {
         provision: PROVISION.FOOD,
@@ -643,7 +643,7 @@ const DUNGEON_PROVISIONS: IDungeonProvision[] = [
   },
   {
     dungeon: DUNGEON.COVE,
-    length: DUNGEON_LENGTH.SHORT,
+    dungeonLength: DUNGEON_LENGTH.SHORT,
     provisions: [
       {
         provision: PROVISION.FOOD,
@@ -689,7 +689,7 @@ const DUNGEON_PROVISIONS: IDungeonProvision[] = [
   },
   {
     dungeon: DUNGEON.COVE,
-    length: DUNGEON_LENGTH.MEDIUM,
+    dungeonLength: DUNGEON_LENGTH.MEDIUM,
     provisions: [
       {
         provision: PROVISION.FOOD,
@@ -735,7 +735,7 @@ const DUNGEON_PROVISIONS: IDungeonProvision[] = [
   },
   {
     dungeon: DUNGEON.COVE,
-    length: DUNGEON_LENGTH.LONG,
+    dungeonLength: DUNGEON_LENGTH.LONG,
     provisions: [
       {
         provision: PROVISION.FOOD,

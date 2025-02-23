@@ -23,7 +23,7 @@ export default function Home() {
     CONFIG.dungeonLength.SHORT
   )
 
-  const provisions = CONFIG.dungeonProvisions.find((p) => p.dungeon === dungeon)
+  const provisions = CONFIG.dungeonProvisions.find((p) => p.dungeon === dungeon && p.dungeonLength === dungeonLength)
 
   return (
     <>

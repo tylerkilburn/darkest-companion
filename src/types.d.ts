@@ -29,7 +29,7 @@ export interface ICurio {
 
 export interface IDungeonProvision {
   dungeon: DungeonType
-  length: DungeonLengthType
+  dungeonLength: DungeonLengthType
   provisions: {
     provision: IProvision
     min: number
