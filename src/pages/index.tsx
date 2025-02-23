@@ -1,18 +1,30 @@
-import Head from "next/head";
-import { Geist, Geist_Mono } from "next/font/google";
-import styles from "../styles/Home.module.css";
+import Head from "next/head"
+import { Geist, Geist_Mono } from "next/font/google"
+import styles from "../styles/Home.module.css"
+import { DungeonSelect } from "../components/dungeonSelect/dungeonSelect"
+import { useState } from "react"
+import { DungeonLengthType, DungeonType } from "../types"
+import { CONFIG } from "../config"
+import { DungeonLengthSelect } from "../components/dungeonLengthSelect/dungeonLengthSelect"
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
-});
+})
 
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
-});
+})
 
 export default function Home() {
+  const [dungeon, setDungeon] = useState<DungeonType>(CONFIG.dungeon.RUINS)
+  const [dungeonLength, setDungeonLength] = useState<DungeonLengthType>(
+    CONFIG.dungeonLength.SHORT
+  )
+
+  const provisions = CONFIG.dungeonProvisions.find((p) => p.dungeon === dungeon)
+
   return (
     <>
       <Head>
@@ -25,56 +37,31 @@ export default function Home() {
         className={`${styles.page} ${geistSans.variable} ${geistMono.variable}`}
       >
         <main className={styles.main}>
-          <ol>
-            <li>
-              Get started by editing <code>src/pages/index.tsx</code>.
-            </li>
-            <li>Save and see your changes instantly.</li>
-          </ol>
+          <DungeonSelect dungeon={dungeon} setDungeon={setDungeon} />
+          <DungeonLengthSelect
+            dungeonLength={dungeonLength}
+            setDungeonLength={setDungeonLength}
+          />
 
-          <div className={styles.ctas}>
-            <a
-              className={styles.primary}
-              href="https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Deploy now
-            </a>
-            <a
-              href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-              target="_blank"
-              rel="noopener noreferrer"
-              className={styles.secondary}
-            >
-              Read our docs
-            </a>
-          </div>
+          {provisions && (
+            <div>
+              <h2>
+                {dungeon} - {dungeonLength}
+              </h2>
+              <ul>
+                {provisions.provisions.map((p) => (
+                  <li key={p.provision.name}>
+                    <h3>{p.provision.name}</h3>
+                    <p>
+                      {p.min} - {p.max}
+                    </p>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
         </main>
-        <footer className={styles.footer}>
-          <a
-            href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn
-          </a>
-          <a
-            href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Examples
-          </a>
-          <a
-            href="https://nextjs.org?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Go to nextjs.org →
-          </a>
-        </footer>
       </div>
     </>
-  );
+  )
 }

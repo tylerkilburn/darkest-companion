@@ -1,34 +1,120 @@
-export type ValueOf<T> = T[keyof T]
+import {
+  DungeonKeyType,
+  DungeonLengthKeyType,
+  DungeonLengthType,
+  DungeonType,
+  ICurio,
+  IDungeonProvision,
+  IImage,
+  ImageKeyType,
+  IProvision,
+  ProvisionKeyType,
+} from "./types"
 
-const IMAGE = {
-  ANTIVENOM: "antivenom" as "antivenom",
-  BANDAGE: "bandage" as "bandage",
-  BLEED: "bleed" as "bleed",
-  BLIGHT: "blight" as "blight",
-  CRATE: "crate" as "crate",
-  DISCARDED_PACK: "discarded-pack" as "discarded-pack",
-  DOG_TREATS: "dog-treats" as "dog-treats",
-  ELDRITCH_ALTER: "eldritch-alter" as "eldritch-alter",
-  FIREWOOD: "firewood" as "firewood",
-  FOOD: "food" as "food",
-  GOLD: "gold" as "gold",
-  HEIRLOOM: "heirloom" as "heirloom",
-  HEIRLOOM_CHEST: "heirloom-chest" as "heirloom-chest",
-  HOLY_WATER: "holy-water" as "holy-water",
-  LAUDANUM: "laudanum" as "laudanum",
-  MEDICINAL_HERBS: "medicinal-herbs" as "medicinal-herbs",
-  NOTHING: "nothing" as "nothing",
-  REMOVE_NEGATIVE_QUIRK: "remove-negative-quirk" as "remove-negative-quirk",
-  SACK: "sack" as "sack",
-  SCONCE: "sconce" as "sconce",
-  SCOUTING: "scouting" as "scouting",
-  SHOVEL: "shovel" as "shovel",
-  SKELETON_KEY: "skeleton-key" as "skeleton-key",
-  STRESS: "stress" as "stress",
-  TORCH: "torch" as "torch",
+export const IMAGE: Record<ImageKeyType, IImage> = {
+  ANTIVENOM: {
+    name: "Antivenom",
+    path: "/image/antivenom.png",
+  },
+  BANDAGE: {
+    name: "Bandage",
+    path: "/image/bandage.png",
+  },
+  BLEED: {
+    name: "Bleed",
+    path: "/image/bleed.png",
+  },
+  BLIGHT: {
+    name: "Blight",
+    path: "/image/blight.png",
+  },
+  CRATE: {
+    name: "Crate",
+    path: "/image/crate.png",
+  },
+  DISCARDED_PACK: {
+    name: "Discarded Pack",
+    path: "/image/discarded-pack.png",
+  },
+  DOG_TREATS: {
+    name: "Dog Treats",
+    path: "/image/dog-treats.png",
+  },
+  ELDRITCH_ALTER: {
+    name: "Eldritch Alter",
+    path: "/image/eldritch-alter.png",
+  },
+  FIREWOOD: {
+    name: "Firewood",
+    path: "/image/firewood.png",
+  },
+  FOOD: {
+    name: "Food",
+    path: "/image/food.png",
+  },
+  GOLD: {
+    name: "Gold",
+    path: "/image/gold.png",
+  },
+  HEIRLOOM: {
+    name: "Heirloom",
+    path: "/image/portrait.png",
+  },
+  HEIRLOOM_CHEST: {
+    name: "Heirloom Chest",
+    path: "/image/heirloom-chest.png",
+  },
+  HOLY_WATER: {
+    name: "Holy Water",
+    path: "/image/holy-water.png",
+  },
+  LAUDANUM: {
+    name: "Laudanum",
+    path: "/image/laudanum.png",
+  },
+  MEDICINAL_HERBS: {
+    name: "Medicinal Herbs",
+    path: "/image/medicinal-herbs.png",
+  },
+  NOTHING: {
+    name: "Nothing",
+    path: "/image/nothing.png",
+  },
+  REMOVE_NEGATIVE_QUIRK: {
+    name: "Remove Negative Quirk",
+    path: "/image/remove-negative-quirk.png",
+  },
+  SACK: {
+    name: "Sack",
+    path: "/image/sack.png",
+  },
+  SCONCE: {
+    name: "Sconce",
+    path: "/image/sconce.png",
+  },
+  SCOUTING: {
+    name: "Scouting",
+    path: "/image/scouting.png",
+  },
+  SHOVEL: {
+    name: "Shovel",
+    path: "/image/shovel.png",
+  },
+  SKELETON_KEY: {
+    name: "Skeleton Key",
+    path: "/image/skeleton-key.png",
+  },
+  STRESS: {
+    name: "Stress",
+    path: "/image/stress.png",
+  },
+  TORCH: {
+    name: "Torch",
+    path: "/image/torch.png",
+  },
 }
 
-const DUNGEON = {
+export const DUNGEON: Record<DungeonKeyType, DungeonType> = {
   ANY: "any" as "any",
   COURTYARD: "Courtyard" as "Courtyard",
   COVE: "Cove" as "Cove",
@@ -39,65 +125,10 @@ const DUNGEON = {
   WEALD: "Weald" as "Weald",
 }
 
-type IDungeonType = ValueOf<typeof DUNGEON>
-type ImageType = ValueOf<typeof IMAGE>
-
-type LengthType = "short" | "medium" | "long"
-
-const LENGTH = {
-  SHORT: "short" as "short",
-  MEDIUM: "medium" as "medium",
-  LONG: "long" as "long",
-}
-
-interface ICurio {
-  dungeon: IDungeonType
-  name: string
-  subtext: string
-  description: string
-  location: string
-  image: ImageType
-  shouldIgnore?: true
-  cleansing: {
-    item: string
-    itemImage: ImageType
-    outcome: string
-    outcomeDescription: string
-    outcomeImage: ImageType
-  }[]
-  withoutCleansing: {
-    probability: number
-    outcome: string
-    outcomeDescription: string
-    outcomeImage: ImageType
-  }[]
-}
-
-interface IProvision {
-  name: string
-  price: number
-  description: string
-  effect: string
-  stack: number
-  image: ImageType
-}
-
-type ProvisionKeyType =
-  | "ANTIVENOM"
-  | "BANDAGE"
-  | "DOG_TREATS"
-  | "FIREWOOD"
-  | "FOOD"
-  | "LAUDANUM"
-  | "HOLY_WATER"
-  | "MEDICINAL_HERBS"
-  | "SHOVEL"
-  | "SKELETON_KEY"
-  | "TORCH"
-
-interface IConfig {
-  curios: ICurio[]
-  provision: Record<ProvisionKeyType, IProvision>
+const DUNGEON_LENGTH: Record<DungeonLengthKeyType, DungeonLengthType> = {
+  SHORT: "Short" as "Short",
+  MEDIUM: "Medium" as "Medium",
+  LONG: "Long" as "Long",
 }
 
 const PROVISION: Record<ProvisionKeyType, IProvision> = {
@@ -195,20 +226,10 @@ const PROVISION: Record<ProvisionKeyType, IProvision> = {
   },
 }
 
-interface IDungeonProvision {
-  dungeon: string
-  length: string
-  provisions: {
-    provision: IProvision
-    min: number
-    max: number
-  }[]
-}
-
 const DUNGEON_PROVISIONS: IDungeonProvision[] = [
   {
     dungeon: DUNGEON.RUINS,
-    length: LENGTH.SHORT,
+    length: DUNGEON_LENGTH.SHORT,
     provisions: [
       {
         provision: PROVISION.FOOD,
@@ -254,7 +275,7 @@ const DUNGEON_PROVISIONS: IDungeonProvision[] = [
   },
   {
     dungeon: DUNGEON.RUINS,
-    length: LENGTH.MEDIUM,
+    length: DUNGEON_LENGTH.MEDIUM,
     provisions: [
       {
         provision: PROVISION.FOOD,
@@ -300,7 +321,7 @@ const DUNGEON_PROVISIONS: IDungeonProvision[] = [
   },
   {
     dungeon: DUNGEON.RUINS,
-    length: LENGTH.LONG,
+    length: DUNGEON_LENGTH.LONG,
     provisions: [
       {
         provision: PROVISION.FOOD,
@@ -346,7 +367,7 @@ const DUNGEON_PROVISIONS: IDungeonProvision[] = [
   },
   {
     dungeon: DUNGEON.WARRENS,
-    length: LENGTH.SHORT,
+    length: DUNGEON_LENGTH.SHORT,
     provisions: [
       {
         provision: PROVISION.FOOD,
@@ -392,7 +413,7 @@ const DUNGEON_PROVISIONS: IDungeonProvision[] = [
   },
   {
     dungeon: DUNGEON.WARRENS,
-    length: LENGTH.MEDIUM,
+    length: DUNGEON_LENGTH.MEDIUM,
     provisions: [
       {
         provision: PROVISION.FOOD,
@@ -438,7 +459,7 @@ const DUNGEON_PROVISIONS: IDungeonProvision[] = [
   },
   {
     dungeon: DUNGEON.WARRENS,
-    length: LENGTH.LONG,
+    length: DUNGEON_LENGTH.LONG,
     provisions: [
       {
         provision: PROVISION.FOOD,
@@ -484,7 +505,7 @@ const DUNGEON_PROVISIONS: IDungeonProvision[] = [
   },
   {
     dungeon: DUNGEON.WEALD,
-    length: LENGTH.SHORT,
+    length: DUNGEON_LENGTH.SHORT,
     provisions: [
       {
         provision: PROVISION.FOOD,
@@ -530,7 +551,7 @@ const DUNGEON_PROVISIONS: IDungeonProvision[] = [
   },
   {
     dungeon: DUNGEON.WEALD,
-    length: LENGTH.MEDIUM,
+    length: DUNGEON_LENGTH.MEDIUM,
     provisions: [
       {
         provision: PROVISION.FOOD,
@@ -576,7 +597,7 @@ const DUNGEON_PROVISIONS: IDungeonProvision[] = [
   },
   {
     dungeon: DUNGEON.WEALD,
-    length: LENGTH.LONG,
+    length: DUNGEON_LENGTH.LONG,
     provisions: [
       {
         provision: PROVISION.FOOD,
@@ -622,7 +643,7 @@ const DUNGEON_PROVISIONS: IDungeonProvision[] = [
   },
   {
     dungeon: DUNGEON.COVE,
-    length: LENGTH.SHORT,
+    length: DUNGEON_LENGTH.SHORT,
     provisions: [
       {
         provision: PROVISION.FOOD,
@@ -668,7 +689,7 @@ const DUNGEON_PROVISIONS: IDungeonProvision[] = [
   },
   {
     dungeon: DUNGEON.COVE,
-    length: LENGTH.MEDIUM,
+    length: DUNGEON_LENGTH.MEDIUM,
     provisions: [
       {
         provision: PROVISION.FOOD,
@@ -714,7 +735,7 @@ const DUNGEON_PROVISIONS: IDungeonProvision[] = [
   },
   {
     dungeon: DUNGEON.COVE,
-    length: LENGTH.LONG,
+    length: DUNGEON_LENGTH.LONG,
     provisions: [
       {
         provision: PROVISION.FOOD,
@@ -759,6 +780,14 @@ const DUNGEON_PROVISIONS: IDungeonProvision[] = [
     ],
   },
 ]
+
+interface IConfig {
+  curios: ICurio[]
+  dungeon: Record<DungeonKeyType, DungeonType>
+  dungeonLength: Record<DungeonLengthKeyType, DungeonLengthType>,
+  dungeonProvisions: IDungeonProvision[]
+  provision: Record<ProvisionKeyType, IProvision>
+}
 
 export const CONFIG: IConfig = {
   curios: [
@@ -982,33 +1011,8 @@ export const CONFIG: IConfig = {
       ],
     },
   ],
-  PROVISION,
-}
-
-const imageMap: Record<ImageType, string> = {
-  [IMAGE.ANTIVENOM]: "/image/antivenom.png",
-  [IMAGE.BANDAGE]: "/image/bandage.png",
-  [IMAGE.BLEED]: "/image/bleed.png",
-  [IMAGE.BLIGHT]: "/image/blight.png",
-  [IMAGE.CRATE]: "/image/crate.png",
-  [IMAGE.DISCARDED_PACK]: "/image/discarded-pack.png",
-  [IMAGE.DOG_TREATS]: "/image/dog-treats.png",
-  [IMAGE.ELDRITCH_ALTER]: "/image/eldritch-alter.png",
-  [IMAGE.FIREWOOD]: "/image/firewood.png",
-  [IMAGE.FOOD]: "/image/food.png",
-  [IMAGE.GOLD]: "/image/gold.png",
-  [IMAGE.HEIRLOOM]: "/image/portrait.png",
-  [IMAGE.HEIRLOOM_CHEST]: "/image/heirloom-chest.png",
-  [IMAGE.HOLY_WATER]: "/image/holy-water.png",
-  [IMAGE.LAUDANUM]: "/image/laudanum.png",
-  [IMAGE.MEDICINAL_HERBS]: "/image/medicinal-herbs.png",
-  [IMAGE.NOTHING]: "/image/nothing.png",
-  [IMAGE.REMOVE_NEGATIVE_QUIRK]: "/image/remove-negative-quirk.png",
-  [IMAGE.SACK]: "/image/sack.png",
-  [IMAGE.SCONCE]: "/image/sconce.png",
-  [IMAGE.SCOUTING]: "/image/scouting.png",
-  [IMAGE.SHOVEL]: "/image/shovel.png",
-  [IMAGE.SKELETON_KEY]: "/image/skeleton-key.png",
-  [IMAGE.STRESS]: "/image/stress.png",
-  [IMAGE.TORCH]: "/image/torch.png",
+  dungeon: DUNGEON,
+  dungeonLength: DUNGEON_LENGTH,
+  dungeonProvisions: DUNGEON_PROVISIONS,
+  provision: PROVISION,
 }
