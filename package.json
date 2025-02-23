@@ -1,15 +1,15 @@
 {
-  "name": "darkest-companion",
-  "version": "0.1.0",
-  "private": true,
-  "scripts": {
-    "build": "next build",
-    "lint": "next lint",
-    "dev": "next dev --turbopack",
-    "start": "npm run dev",
-    "rebuild": "rm -rf node_modules pnpm-lock.yaml && pnpm install",
-    "deploy": "npm run build && gh-pages -d out"
-  },
+	"name": "darkest-companion",
+	"version": "0.1.0",
+	"private": true,
+	"scripts": {
+		"build": "next build",
+		"lint": "next lint",
+		"dev": "next dev --turbopack",
+		"start": "npm run dev",
+		"rebuild": "rm -rf node_modules pnpm-lock.yaml && pnpm install",
+		"deploy": "npm run build && gh-pages -d out"
+	},
 	"dependencies": {
 		"next": "^15.1.7",
 		"react": "^19.0.0",
@@ -19,6 +19,7 @@
 		"@types/node": "^22.13.4",
 		"@types/react": "^19.0.8",
 		"@types/react-dom": "^19.0.3",
+		"sass": "^1.85.0",
 		"typescript": "^5.7.3"
 	}
 }

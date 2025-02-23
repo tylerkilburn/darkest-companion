@@ -1,11 +1,12 @@
 import Head from "next/head"
 import { Geist, Geist_Mono } from "next/font/google"
-import styles from "../styles/Home.module.css"
 import { DungeonSelect } from "../components/dungeonSelect/dungeonSelect"
 import { useState } from "react"
 import { DungeonLengthType, DungeonType } from "../types"
 import { CONFIG } from "../config"
 import { DungeonLengthSelect } from "../components/dungeonLengthSelect/dungeonLengthSelect"
+import { ProvisionSuggestionGrid } from "../components/provisionSuggestionGrid/provisionSuggestionGrid"
+import styles from "@styles/landing.module.scss"
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -23,7 +24,9 @@ export default function Home() {
     CONFIG.dungeonLength.SHORT
   )
 
-  const provisions = CONFIG.dungeonProvisions.find((p) => p.dungeon === dungeon && p.dungeonLength === dungeonLength)
+  const provisions = CONFIG.dungeonProvisions.find(
+    (p) => p.dungeon === dungeon && p.dungeonLength === dungeonLength
+  )
 
   return (
     <>
@@ -34,31 +37,21 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div
-        className={`${styles.page} ${geistSans.variable} ${geistMono.variable}`}
+        className={`${styles.root} ${geistSans.variable} ${geistMono.variable}`}
       >
-        <main className={styles.main}>
+        <main>
           <DungeonSelect dungeon={dungeon} setDungeon={setDungeon} />
+          <hr />
           <DungeonLengthSelect
             dungeonLength={dungeonLength}
             setDungeonLength={setDungeonLength}
           />
+          <hr />
 
           {provisions && (
-            <div>
-              <h2>
-                {dungeon} - {dungeonLength}
-              </h2>
-              <ul>
-                {provisions.provisions.map((p) => (
-                  <li key={p.provision.name}>
-                    <h3>{p.provision.name}</h3>
-                    <p>
-                      {p.min} - {p.max}
-                    </p>
-                  </li>
-                ))}
-              </ul>
-            </div>
+            <ProvisionSuggestionGrid
+              provisionSuggestions={provisions.provisionSuggestions}
+            />
           )}
         </main>
       </div>

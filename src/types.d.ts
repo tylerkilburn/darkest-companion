@@ -27,14 +27,16 @@ export interface ICurio {
   }[]
 }
 
+export interface IProvisionSuggestion {
+  provision: IProvision
+  min: number
+  max: number
+}
+
 export interface IDungeonProvision {
   dungeon: DungeonType
   dungeonLength: DungeonLengthType
-  provisions: {
-    provision: IProvision
-    min: number
-    max: number
-  }[]
+  provisionSuggestions: IProvisionSuggestion[]
 }
 
 export interface IProvision {
@@ -43,7 +45,7 @@ export interface IProvision {
   description: string
   effect: string
   stack: number
-  image: ImageType
+  image: IImage
 }
 
 export type DungeonKeyType =
@@ -105,8 +107,3 @@ export type ImageKeyType =
   | "SKELETON_KEY"
   | "STRESS"
   | "TORCH"
-
-export interface IImage {
-  name: string
-  path: string
-}

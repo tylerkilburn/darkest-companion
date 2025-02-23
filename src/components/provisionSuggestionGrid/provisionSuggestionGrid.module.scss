@@ -1,0 +1,32 @@
+.root {
+  background-color: #333;
+  display: grid;
+  gap: 1px;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 1px;
+  width: 100%;
+}
+
+.cell {
+  background-color: #111;
+  font-size: 12px;
+  line-height: 12px;
+  position: relative;
+}
+
+.image {
+  display: block; 
+  height: auto;  
+  margin: 0 auto;
+  max-width: 100%; 
+}
+
+.provisionCount {
+  position: absolute;
+  top: 6px;
+  left: 8px;
+  color: yellow;
+}
