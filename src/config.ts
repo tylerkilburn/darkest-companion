@@ -248,7 +248,7 @@ const DUNGEON_PROVISIONS: IDungeonProvision[] = [
       {
         provision: PROVISION.TORCH,
         min: 8,
-        max: 10,
+        max: 8,
       },
     ],
   },
@@ -294,7 +294,7 @@ const DUNGEON_PROVISIONS: IDungeonProvision[] = [
       {
         provision: PROVISION.TORCH,
         min: 10,
-        max: 14,
+        max: 13,
       },
     ],
   },
@@ -340,6 +340,420 @@ const DUNGEON_PROVISIONS: IDungeonProvision[] = [
       {
         provision: PROVISION.TORCH,
         min: 14,
+        max: 16,
+      },
+    ],
+  },
+  {
+    dungeon: DUNGEON.WARRENS,
+    length: LENGTH.SHORT,
+    provisions: [
+      {
+        provision: PROVISION.FOOD,
+        min: 8,
+        max: 12,
+      },
+      {
+        provision: PROVISION.SHOVEL,
+        min: 1,
+        max: 2,
+      },
+      {
+        provision: PROVISION.ANTIVENOM,
+        min: 0,
+        max: 1,
+      },
+      {
+        provision: PROVISION.BANDAGE,
+        min: 1,
+        max: 3,
+      },
+      {
+        provision: PROVISION.MEDICINAL_HERBS,
+        min: 2,
+        max: 3,
+      },
+      {
+        provision: PROVISION.SKELETON_KEY,
+        min: 1,
+        max: 2,
+      },
+      {
+        provision: PROVISION.HOLY_WATER,
+        min: 2,
+        max: 3,
+      },
+      {
+        provision: PROVISION.TORCH,
+        min: 8,
+        max: 10,
+      },
+    ],
+  },
+  {
+    dungeon: DUNGEON.WARRENS,
+    length: LENGTH.MEDIUM,
+    provisions: [
+      {
+        provision: PROVISION.FOOD,
+        min: 12,
+        max: 18,
+      },
+      {
+        provision: PROVISION.SHOVEL,
+        min: 2,
+        max: 3,
+      },
+      {
+        provision: PROVISION.ANTIVENOM,
+        min: 0,
+        max: 2,
+      },
+      {
+        provision: PROVISION.BANDAGE,
+        min: 2,
+        max: 3,
+      },
+      {
+        provision: PROVISION.MEDICINAL_HERBS,
+        min: 3,
+        max: 4,
+      },
+      {
+        provision: PROVISION.SKELETON_KEY,
+        min: 2,
+        max: 3,
+      },
+      {
+        provision: PROVISION.HOLY_WATER,
+        min: 3,
+        max: 3,
+      },
+      {
+        provision: PROVISION.TORCH,
+        min: 10,
+        max: 16,
+      },
+    ],
+  },
+  {
+    dungeon: DUNGEON.WARRENS,
+    length: LENGTH.LONG,
+    provisions: [
+      {
+        provision: PROVISION.FOOD,
+        min: 16,
+        max: 20,
+      },
+      {
+        provision: PROVISION.SHOVEL,
+        min: 2,
+        max: 4,
+      },
+      {
+        provision: PROVISION.ANTIVENOM,
+        min: 0,
+        max: 3,
+      },
+      {
+        provision: PROVISION.BANDAGE,
+        min: 3,
+        max: 4,
+      },
+      {
+        provision: PROVISION.MEDICINAL_HERBS,
+        min: 3,
+        max: 5,
+      },
+      {
+        provision: PROVISION.SKELETON_KEY,
+        min: 2,
+        max: 4,
+      },
+      {
+        provision: PROVISION.HOLY_WATER,
+        min: 3,
+        max: 4,
+      },
+      {
+        provision: PROVISION.TORCH,
+        min: 16,
+        max: 20,
+      },
+    ],
+  },
+  {
+    dungeon: DUNGEON.WEALD,
+    length: LENGTH.SHORT,
+    provisions: [
+      {
+        provision: PROVISION.FOOD,
+        min: 8,
+        max: 12,
+      },
+      {
+        provision: PROVISION.SHOVEL,
+        min: 3,
+        max: 4,
+      },
+      {
+        provision: PROVISION.ANTIVENOM,
+        min: 2,
+        max: 3,
+      },
+      {
+        provision: PROVISION.BANDAGE,
+        min: 2,
+        max: 2,
+      },
+      {
+        provision: PROVISION.MEDICINAL_HERBS,
+        min: 1,
+        max: 1,
+      },
+      {
+        provision: PROVISION.SKELETON_KEY,
+        min: 1,
+        max: 2,
+      },
+      {
+        provision: PROVISION.HOLY_WATER,
+        min: 1,
+        max: 1,
+      },
+      {
+        provision: PROVISION.TORCH,
+        min: 8,
+        max: 8,
+      },
+    ],
+  },
+  {
+    dungeon: DUNGEON.WEALD,
+    length: LENGTH.MEDIUM,
+    provisions: [
+      {
+        provision: PROVISION.FOOD,
+        min: 16,
+        max: 20,
+      },
+      {
+        provision: PROVISION.SHOVEL,
+        min: 4,
+        max: 5,
+      },
+      {
+        provision: PROVISION.ANTIVENOM,
+        min: 3,
+        max: 4,
+      },
+      {
+        provision: PROVISION.BANDAGE,
+        min: 3,
+        max: 3,
+      },
+      {
+        provision: PROVISION.MEDICINAL_HERBS,
+        min: 2,
+        max: 2,
+      },
+      {
+        provision: PROVISION.SKELETON_KEY,
+        min: 2,
+        max: 3,
+      },
+      {
+        provision: PROVISION.HOLY_WATER,
+        min: 1,
+        max: 2,
+      },
+      {
+        provision: PROVISION.TORCH,
+        min: 12,
+        max: 12,
+      },
+    ],
+  },
+  {
+    dungeon: DUNGEON.WEALD,
+    length: LENGTH.LONG,
+    provisions: [
+      {
+        provision: PROVISION.FOOD,
+        min: 20,
+        max: 24,
+      },
+      {
+        provision: PROVISION.SHOVEL,
+        min: 4,
+        max: 6,
+      },
+      {
+        provision: PROVISION.ANTIVENOM,
+        min: 4,
+        max: 5,
+      },
+      {
+        provision: PROVISION.BANDAGE,
+        min: 4,
+        max: 4,
+      },
+      {
+        provision: PROVISION.MEDICINAL_HERBS,
+        min: 2,
+        max: 2,
+      },
+      {
+        provision: PROVISION.SKELETON_KEY,
+        min: 2,
+        max: 4,
+      },
+      {
+        provision: PROVISION.HOLY_WATER,
+        min: 2,
+        max: 2,
+      },
+      {
+        provision: PROVISION.TORCH,
+        min: 12,
+        max: 16,
+      },
+    ],
+  },
+  {
+    dungeon: DUNGEON.COVE,
+    length: LENGTH.SHORT,
+    provisions: [
+      {
+        provision: PROVISION.FOOD,
+        min: 8,
+        max: 12,
+      },
+      {
+        provision: PROVISION.SHOVEL,
+        min: 3,
+        max: 4,
+      },
+      {
+        provision: PROVISION.ANTIVENOM,
+        min: 0,
+        max: 1,
+      },
+      {
+        provision: PROVISION.BANDAGE,
+        min: 2,
+        max: 2,
+      },
+      {
+        provision: PROVISION.MEDICINAL_HERBS,
+        min: 2,
+        max: 2,
+      },
+      {
+        provision: PROVISION.SKELETON_KEY,
+        min: 1,
+        max: 2,
+      },
+      {
+        provision: PROVISION.HOLY_WATER,
+        min: 0,
+        max: 1,
+      },
+      {
+        provision: PROVISION.TORCH,
+        min: 8,
+        max: 8,
+      },
+    ],
+  },
+  {
+    dungeon: DUNGEON.COVE,
+    length: LENGTH.MEDIUM,
+    provisions: [
+      {
+        provision: PROVISION.FOOD,
+        min: 16,
+        max: 20,
+      },
+      {
+        provision: PROVISION.SHOVEL,
+        min: 4,
+        max: 5,
+      },
+      {
+        provision: PROVISION.ANTIVENOM,
+        min: 0,
+        max: 2,
+      },
+      {
+        provision: PROVISION.BANDAGE,
+        min: 3,
+        max: 4,
+      },
+      {
+        provision: PROVISION.MEDICINAL_HERBS,
+        min: 3,
+        max: 4,
+      },
+      {
+        provision: PROVISION.SKELETON_KEY,
+        min: 2,
+        max: 3,
+      },
+      {
+        provision: PROVISION.HOLY_WATER,
+        min: 0,
+        max: 2,
+      },
+      {
+        provision: PROVISION.TORCH,
+        min: 12,
+        max: 12,
+      },
+    ],
+  },
+  {
+    dungeon: DUNGEON.COVE,
+    length: LENGTH.LONG,
+    provisions: [
+      {
+        provision: PROVISION.FOOD,
+        min: 20,
+        max: 24,
+      },
+      {
+        provision: PROVISION.SHOVEL,
+        min: 4,
+        max: 6,
+      },
+      {
+        provision: PROVISION.ANTIVENOM,
+        min: 0,
+        max: 3,
+      },
+      {
+        provision: PROVISION.BANDAGE,
+        min: 4,
+        max: 6,
+      },
+      {
+        provision: PROVISION.MEDICINAL_HERBS,
+        min: 3,
+        max: 5,
+      },
+      {
+        provision: PROVISION.SKELETON_KEY,
+        min: 2,
+        max: 4,
+      },
+      {
+        provision: PROVISION.HOLY_WATER,
+        min: 0,
+        max: 2,
+      },
+      {
+        provision: PROVISION.TORCH,
+        min: 16,
         max: 16,
       },
     ],
