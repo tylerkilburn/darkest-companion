@@ -1,9 +1,11 @@
 import abandonHopeImage from "../public/image/abandon-hope.png"
 import alchemyTableImage from "../public/image/alchemy-table.png"
+import altarOfLightImage from "../public/image/altar-of-light.png"
 import antivenomImage from "../public/image/antivenom.png"
 import bandageImage from "../public/image/bandage.png"
 import bleedImage from "../public/image/bleed.png"
 import blightImage from "../public/image/blight.png"
+import bookshelfImage from "../public/image/bookshelf.png"
 import buffImage from "../public/image/buff.png"
 import crateImage from "../public/image/crate.png"
 import discardedPackImage from "../public/image/discarded-pack.png"
@@ -50,10 +52,12 @@ import {
 const IMAGE: Record<ImageKeyType, string> = {
   ABANDON_HOPE: abandonHopeImage.src,
   ALCHEMY_TABLE: alchemyTableImage.src,
+  ALTAR_OF_LIGHT: altarOfLightImage.src,
   ANTIVENOM: antivenomImage.src,
   BANDAGE: bandageImage.src,
   BLEED: bleedImage.src,
   BLIGHT: blightImage.src,
+  BOOKSHELF: bookshelfImage.src,
   BUFF: buffImage.src,
   CRATE: crateImage.src,
   DISCARDED_PACK: discardedPackImage.src,
@@ -1127,7 +1131,6 @@ const CURIOS: ICurio[] = [
       },
     ],
   },
-
   {
     dungeon: DUNGEON.RUINS,
     name: "Altar of Light",
@@ -1135,7 +1138,7 @@ const CURIOS: ICurio[] = [
     description:
       "A small holy altar seems out of place against the backdrop of corruption.",
     location: "This curio can only appear along corridors.",
-    image: IMAGE.ALCHEMY_TABLE,
+    image: IMAGE.ALTAR_OF_LIGHT,
     cleansing: [
       {
         item: "Holy Water",
@@ -1154,7 +1157,53 @@ const CURIOS: ICurio[] = [
       },
     ],
   },
-
+  {
+    dungeon: DUNGEON.RUINS,
+    name: "Bookshelf",
+    subtext: "Knowledge",
+    description: "A bookshelf full of old, leather-bound books.",
+    location: "This curio can only along corridors.",
+    image: IMAGE.BOOKSHELF,
+    cleansing: [],
+    withoutCleansing: [
+      {
+        outcome: "Scouting",
+        outcomeDescription: "A map is found tucked between the volumes.",
+        outcomeImage: IMAGE.SCOUTING,
+        probability: 0.2,
+      },
+      {
+        outcome: "Stress +15",
+        outcomeDescription: "The hero reads a most unsettling passage.",
+        outcomeImage: IMAGE.STRESS,
+        probability: 0.2,
+      },
+      {
+        outcome: "Positive Quirk",
+        outcomeDescription: "The knowledge forever changes the hero.",
+        outcomeImage: IMAGE.POSITIVE_QUIRK_ADD,
+        probability: 0.133,
+      },
+      {
+        outcome: "Negative Quirk",
+        outcomeDescription: "The knowledge forever changes the hero.",
+        outcomeImage: IMAGE.NEGATIVE_QUIRK_ADD,
+        probability: 0.067,
+      },
+      {
+        outcome: "Journal Entry",
+        outcomeDescription: "",
+        outcomeImage: IMAGE.JOURNAL_ENTRY,
+        probability: 0.2,
+      },
+      {
+        outcome: "Nothing",
+        outcomeDescription: "The volumes are dull and uninteresting.",
+        outcomeImage: IMAGE.NOTHING,
+        probability: 0.2,
+      },
+    ],
+  },
 ]
 
 interface IConfig {

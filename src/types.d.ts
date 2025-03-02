@@ -84,10 +84,12 @@ export type ProvisionKeyType =
 export type ImageKeyType =
   | "ABANDON_HOPE"
   | "ALCHEMY_TABLE"
+  | "ALTAR_OF_LIGHT"
   | "ANTIVENOM"
   | "BANDAGE"
   | "BLEED"
   | "BLIGHT"
+  | "BOOKSHELF"
   | "BUFF"
   | "CRATE"
   | "DISCARDED_PACK"
