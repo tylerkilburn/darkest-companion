@@ -30,6 +30,7 @@ import skeletonKeyImage from "../public/image/skeleton-key.png"
 import stackOfBooksImage from "../public/image/stack-of-books.png"
 import stressImage from "../public/image/stress.png"
 import torchImage from "../public/image/torch.png"
+import unlockedStrongboxImage from "../public/image/unlocked-strongbox.png"
 
 import {
   DungeonKeyType,
@@ -76,6 +77,7 @@ const IMAGE: Record<ImageKeyType, string> = {
   STRESS: stressImage.src,
   SUMMON: summonImage.src,
   TORCH: torchImage.src,
+  UNLOCKED_STRONGBOX: unlockedStrongboxImage.src,
 }
 
 const DUNGEON: Record<DungeonKeyType, DungeonType> = {
@@ -992,7 +994,7 @@ const CURIOS: ICurio[] = [
   {
     dungeon: DUNGEON.ANY,
     name: "Stack of Books",
-    subtext: "Knowledge.",
+    subtext: "Knowledge",
     description: "A stack of literary treasures in an unlikely location.",
     location: "This curio can only appear along corridors.",
     image: IMAGE.STACK_OF_BOOKS,
@@ -1039,6 +1041,29 @@ const CURIOS: ICurio[] = [
         outcomeDescription: "The volumes are desiccated and unremarkable.",
         outcomeImage: IMAGE.NOTHING,
         probability: 0.167,
+      },
+    ],
+  },
+  {
+    dungeon: DUNGEON.ANY,
+    name: "Unlocked Strongbox",
+    subtext: "Treasure",
+    description: "A long-forgotten strongbox sits on the cold stone floor, its contents unknown.",
+    location: "This curio can only appear inside rooms.",
+    image: IMAGE.UNLOCKED_STRONGBOX,
+    cleansing: [],
+    withoutCleansing: [
+      {
+        outcome: "Any Loot x2",
+        outcomeDescription: "The contents are yours!",
+        outcomeImage: IMAGE.GOLD,
+        probability: 0.75,
+      },
+      {
+        outcome: "Blight",
+        outcomeDescription: "It's trapped!",
+        outcomeImage: IMAGE.BLIGHT,
+        probability: 0.25,
       },
     ],
   },

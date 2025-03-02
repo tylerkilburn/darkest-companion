@@ -114,3 +114,4 @@ export type ImageKeyType =
   | "STRESS"
   | "SUMMON"
   | "TORCH"
+  | "UNLOCKED_STRONGBOX"
