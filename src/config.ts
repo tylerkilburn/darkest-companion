@@ -4,6 +4,7 @@ import antivenomImage from "../public/image/antivenom.png"
 import bandageImage from "../public/image/bandage.png"
 import bleedImage from "../public/image/bleed.png"
 import blightImage from "../public/image/blight.png"
+import buffImage from "../public/image/buff.png"
 import crateImage from "../public/image/crate.png"
 import discardedPackImage from "../public/image/discarded-pack.png"
 import dogTreatsImage from "../public/image/dog-treats.png"
@@ -53,6 +54,7 @@ const IMAGE: Record<ImageKeyType, string> = {
   BANDAGE: bandageImage.src,
   BLEED: bleedImage.src,
   BLIGHT: blightImage.src,
+  BUFF: buffImage.src,
   CRATE: crateImage.src,
   DISCARDED_PACK: discardedPackImage.src,
   DOG_TREATS: dogTreatsImage.src,
@@ -750,7 +752,6 @@ const DUNGEON_PROVISIONS: IDungeonProvision[] = [
     ],
   },
 ]
-
 const CURIOS: ICurio[] = [
   {
     dungeon: DUNGEON.ANY,
@@ -1110,7 +1111,7 @@ const CURIOS: ICurio[] = [
         outcome: "BLIGHT",
         outcomeDescription: "An accident occurs during the experiment.",
         outcomeImage: IMAGE.BLIGHT,
-        probability: 0.50,
+        probability: 0.5,
       },
       {
         outcome: "Gold/Gems x1",
@@ -1126,6 +1127,34 @@ const CURIOS: ICurio[] = [
       },
     ],
   },
+
+  {
+    dungeon: DUNGEON.RUINS,
+    name: "Altar of Light",
+    subtext: "Worship",
+    description:
+      "A small holy altar seems out of place against the backdrop of corruption.",
+    location: "This curio can only appear along corridors.",
+    image: IMAGE.ALCHEMY_TABLE,
+    cleansing: [
+      {
+        item: "Holy Water",
+        itemImage: IMAGE.HOLY_WATER,
+        outcome: "Buff DMG +30% Until Camp",
+        outcomeDescription: "You have curried favor from the gods!",
+        outcomeImage: IMAGE.BUFF,
+      },
+    ],
+    withoutCleansing: [
+      {
+        outcome: "Buff DMG +20% Until Camp",
+        outcomeDescription: "You have curried favor from the gods!",
+        outcomeImage: IMAGE.BUFF,
+        probability: 1,
+      },
+    ],
+  },
+
 ]
 
 interface IConfig {

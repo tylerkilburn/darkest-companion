@@ -88,6 +88,7 @@ export type ImageKeyType =
   | "BANDAGE"
   | "BLEED"
   | "BLIGHT"
+  | "BUFF"
   | "CRATE"
   | "DISCARDED_PACK"
   | "DOG_TREATS"
