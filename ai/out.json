@@ -1,0 +1,407 @@
+[
+  {
+    "dungeon": "ruins",
+    "name": "Decorative Urn",
+    "subtext": "Haunted; Scrounging.",
+    "description": "An urn holds ashes of the departed.",
+    "location": "corridors",
+    "image": {
+      "src": "Decorative_Urn.png",
+      "alt": "Decorative Urn"
+    },
+    "cleansing": [
+      {
+        "item": "Holy Water",
+        "itemImage": {
+          "src": "Holy_Water.png",
+          "alt": "Holy Water"
+        },
+        "outcome": "Gems/Trinket x2 + Gems x2",
+        "outcomeDescription": "The consecrated water dissolves the ashes. Valuables remain!",
+        "outcomeImage": {
+          "src": "Loot.curio_tracker.png",
+          "alt": "Loot"
+        }
+      },
+      {
+        "item": "Shovel",
+        "itemImage": {
+          "src": "Shovel.png",
+          "alt": "Shovel"
+        },
+        "outcome": "Negative Quirk: Guilty Conscience",
+        "outcomeDescription": "What sort of person defiles the dead?",
+        "outcomeImage": {
+          "src": "Quirk_neg.curio_tracker.png",
+          "alt": "Negative Quirk"
+        }
+      }
+    ],
+    "withoutCleansing": [
+      {
+        "probability": 44.4,
+        "outcome": "Gems/Trinket x1 + Gems x2",
+        "outcomeDescription": "Sentimental gifts are hidden inside.",
+        "outcomeImage": {
+          "src": "Loot.curio_tracker.png",
+          "alt": "Loot"
+        }
+      },
+      {
+        "probability": 22.2,
+        "outcome": "Blight",
+        "outcomeDescription": "The hero becomes infected by the ashes.",
+        "outcomeImage": {
+          "src": "Poptext_poison.png",
+          "alt": "Poison"
+        }
+      },
+      {
+        "probability": 7.4,
+        "outcome": "Disease: Creeping Cough",
+        "outcomeDescription": "The ashes make the hero cough violently.",
+        "outcomeImage": {
+          "src": "Poptext_disease.png",
+          "alt": "Disease"
+        }
+      },
+      {
+        "probability": 3.7,
+        "outcome": "Random Disease",
+        "outcomeDescription": "The hero contracts a deadly disease.",
+        "outcomeImage": {
+          "src": "Poptext_disease.png",
+          "alt": "Disease"
+        }
+      },
+      {
+        "probability": 22.2,
+        "outcome": "Nothing",
+        "outcomeDescription": "The urn's purpose is purely decorative.",
+        "outcomeImage": {
+          "src": "Nothing.curio_tracker.png",
+          "alt": "Nothing"
+        }
+      }
+    ]
+  },
+  {
+    "dungeon": "ruins",
+    "name": "Holy Fountain",
+    "subtext": "Fountain; Worship.",
+    "description": "An ornate fountain of holy purport.",
+    "location": "rooms",
+    "image": {
+      "src": "Holy_Fountain.png",
+      "alt": "Holy Fountain"
+    },
+    "cleansing": [
+      {
+        "item": "Holy Water",
+        "itemImage": {
+          "src": "Holy_Water.png",
+          "alt": "Holy Water"
+        },
+        "outcome": "Stress Heal 20, Cure Status Effects, Heal 12 HP",
+        "outcomeDescription": "Divine benefit!",
+        "outcomeImage": {
+          "src": "Heal_stress.curio_tracker.png",
+          "alt": "Heal stress"
+        }
+      }
+    ],
+    "withoutCleansing": [
+      {
+        "probability": 50,
+        "outcome": "Stress Heal 10, Cure Status Effects, Heal 5 HP",
+        "outcomeDescription": "",
+        "outcomeImage": {
+          "src": "Heal_stress.curio_tracker.png",
+          "alt": "Heal stress"
+        }
+      },
+      {
+        "probability": 50,
+        "outcome": "Gold/Gems x2",
+        "outcomeDescription": "Propitiations are found at the bottom of the fountain.",
+        "outcomeImage": {
+          "src": "Loot.curio_tracker.png",
+          "alt": "Loot"
+        }
+      }
+    ]
+  },
+  {
+    "dungeon": "ruins",
+    "name": "Iron Maiden",
+    "subtext": "Haunted; Torture.",
+    "description": "A rusty iron maiden stands against the wall, clasped shut.",
+    "location": "corridors",
+    "image": {
+      "src": "Iron_Maiden.png",
+      "alt": "Iron Maiden"
+    },
+    "cleansing": [
+      {
+        "item": "Medicinal Herbs",
+        "itemImage": {
+          "src": "Medicinal_Herbs.png",
+          "alt": "Medicinal Herbs"
+        },
+        "outcome": "Any Loot x2",
+        "outcomeDescription": "The herbs cleanse the maiden, allowing a thorough search.",
+        "outcomeImage": {
+          "src": "Loot.curio_tracker.png",
+          "alt": "Loot"
+        }
+      }
+    ],
+    "withoutCleansing": [
+      {
+        "probability": 40,
+        "outcome": "Any Loot x2",
+        "outcomeDescription": "A few treasures are hidden in the iron maiden.",
+        "outcomeImage": {
+          "src": "Loot.curio_tracker.png",
+          "alt": "Loot"
+        }
+      },
+      {
+        "probability": 20,
+        "outcome": "Negative Quirk: Claustrophobia",
+        "outcomeDescription": "",
+        "outcomeImage": {
+          "src": "Quirk_neg.curio_tracker.png",
+          "alt": "Negative Quirk"
+        }
+      },
+      {
+        "probability": 13.3,
+        "outcome": "Disease: Tetanus",
+        "outcomeDescription": "The hero inhales foul vapours.",
+        "outcomeImage": {
+          "src": "Poptext_disease.png",
+          "alt": "Disease"
+        }
+      },
+      {
+        "probability": 6.7,
+        "outcome": "Random Disease",
+        "outcomeDescription": "",
+        "outcomeImage": {
+          "src": "Poptext_disease.png",
+          "alt": "Disease"
+        }
+      },
+      {
+        "probability": 20,
+        "outcome": "Nothing",
+        "outcomeDescription": "",
+        "outcomeImage": {
+          "src": "Nothing.curio_tracker.png",
+          "alt": "Nothing"
+        }
+      }
+    ]
+  },
+  {
+    "dungeon": "ruins",
+    "name": "Locked Display Cabinet",
+    "subtext": "Treasure; Scrounging.",
+    "description": "There could be valuables left inside, but this cabinet is locked.",
+    "location": "corridors",
+    "image": {
+      "src": "Locked_Display_Cabinet.png",
+      "alt": "Locked Display Cabinet"
+    },
+    "cleansing": [
+      {
+        "item": "Skeleton Key",
+        "itemImage": {
+          "src": "Skeleton_Key.png",
+          "alt": "Skeleton Key"
+        },
+        "outcome": "Gold/Heirlooms x3 + Gold/Gems x2",
+        "outcomeDescription": "Treasures are stashed in the cabinet!",
+        "outcomeImage": {
+          "src": "Loot.curio_tracker.png",
+          "alt": "Loot"
+        }
+      },
+      {
+        "item": "Shovel",
+        "itemImage": {
+          "src": "Shovel.png",
+          "alt": "Shovel"
+        },
+        "outcome": "Gold/Heirlooms x2 + Gold/Gems x2",
+        "outcomeDescription": "Smashed the cabinet open...",
+        "outcomeImage": {
+          "src": "Currency.portrait.icon.png",
+          "alt": "Currency"
+        }
+      }
+    ],
+    "withoutCleansing": [
+      {
+        "probability": 50,
+        "outcome": "Bleed",
+        "outcomeDescription": "It's trapped!",
+        "outcomeImage": {
+          "src": "Poptext_bleed.png",
+          "alt": "Bleed"
+        }
+      },
+      {
+        "probability": 50,
+        "outcome": "Blight",
+        "outcomeDescription": "It's trapped!",
+        "outcomeImage": {
+          "src": "Poptext_poison.png",
+          "alt": "Poison"
+        }
+      }
+    ]
+  },
+  {
+    "dungeon": "ruins",
+    "name": "Locked Sarcophagus",
+    "subtext": "Haunted; Reflective.",
+    "description": "An ornate sarcophagus. It's locked.",
+    "location": "rooms",
+    "image": {
+      "src": "Locked_Sarcophagus.png",
+      "alt": "Locked Sarcophagus"
+    },
+    "cleansing": [
+      {
+        "item": "Skeleton Key",
+        "itemImage": {
+          "src": "Skeleton_Key.png",
+          "alt": "Skeleton Key"
+        },
+        "outcome": "Gold/Heirlooms x2 + Gold/Trinket x1",
+        "outcomeDescription": "The Skeleton Key opens the sarcophagus to reveal its contents.",
+        "outcomeImage": {
+          "src": "Loot.curio_tracker.png",
+          "alt": "Loot"
+        }
+      },
+      {
+        "item": "Shovel",
+        "itemImage": {
+          "src": "Shovel.png",
+          "alt": "Shovel"
+        },
+        "outcome": "Gold/Heirlooms x1 + Gold/Trinket x1",
+        "outcomeDescription": "Broke into the sarcophagus...",
+        "outcomeImage": {
+          "src": "Currency.portrait.icon.png",
+          "alt": "Currency"
+        }
+      }
+    ],
+    "withoutCleansing": [
+      {
+        "probability": 50,
+        "outcome": "Bleed",
+        "outcomeDescription": "It's trapped!",
+        "outcomeImage": {
+          "src": "Poptext_bleed.png",
+          "alt": "Bleed"
+        }
+      },
+      {
+        "probability": 50,
+        "outcome": "Blight",
+        "outcomeDescription": "It's trapped!",
+        "outcomeImage": {
+          "src": "Poptext_poison.png",
+          "alt": "Poison"
+        }
+      }
+    ]
+  },
+  {
+    "dungeon": "ruins",
+    "name": "Sarcophagus",
+    "subtext": "Haunted; Reflective; Body.",
+    "description": "An ornate sarcophagus. It is slightly ajar.",
+    "location": "rooms",
+    "image": {
+      "src": "Sarcophagus.png",
+      "alt": "Sarcophagus"
+    },
+    "cleansing": [],
+    "withoutCleansing": [
+      {
+        "probability": 60,
+        "outcome": "Gold/Heirlooms x2",
+        "outcomeDescription": "Hidden treasures!",
+        "outcomeImage": {
+          "src": "Currency.portrait.icon.png",
+          "alt": "Currency"
+        }
+      },
+      {
+        "probability": 20,
+        "outcome": "Negative Quirk: Thanatophobia",
+        "outcomeDescription": "The hero contemplates mortality...",
+        "outcomeImage": {
+          "src": "Quirk_neg.curio_tracker.png",
+          "alt": "Negative Quirk"
+        }
+      },
+      {
+        "probability": 20,
+        "outcome": "Nothing",
+        "outcomeDescription": "",
+        "outcomeImage": {
+          "src": "Nothing.curio_tracker.png",
+          "alt": "Nothing"
+        }
+      }
+    ]
+  },
+  {
+    "dungeon": "ruins",
+    "name": "Suit of Armor",
+    "subtext": "Haunted; Reflective.",
+    "description": "An antique suit of armor stands amidst the ruins.",
+    "location": "rooms",
+    "image": {
+      "src": "Suit_of_Armor.png",
+      "alt": "Suit of Armor"
+    },
+    "cleansing": [],
+    "withoutCleansing": [
+      {
+        "probability": 75,
+        "outcome": "Buff PROT +15% /DODGE +10 Until Camp",
+        "outcomeDescription": "The armor protects the hero with a knightly aura.",
+        "outcomeImage": {
+          "src": "Buff.curio_tracker.png",
+          "alt": "Buff"
+        }
+      },
+      {
+        "probability": 12.5,
+        "outcome": "Positive Quirk: Ruins Adventurer",
+        "outcomeDescription": "",
+        "outcomeImage": {
+          "src": "Quirk_pos.curio_tracker.png",
+          "alt": "Positive Quirk"
+        }
+      },
+      {
+        "probability": 12.5,
+        "outcome": "Positive Quirk: Ruins Tactician",
+        "outcomeDescription": "",
+        "outcomeImage": {
+          "src": "Quirk_pos.curio_tracker.png",
+          "alt": "Positive Quirk"
+        }
+      }
+    ]
+  }
+]
