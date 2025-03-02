@@ -9,7 +9,9 @@ import bookshelfImage from "../public/image/bookshelf.png"
 import buffImage from "../public/image/buff.png"
 import confessionBoothImage from "../public/image/confession-booth.png"
 import crateImage from "../public/image/crate.png"
+import decorativeUrnImage from "../public/image/decorative-urn.png"
 import discardedPackImage from "../public/image/discarded-pack.png"
+import diseaseImages from "../public/image/disease.png"
 import dogTreatsImage from "../public/image/dog-treats.png"
 import eldritchAlterImage from "../public/image/eldritch-alter.png"
 import firewoodImage from "../public/image/firewood.png"
@@ -46,9 +48,10 @@ import {
   DungeonLengthType,
   DungeonType,
   ICurio,
-  IDungeonProvision, ImageKeyType,
+  IDungeonProvision,
+  ImageKeyType,
   IProvision,
-  ProvisionKeyType
+  ProvisionKeyType,
 } from "./types"
 
 const IMAGE: Record<ImageKeyType, string> = {
@@ -63,7 +66,9 @@ const IMAGE: Record<ImageKeyType, string> = {
   BUFF: buffImage.src,
   CONFESSION_BOOTH: confessionBoothImage.src,
   CRATE: crateImage.src,
+  DECORATIVE_URN: decorativeUrnImage.src,
   DISCARDED_PACK: discardedPackImage.src,
+  DISEASE: diseaseImages.src,
   DOG_TREATS: dogTreatsImage.src,
   ELDRITCH_ALTER: eldritchAlterImage.src,
   FIREWOOD: firewoodImage.src,
@@ -110,7 +115,6 @@ const DUNGEON_LENGTH: Record<DungeonLengthKeyType, DungeonLengthType> = {
   MEDIUM: "Medium" as "Medium",
   LONG: "Long" as "Long",
 }
-
 
 const CURIO_LOCATION: Record<CurioLocationKeyType, string> = {
   CORRIDOR: "This curio can only appear along corridors.",
@@ -1235,19 +1239,77 @@ const CURIOS: ICurio[] = [
         outcome: "Stress +15",
         outcomeDescription: "The hero's history of sins is too much to bear.",
         outcomeImage: IMAGE.STRESS,
-        probability: 50,
+        probability: 0.5,
       },
       {
         outcome: "Gold/Trinket x6 + Journal Entry",
         outcomeDescription: "The booth contains hidden treasure...",
         outcomeImage: IMAGE.GOLD,
-        probability: 25,
+        probability: 0.25,
       },
       {
         outcome: "Purge Negative Quirk",
         outcomeDescription: "The hero is absolved of a sin.",
         outcomeImage: IMAGE.NEGATIVE_QUIRK_REMOVAL,
-        probability: 25,
+        probability: 0.25,
+      },
+    ],
+  },
+
+  {
+    dungeon: DUNGEON.RUINS,
+    name: "Decorative Urn",
+    subtext: "Haunted; Scrounging.",
+    description: "An urn holds ashes of the departed.",
+    location: CURIO_LOCATION.CORRIDOR,
+    image: IMAGE.DECORATIVE_URN,
+    cleansing: [
+      {
+        item: "Holy Water",
+        itemImage: IMAGE.HOLY_WATER,
+        outcome: "Gems/Trinket x2 + Gems x2",
+        outcomeDescription:
+          "The consecrated water dissolves the ashes. Valuables remain!",
+        outcomeImage: IMAGE.GOLD,
+      },
+      {
+        item: "Shovel",
+        itemImage: IMAGE.SHOVEL,
+        outcome: "Negative Quirk: Guilty Conscience",
+        outcomeDescription: "What sort of person defiles the dead?",
+        outcomeImage: IMAGE.NEGATIVE_QUIRK_ADD,
+      },
+    ],
+    withoutCleansing: [
+      {
+        outcome: "Gems/Trinket x1 + Gems x2",
+        outcomeDescription: "Sentimental gifts are hidden inside.",
+        outcomeImage: IMAGE.GOLD,
+        probability: 0.444,
+      },
+      {
+        outcome: "Blight",
+        outcomeDescription: "The hero becomes infected by the ashes.",
+        outcomeImage: IMAGE.BLIGHT,
+        probability: 0.222,
+      },
+      {
+        outcome: "Disease: Creeping Cough",
+        outcomeDescription: "The ashes make the hero cough violently.",
+        outcomeImage: IMAGE.DISEASE,
+        probability: 0.74,
+      },
+      {
+        outcome: "Random Disease",
+        outcomeDescription: "The hero contracts a deadly disease.",
+        outcomeImage: IMAGE.DISEASE,
+        probability: 0.37,
+      },
+      {
+        outcome: "Nothing",
+        outcomeDescription: "The urn's purpose is purely decorative.",
+        outcomeImage: IMAGE.NOTHING,
+        probability: 0.222,
       },
     ],
   },
