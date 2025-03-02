@@ -1,3 +1,4 @@
+import abandonHopeImage from "../public/image/abandon-hope.png"
 import antivenomImage from "../public/image/antivenom.png"
 import bandageImage from "../public/image/bandage.png"
 import bleedImage from "../public/image/bleed.png"
@@ -9,18 +10,24 @@ import eldritchAlterImage from "../public/image/eldritch-alter.png"
 import firewoodImage from "../public/image/firewood.png"
 import foodImage from "../public/image/food.png"
 import goldImage from "../public/image/gold.png"
+import journalEntry from "../public/image/journal-entry.png"
 import portraitImage from "../public/image/portrait.png"
 import heirloomChestImage from "../public/image/heirloom-chest.png"
 import holyWaterImage from "../public/image/holy-water.png"
 import laudanumImage from "../public/image/laudanum.png"
 import medicinalHerbsImage from "../public/image/medicinal-herbs.png"
 import nothingImage from "../public/image/nothing.png"
+import negativeQuirkAddImage from "../public/image/negative-quirk-add.png"
 import negativeQuirkRemovalImage from "../public/image/negative-quirk-removal.png"
+import positiveQuirkAddImage from "../public/image/positive-quirk-add.png"
 import sackImage from "../public/image/sack.png"
+import shamblersAltarImage from "../public/image/shamblers-altar.png"
+import summonImage from "../public/image/summon.png"
 import sconceImage from "../public/image/sconce.png"
 import scoutingImage from "../public/image/scouting.png"
 import shovelImage from "../public/image/shovel.png"
 import skeletonKeyImage from "../public/image/skeleton-key.png"
+import stackOfBooksImage from "../public/image/stack-of-books.png"
 import stressImage from "../public/image/stress.png"
 import torchImage from "../public/image/torch.png"
 
@@ -37,6 +44,7 @@ import {
 } from "./types"
 
 const IMAGE: Record<ImageKeyType, string> = {
+  ABANDON_HOPE: abandonHopeImage.src,
   ANTIVENOM: antivenomImage.src,
   BANDAGE: bandageImage.src,
   BLEED: bleedImage.src,
@@ -51,16 +59,22 @@ const IMAGE: Record<ImageKeyType, string> = {
   HEIRLOOM: portraitImage.src,
   HEIRLOOM_CHEST: heirloomChestImage.src,
   HOLY_WATER: holyWaterImage.src,
+  JOURNAL_ENTRY: journalEntry.src,
   LAUDANUM: laudanumImage.src,
   MEDICINAL_HERBS: medicinalHerbsImage.src,
+  NEGATIVE_QUIRK_ADD: negativeQuirkAddImage.src,
+  NEGATIVE_QUIRK_REMOVAL: negativeQuirkRemovalImage.src,
   NOTHING: nothingImage.src,
-  REMOVE_NEGATIVE_QUIRK: negativeQuirkRemovalImage.src,
+  POSITIVE_QUIRK_ADD: positiveQuirkAddImage.src,
   SACK: sackImage.src,
   SCONCE: sconceImage.src,
   SCOUTING: scoutingImage.src,
+  SHAMBLERS_ALTAR: shamblersAltarImage.src,
   SHOVEL: shovelImage.src,
   SKELETON_KEY: skeletonKeyImage.src,
+  STACK_OF_BOOKS: stackOfBooksImage.src,
   STRESS: stressImage.src,
+  SUMMON: summonImage.src,
   TORCH: torchImage.src,
 }
 
@@ -731,6 +745,305 @@ const DUNGEON_PROVISIONS: IDungeonProvision[] = [
   },
 ]
 
+const CURIOS: ICurio[] = [
+  {
+    dungeon: DUNGEON.ANY,
+    name: "Crate",
+    subtext: "Treasure",
+    description: "No description.",
+    location: "This curio can only appear along corridors.",
+    image: IMAGE.CRATE,
+    cleansing: [],
+    withoutCleansing: [
+      {
+        outcome: "Heirloom",
+        outcomeDescription: "The crate contains stashed heirlooms!",
+        outcomeImage: IMAGE.HEIRLOOM,
+        probability: 0.75,
+      },
+      {
+        outcome: "Nothing",
+        outcomeDescription: "The crate is empty.",
+        outcomeImage: IMAGE.NOTHING,
+        probability: 0.25,
+      },
+    ],
+  },
+  {
+    dungeon: DUNGEON.ANY,
+    name: "Discarded Pack",
+    subtext: "Scrounging; Treasure.",
+    description: "No description.",
+    location: "This curio can only appear along corridors.",
+    image: IMAGE.DISCARDED_PACK,
+    cleansing: [],
+    withoutCleansing: [
+      {
+        outcome: "Supplies x1 + Gold/Gems x2 + Journal Entry.",
+        outcomeDescription: "The pack contains loot!",
+        outcomeImage: IMAGE.GOLD,
+        probability: 0.6,
+      },
+      {
+        outcome: "Scouting",
+        outcomeDescription: "The pack has a map inside it!",
+        outcomeImage: IMAGE.SCOUTING,
+        probability: 0.2,
+      },
+      {
+        outcome: "Nothing",
+        outcomeDescription: "The pack has already been looted.",
+        outcomeImage: IMAGE.NOTHING,
+        probability: 0.2,
+      },
+    ],
+  },
+  {
+    dungeon: DUNGEON.ANY,
+    name: "Eldritch Altar",
+    image: IMAGE.ELDRITCH_ALTER,
+    subtext: "Haunted; Unholy.",
+    description:
+      "An altar dedicated to unholy abominations. Perhaps a great power lies within.",
+    location: "This curio can only appear inside rooms.",
+    cleansing: [
+      {
+        item: "Holy Water",
+        itemImage: IMAGE.HOLY_WATER,
+        outcome: "Purge Negative Quirk",
+        outcomeDescription: "The holy water purifies the altar!",
+        outcomeImage: IMAGE.NEGATIVE_QUIRK_REMOVAL,
+      },
+    ],
+    withoutCleansing: [
+      {
+        outcome: "Stress +25.",
+        outcomeDescription: "A terrifying presence is felt nearby!",
+        outcomeImage: IMAGE.STRESS,
+        probability: 0.4,
+      },
+      {
+        outcome: "Purge Negative Quirk.",
+        outcomeDescription: "The hero is absolved of a sin.",
+        outcomeImage: IMAGE.NEGATIVE_QUIRK_REMOVAL,
+        probability: 0.1,
+      },
+      {
+        outcome: "Nothing",
+        outcomeDescription: "The altar's purpose is purely decorative.",
+        outcomeImage: IMAGE.NOTHING,
+        probability: 0.5,
+      },
+    ],
+  },
+  {
+    dungeon: DUNGEON.ANY,
+    name: "Heirloom Chest (First Variant)",
+    image: IMAGE.HEIRLOOM_CHEST,
+    subtext: "Treasure.",
+    description: "A chest with your family's sigil.",
+    location: "This curio can only appear inside rooms.",
+    cleansing: [
+      {
+        item: "Skeleton Key",
+        itemImage: IMAGE.SKELETON_KEY,
+        outcome: "Heirloom x4.",
+        outcomeDescription: "The key unlocks a hidden compartment!",
+        outcomeImage: IMAGE.HEIRLOOM,
+      },
+      {
+        item: "Antivenom",
+        itemImage: IMAGE.ANTIVENOM,
+        outcome: "Heirloom x3.",
+        outcomeDescription:
+          "The antivenom neutralizes a poison trap in a hidden compartment!",
+        outcomeImage: IMAGE.HEIRLOOM,
+      },
+    ],
+    withoutCleansing: [
+      {
+        outcome: "Heirloom x2.",
+        outcomeDescription: "The contents are yours!",
+        outcomeImage: IMAGE.HEIRLOOM,
+        probability: 0.75,
+      },
+      {
+        outcome: "Bleed",
+        outcomeDescription: "It's trapped!",
+        outcomeImage: IMAGE.BLEED,
+        probability: 0.125,
+      },
+      {
+        outcome: "Blight",
+        outcomeDescription: "It's trapped!",
+        outcomeImage: IMAGE.BLIGHT,
+        probability: 0.125,
+      },
+    ],
+  },
+  {
+    dungeon: DUNGEON.ANY,
+    name: "Heirloom Chest (Second Variant)",
+    image: IMAGE.HEIRLOOM_CHEST,
+    subtext: "Treasure.",
+    description: "A chest with your family's sigil.",
+    location: "This curio can only appear inside rooms.",
+    cleansing: [
+      {
+        item: "Skeleton Key",
+        itemImage: IMAGE.SKELETON_KEY,
+        outcome: "Any Loot x3.",
+        outcomeDescription: "The key unlocks a hidden compartment!",
+        outcomeImage: IMAGE.GOLD,
+      },
+      {
+        item: "Shovel",
+        itemImage: IMAGE.SHOVEL,
+        outcome: "Any Loot x2. (66%) / Nothing (33%)",
+        outcomeDescription: "The contents are yours!",
+        outcomeImage: IMAGE.GOLD,
+      },
+    ],
+    withoutCleansing: [
+      {
+        outcome: "Any Loot x2.",
+        outcomeDescription: "The contents are yours!",
+        outcomeImage: IMAGE.GOLD,
+        probability: 0.5,
+      },
+      {
+        outcome: "Bleed",
+        outcomeDescription: "It's trapped!",
+        outcomeImage: IMAGE.BLEED,
+        probability: 0.25,
+      },
+      {
+        outcome: "Blight",
+        outcomeDescription: "It's trapped!",
+        outcomeImage: IMAGE.BLIGHT,
+        probability: 0.25,
+      },
+    ],
+  },
+  {
+    dungeon: DUNGEON.ANY,
+    name: "Sack",
+    subtext: "Scrounging",
+    description: "No description.",
+    location: "This curio can only appear along corridors.",
+    image: IMAGE.SACK,
+    cleansing: [],
+    withoutCleansing: [
+      {
+        outcome: "Gold",
+        outcomeDescription: "The sack's contents are yours...",
+        outcomeImage: IMAGE.GOLD,
+        probability: 0.75,
+      },
+      {
+        outcome: "Nothing",
+        outcomeDescription: "The sack is empty.",
+        outcomeImage: IMAGE.NOTHING,
+        probability: 0.25,
+      },
+    ],
+  },
+  {
+    dungeon: DUNGEON.ANY,
+    name: "Sconce",
+    subtext: "Scrounging",
+    description: "No description.",
+    location: "This curio can only appear along corridors.",
+    image: IMAGE.SCONCE,
+    cleansing: [],
+    withoutCleansing: [
+      {
+        outcome: "Torch x1",
+        outcomeDescription: "You salvage the unburned torch.",
+        outcomeImage: IMAGE.TORCH,
+        probability: 1,
+      },
+    ],
+  },
+  {
+    dungeon: DUNGEON.ANY,
+    name: "Shambler's Altar",
+    subtext: "None.",
+    description: "It says: \"The sacrifice of fire is the gate to ruin! Place a torch if you crave the void!\"",
+    location: "This curio can only appear along corridors.",
+    image: IMAGE.SHAMBLERS_ALTAR,
+    cleansing: [{
+      item: "Torch",
+      itemImage: IMAGE.TORCH,
+      outcome: "Summon Shambler",
+      outcomeDescription: "A terrifying figure emerges from the darkness!",
+      outcomeImage: IMAGE.SUMMON,
+    }],
+    withoutCleansing: [
+      {
+        outcome: "Nothing",
+        outcomeDescription: "Touching the altar has no effect.",
+        outcomeImage: IMAGE.NOTHING,
+        probability: 1,
+      },
+    ],
+  },
+
+  {
+    dungeon: DUNGEON.ANY,
+    name: "Stack of Books",
+    subtext: "Knowledge.",
+    description: "A stack of literary treasures in an unlikely location.",
+    location: "This curio can only appear along corridors.",
+    image: IMAGE.STACK_OF_BOOKS,
+    cleansing: [{
+      item: "Torch",
+      itemImage: IMAGE.TORCH,
+      outcome: "Stress +100",
+      outcomeDescription: "The hero destroyed knowledge, and now must bear the guilt of it!",
+      outcomeImage: IMAGE.STRESS,
+    }],
+    withoutCleansing: [
+      {
+        outcome: "Stress +25",
+        outcomeDescription: "The hero reads a most unsettling passage.",
+        outcomeImage: IMAGE.STRESS,
+        probability: 0.222,
+      },
+      {
+        outcome: "Random Positive Quirk (66.67%)",
+        outcomeDescription: "Reading a few pages has a lasting effect on the hero...",
+        outcomeImage: IMAGE.POSITIVE_QUIRK_ADD,
+        probability: 0.222,
+      },
+      {
+        outcome: "Random Negative Quirk (33.33%)",
+        outcomeDescription: "Reading a few pages has a lasting effect on the hero...",
+        outcomeImage: IMAGE.NEGATIVE_QUIRK_ADD,
+        probability: 0.111,
+      },
+      {
+        outcome: "Decrease Light Meter by 25",
+        outcomeDescription: "The hero reads a most unsettling passage.",
+        outcomeImage: IMAGE.ABANDON_HOPE,
+        probability: 0.111,
+      },
+      {
+        outcome: "Journal Entry",
+        outcomeDescription: "",
+        outcomeImage: IMAGE.JOURNAL_ENTRY,
+        probability: 0.167,
+      },
+      {
+        outcome: "Nothing",
+        outcomeDescription: "The volumes are desiccated and unremarkable.",
+        outcomeImage: IMAGE.NOTHING,
+        probability: 0.167,
+      },
+    ],
+  },
+]
+
 interface IConfig {
   curios: ICurio[]
   dungeon: Record<DungeonKeyType, DungeonType>
@@ -740,227 +1053,7 @@ interface IConfig {
 }
 
 export const CONFIG: IConfig = {
-  curios: [
-    {
-      dungeon: DUNGEON.ANY,
-      name: "Crate",
-      subtext: "Treasure",
-      description: "No description.",
-      location: "This curio can only appear along corridors.",
-      image: IMAGE.CRATE,
-      cleansing: [],
-      withoutCleansing: [
-        {
-          outcome: "Heirloom",
-          outcomeDescription: "The crate contains stashed heirlooms!",
-          outcomeImage: IMAGE.HEIRLOOM,
-          probability: 0.75,
-        },
-        {
-          outcome: "Nothing",
-          outcomeDescription: "The crate is empty.",
-          outcomeImage: IMAGE.NOTHING,
-          probability: 0.25,
-        },
-      ],
-    },
-    {
-      dungeon: DUNGEON.ANY,
-      name: "Discarded Pack",
-      subtext: "Scrounging; Treasure.",
-      description: "No description.",
-      location: "This curio can only appear along corridors.",
-      image: IMAGE.DISCARDED_PACK,
-      cleansing: [],
-      withoutCleansing: [
-        {
-          outcome: "Supplies x1 + Gold/Gems x2 + Journal Entry.",
-          outcomeDescription: "The pack contains loot!",
-          outcomeImage: IMAGE.GOLD,
-          probability: 0.6,
-        },
-        {
-          outcome: "Scouting",
-          outcomeDescription: "The pack has a map inside it!",
-          outcomeImage: IMAGE.SCOUTING,
-          probability: 0.2,
-        },
-        {
-          outcome: "Nothing",
-          outcomeDescription: "The pack has already been looted.",
-          outcomeImage: IMAGE.NOTHING,
-          probability: 0.2,
-        },
-      ],
-    },
-    {
-      dungeon: DUNGEON.ANY,
-      name: "Eldritch Altar",
-      image: IMAGE.ELDRITCH_ALTER,
-      subtext: "Haunted; Unholy.",
-      description:
-        "An altar dedicated to unholy abominations. Perhaps a great power lies within.",
-      location: "This curio can only appear inside rooms.",
-      cleansing: [
-        {
-          item: "Holy Water",
-          itemImage: IMAGE.HOLY_WATER,
-          outcome: "Purge Negative Quirk",
-          outcomeDescription: "The holy water purifies the altar!",
-          outcomeImage: IMAGE.REMOVE_NEGATIVE_QUIRK,
-        },
-      ],
-      withoutCleansing: [
-        {
-          outcome: "Stress +25.",
-          outcomeDescription: "A terrifying presence is felt nearby!",
-          outcomeImage: IMAGE.STRESS,
-          probability: 0.4,
-        },
-        {
-          outcome: "Purge Negative Quirk.",
-          outcomeDescription: "The hero is absolved of a sin.",
-          outcomeImage: IMAGE.REMOVE_NEGATIVE_QUIRK,
-          probability: 0.1,
-        },
-        {
-          outcome: "Nothing",
-          outcomeDescription: "The altar's purpose is purely decorative.",
-          outcomeImage: IMAGE.NOTHING,
-          probability: 0.5,
-        },
-      ],
-    },
-    {
-      dungeon: DUNGEON.ANY,
-      name: "Heirloom Chest (First Variant)",
-      image: IMAGE.HEIRLOOM_CHEST,
-      subtext: "Treasure.",
-      description: "A chest with your family's sigil.",
-      location: "This curio can only appear inside rooms.",
-      cleansing: [
-        {
-          item: "Skeleton Key",
-          itemImage: IMAGE.SKELETON_KEY,
-          outcome: "Heirloom x4.",
-          outcomeDescription: "The key unlocks a hidden compartment!",
-          outcomeImage: IMAGE.HEIRLOOM,
-        },
-        {
-          item: "Antivenom",
-          itemImage: IMAGE.ANTIVENOM,
-          outcome: "Heirloom x3.",
-          outcomeDescription:
-            "The antivenom neutralizes a poison trap in a hidden compartment!",
-          outcomeImage: IMAGE.HEIRLOOM,
-        },
-      ],
-      withoutCleansing: [
-        {
-          outcome: "Heirloom x2.",
-          outcomeDescription: "The contents are yours!",
-          outcomeImage: IMAGE.HEIRLOOM,
-          probability: 0.75,
-        },
-        {
-          outcome: "Bleed",
-          outcomeDescription: "It's trapped!",
-          outcomeImage: IMAGE.BLEED,
-          probability: 0.125,
-        },
-        {
-          outcome: "Blight",
-          outcomeDescription: "It's trapped!",
-          outcomeImage: IMAGE.BLIGHT,
-          probability: 0.125,
-        },
-      ],
-    },
-    {
-      dungeon: DUNGEON.ANY,
-      name: "Heirloom Chest (Second Variant)",
-      image: IMAGE.HEIRLOOM_CHEST,
-      subtext: "Treasure.",
-      description: "A chest with your family's sigil.",
-      location: "This curio can only appear inside rooms.",
-      cleansing: [
-        {
-          item: "Skeleton Key",
-          itemImage: IMAGE.SKELETON_KEY,
-          outcome: "Any Loot x3.",
-          outcomeDescription: "The key unlocks a hidden compartment!",
-          outcomeImage: IMAGE.GOLD,
-        },
-        {
-          item: "Shovel",
-          itemImage: IMAGE.SHOVEL,
-          outcome: "Any Loot x2. (66%) / Nothing (33%)",
-          outcomeDescription: "The contents are yours!",
-          outcomeImage: IMAGE.GOLD,
-        },
-      ],
-      withoutCleansing: [
-        {
-          outcome: "Any Loot x2.",
-          outcomeDescription: "The contents are yours!",
-          outcomeImage: IMAGE.GOLD,
-          probability: 0.5,
-        },
-        {
-          outcome: "Bleed",
-          outcomeDescription: "It's trapped!",
-          outcomeImage: IMAGE.BLEED,
-          probability: 0.25,
-        },
-        {
-          outcome: "Blight",
-          outcomeDescription: "It's trapped!",
-          outcomeImage: IMAGE.BLIGHT,
-          probability: 0.25,
-        },
-      ],
-    },
-    {
-      dungeon: DUNGEON.ANY,
-      name: "Sack",
-      subtext: "Scrounging",
-      description: "No description.",
-      location: "This curio can only appear along corridors.",
-      image: IMAGE.SACK,
-      cleansing: [],
-      withoutCleansing: [
-        {
-          outcome: "Gold",
-          outcomeDescription: "The sack's contents are yours...",
-          outcomeImage: IMAGE.GOLD,
-          probability: 0.75,
-        },
-        {
-          outcome: "Nothing",
-          outcomeDescription: "The sack is empty.",
-          outcomeImage: IMAGE.NOTHING,
-          probability: 0.25,
-        },
-      ],
-    },
-    {
-      dungeon: DUNGEON.ANY,
-      name: "Sconce",
-      subtext: "Scrounging",
-      description: "No description.",
-      location: "This curio can only appear along corridors.",
-      image: IMAGE.SCONCE,
-      cleansing: [],
-      withoutCleansing: [
-        {
-          outcome: "Torch x1",
-          outcomeDescription: "You salvage the unburned torch.",
-          outcomeImage: IMAGE.TORCH,
-          probability: 1,
-        },
-      ],
-    },
-  ],
+  curios: CURIOS,
   dungeon: DUNGEON,
   dungeonLength: DUNGEON_LENGTH,
   dungeonProvisions: DUNGEON_PROVISIONS,
