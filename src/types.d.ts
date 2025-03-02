@@ -48,6 +48,8 @@ export interface IProvision {
   image: IImage
 }
 
+export type CurioLocationKeyType = "CORRIDOR" | "ROOM"
+
 export type DungeonKeyType =
   | "ANY"
   | "COURTYARD"
@@ -91,6 +93,7 @@ export type ImageKeyType =
   | "BLIGHT"
   | "BOOKSHELF"
   | "BUFF"
+  | "CONFESSION_BOOTH"
   | "CRATE"
   | "DISCARDED_PACK"
   | "DOG_TREATS"
@@ -116,6 +119,7 @@ export type ImageKeyType =
   | "SKELETON_KEY"
   | "STACK_OF_BOOKS"
   | "STRESS"
+  | "STRESS_HEAL"
   | "SUMMON"
   | "TORCH"
   | "TORCH_UP"

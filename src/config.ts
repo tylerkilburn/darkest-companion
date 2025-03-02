@@ -7,6 +7,7 @@ import bleedImage from "../public/image/bleed.png"
 import blightImage from "../public/image/blight.png"
 import bookshelfImage from "../public/image/bookshelf.png"
 import buffImage from "../public/image/buff.png"
+import confessionBoothImage from "../public/image/confession-booth.png"
 import crateImage from "../public/image/crate.png"
 import discardedPackImage from "../public/image/discarded-pack.png"
 import dogTreatsImage from "../public/image/dog-treats.png"
@@ -33,20 +34,21 @@ import shovelImage from "../public/image/shovel.png"
 import skeletonKeyImage from "../public/image/skeleton-key.png"
 import stackOfBooksImage from "../public/image/stack-of-books.png"
 import stressImage from "../public/image/stress.png"
+import stressHealImage from "../public/image/stress-heal.png"
 import torchImage from "../public/image/torch.png"
 import torchUpImage from "../public/image/torch-up.png"
 import unlockedStrongboxImage from "../public/image/unlocked-strongbox.png"
 
 import {
+  CurioLocationKeyType,
   DungeonKeyType,
   DungeonLengthKeyType,
   DungeonLengthType,
   DungeonType,
   ICurio,
-  IDungeonProvision,
-  ImageKeyType,
+  IDungeonProvision, ImageKeyType,
   IProvision,
-  ProvisionKeyType,
+  ProvisionKeyType
 } from "./types"
 
 const IMAGE: Record<ImageKeyType, string> = {
@@ -59,6 +61,7 @@ const IMAGE: Record<ImageKeyType, string> = {
   BLIGHT: blightImage.src,
   BOOKSHELF: bookshelfImage.src,
   BUFF: buffImage.src,
+  CONFESSION_BOOTH: confessionBoothImage.src,
   CRATE: crateImage.src,
   DISCARDED_PACK: discardedPackImage.src,
   DOG_TREATS: dogTreatsImage.src,
@@ -84,6 +87,7 @@ const IMAGE: Record<ImageKeyType, string> = {
   SKELETON_KEY: skeletonKeyImage.src,
   STACK_OF_BOOKS: stackOfBooksImage.src,
   STRESS: stressImage.src,
+  STRESS_HEAL: stressHealImage.src,
   SUMMON: summonImage.src,
   TORCH: torchImage.src,
   TORCH_UP: torchUpImage.src,
@@ -105,6 +109,12 @@ const DUNGEON_LENGTH: Record<DungeonLengthKeyType, DungeonLengthType> = {
   SHORT: "Short" as "Short",
   MEDIUM: "Medium" as "Medium",
   LONG: "Long" as "Long",
+}
+
+
+const CURIO_LOCATION: Record<CurioLocationKeyType, string> = {
+  CORRIDOR: "This curio can only appear along corridors.",
+  ROOM: "This curio can only appear inside rooms.",
 }
 
 const PROVISION: Record<ProvisionKeyType, IProvision> = {
@@ -762,7 +772,7 @@ const CURIOS: ICurio[] = [
     name: "Crate",
     subtext: "Treasure",
     description: "No description.",
-    location: "This curio can only appear along corridors.",
+    location: CURIO_LOCATION.CORRIDOR,
     image: IMAGE.CRATE,
     cleansing: [],
     withoutCleansing: [
@@ -785,7 +795,7 @@ const CURIOS: ICurio[] = [
     name: "Discarded Pack",
     subtext: "Scrounging; Treasure.",
     description: "No description.",
-    location: "This curio can only appear along corridors.",
+    location: CURIO_LOCATION.CORRIDOR,
     image: IMAGE.DISCARDED_PACK,
     cleansing: [],
     withoutCleansing: [
@@ -816,7 +826,7 @@ const CURIOS: ICurio[] = [
     subtext: "Haunted; Unholy.",
     description:
       "An altar dedicated to unholy abominations. Perhaps a great power lies within.",
-    location: "This curio can only appear inside rooms.",
+    location: CURIO_LOCATION.ROOM,
     cleansing: [
       {
         item: "Holy Water",
@@ -853,7 +863,7 @@ const CURIOS: ICurio[] = [
     image: IMAGE.HEIRLOOM_CHEST,
     subtext: "Treasure.",
     description: "A chest with your family's sigil.",
-    location: "This curio can only appear inside rooms.",
+    location: CURIO_LOCATION.ROOM,
     cleansing: [
       {
         item: "Skeleton Key",
@@ -898,7 +908,7 @@ const CURIOS: ICurio[] = [
     image: IMAGE.HEIRLOOM_CHEST,
     subtext: "Treasure.",
     description: "A chest with your family's sigil.",
-    location: "This curio can only appear inside rooms.",
+    location: CURIO_LOCATION.ROOM,
     cleansing: [
       {
         item: "Skeleton Key",
@@ -941,7 +951,7 @@ const CURIOS: ICurio[] = [
     name: "Sack",
     subtext: "Scrounging",
     description: "No description.",
-    location: "This curio can only appear along corridors.",
+    location: CURIO_LOCATION.CORRIDOR,
     image: IMAGE.SACK,
     cleansing: [],
     withoutCleansing: [
@@ -964,7 +974,7 @@ const CURIOS: ICurio[] = [
     name: "Sconce",
     subtext: "Scrounging",
     description: "No description.",
-    location: "This curio can only appear along corridors.",
+    location: CURIO_LOCATION.CORRIDOR,
     image: IMAGE.SCONCE,
     cleansing: [],
     withoutCleansing: [
@@ -982,7 +992,7 @@ const CURIOS: ICurio[] = [
     subtext: "None.",
     description:
       'It says: "The sacrifice of fire is the gate to ruin! Place a torch if you crave the void!"',
-    location: "This curio can only appear along corridors.",
+    location: CURIO_LOCATION.CORRIDOR,
     image: IMAGE.SHAMBLERS_ALTAR,
     cleansing: [
       {
@@ -1008,7 +1018,7 @@ const CURIOS: ICurio[] = [
     name: "Stack of Books",
     subtext: "Knowledge",
     description: "A stack of literary treasures in an unlikely location.",
-    location: "This curio can only appear along corridors.",
+    location: CURIO_LOCATION.CORRIDOR,
     image: IMAGE.STACK_OF_BOOKS,
     cleansing: [
       {
@@ -1067,7 +1077,7 @@ const CURIOS: ICurio[] = [
     subtext: "Treasure",
     description:
       "A long-forgotten strongbox sits on the cold stone floor, its contents unknown.",
-    location: "This curio can only appear inside rooms.",
+    location: CURIO_LOCATION.ROOM,
     image: IMAGE.UNLOCKED_STRONGBOX,
     cleansing: [],
     withoutCleansing: [
@@ -1090,7 +1100,7 @@ const CURIOS: ICurio[] = [
     name: "Alchemy Table",
     subtext: "Knowledge",
     description: "A partially intact set of experimental equipment.",
-    location: "This curio can only appear along corridors.",
+    location: CURIO_LOCATION.CORRIDOR,
     image: IMAGE.ALCHEMY_TABLE,
     cleansing: [
       {
@@ -1137,7 +1147,7 @@ const CURIOS: ICurio[] = [
     subtext: "Worship",
     description:
       "A small holy altar seems out of place against the backdrop of corruption.",
-    location: "This curio can only appear along corridors.",
+    location: CURIO_LOCATION.CORRIDOR,
     image: IMAGE.ALTAR_OF_LIGHT,
     cleansing: [
       {
@@ -1201,6 +1211,43 @@ const CURIOS: ICurio[] = [
         outcomeDescription: "The volumes are dull and uninteresting.",
         outcomeImage: IMAGE.NOTHING,
         probability: 0.2,
+      },
+    ],
+  },
+  {
+    dungeon: DUNGEON.RUINS,
+    name: "Confession Booth",
+    subtext: "Worship; Reflective.",
+    description: "A forsaken confession booth. It hasn't been used in years.",
+    location: CURIO_LOCATION.CORRIDOR,
+    image: IMAGE.CONFESSION_BOOTH,
+    cleansing: [
+      {
+        item: "Holy Water",
+        itemImage: IMAGE.HOLY_WATER,
+        outcome: "Stress Heal 30",
+        outcomeDescription: "The ritual relieves the hero.",
+        outcomeImage: IMAGE.STRESS_HEAL,
+      },
+    ],
+    withoutCleansing: [
+      {
+        outcome: "Stress +15",
+        outcomeDescription: "The hero's history of sins is too much to bear.",
+        outcomeImage: IMAGE.STRESS,
+        probability: 50,
+      },
+      {
+        outcome: "Gold/Trinket x6 + Journal Entry",
+        outcomeDescription: "The booth contains hidden treasure...",
+        outcomeImage: IMAGE.GOLD,
+        probability: 25,
+      },
+      {
+        outcome: "Purge Negative Quirk",
+        outcomeDescription: "The hero is absolved of a sin.",
+        outcomeImage: IMAGE.NEGATIVE_QUIRK_REMOVAL,
+        probability: 25,
       },
     ],
   },
