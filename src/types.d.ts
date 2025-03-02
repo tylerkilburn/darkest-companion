@@ -83,6 +83,7 @@ export type ProvisionKeyType =
 
 export type ImageKeyType =
   | "ABANDON_HOPE"
+  | "ALCHEMY_TABLE"
   | "ANTIVENOM"
   | "BANDAGE"
   | "BLEED"
@@ -114,4 +115,5 @@ export type ImageKeyType =
   | "STRESS"
   | "SUMMON"
   | "TORCH"
+  | "TORCH_UP"
   | "UNLOCKED_STRONGBOX"

@@ -1,4 +1,5 @@
 import abandonHopeImage from "../public/image/abandon-hope.png"
+import alchemyTableImage from "../public/image/alchemy-table.png"
 import antivenomImage from "../public/image/antivenom.png"
 import bandageImage from "../public/image/bandage.png"
 import bleedImage from "../public/image/bleed.png"
@@ -30,6 +31,7 @@ import skeletonKeyImage from "../public/image/skeleton-key.png"
 import stackOfBooksImage from "../public/image/stack-of-books.png"
 import stressImage from "../public/image/stress.png"
 import torchImage from "../public/image/torch.png"
+import torchUpImage from "../public/image/torch-up.png"
 import unlockedStrongboxImage from "../public/image/unlocked-strongbox.png"
 
 import {
@@ -46,6 +48,7 @@ import {
 
 const IMAGE: Record<ImageKeyType, string> = {
   ABANDON_HOPE: abandonHopeImage.src,
+  ALCHEMY_TABLE: alchemyTableImage.src,
   ANTIVENOM: antivenomImage.src,
   BANDAGE: bandageImage.src,
   BLEED: bleedImage.src,
@@ -77,6 +80,7 @@ const IMAGE: Record<ImageKeyType, string> = {
   STRESS: stressImage.src,
   SUMMON: summonImage.src,
   TORCH: torchImage.src,
+  TORCH_UP: torchUpImage.src,
   UNLOCKED_STRONGBOX: unlockedStrongboxImage.src,
 }
 
@@ -971,16 +975,19 @@ const CURIOS: ICurio[] = [
     dungeon: DUNGEON.ANY,
     name: "Shambler's Altar",
     subtext: "None.",
-    description: "It says: \"The sacrifice of fire is the gate to ruin! Place a torch if you crave the void!\"",
+    description:
+      'It says: "The sacrifice of fire is the gate to ruin! Place a torch if you crave the void!"',
     location: "This curio can only appear along corridors.",
     image: IMAGE.SHAMBLERS_ALTAR,
-    cleansing: [{
-      item: "Torch",
-      itemImage: IMAGE.TORCH,
-      outcome: "Summon Shambler",
-      outcomeDescription: "A terrifying figure emerges from the darkness!",
-      outcomeImage: IMAGE.SUMMON,
-    }],
+    cleansing: [
+      {
+        item: "Torch",
+        itemImage: IMAGE.TORCH,
+        outcome: "Summon Shambler",
+        outcomeDescription: "A terrifying figure emerges from the darkness!",
+        outcomeImage: IMAGE.SUMMON,
+      },
+    ],
     withoutCleansing: [
       {
         outcome: "Nothing",
@@ -998,13 +1005,16 @@ const CURIOS: ICurio[] = [
     description: "A stack of literary treasures in an unlikely location.",
     location: "This curio can only appear along corridors.",
     image: IMAGE.STACK_OF_BOOKS,
-    cleansing: [{
-      item: "Torch",
-      itemImage: IMAGE.TORCH,
-      outcome: "Stress +100",
-      outcomeDescription: "The hero destroyed knowledge, and now must bear the guilt of it!",
-      outcomeImage: IMAGE.STRESS,
-    }],
+    cleansing: [
+      {
+        item: "Torch",
+        itemImage: IMAGE.TORCH,
+        outcome: "Stress +100",
+        outcomeDescription:
+          "The hero destroyed knowledge, and now must bear the guilt of it!",
+        outcomeImage: IMAGE.STRESS,
+      },
+    ],
     withoutCleansing: [
       {
         outcome: "Stress +25",
@@ -1014,13 +1024,15 @@ const CURIOS: ICurio[] = [
       },
       {
         outcome: "Random Positive Quirk (66.67%)",
-        outcomeDescription: "Reading a few pages has a lasting effect on the hero...",
+        outcomeDescription:
+          "Reading a few pages has a lasting effect on the hero...",
         outcomeImage: IMAGE.POSITIVE_QUIRK_ADD,
         probability: 0.222,
       },
       {
         outcome: "Random Negative Quirk (33.33%)",
-        outcomeDescription: "Reading a few pages has a lasting effect on the hero...",
+        outcomeDescription:
+          "Reading a few pages has a lasting effect on the hero...",
         outcomeImage: IMAGE.NEGATIVE_QUIRK_ADD,
         probability: 0.111,
       },
@@ -1048,7 +1060,8 @@ const CURIOS: ICurio[] = [
     dungeon: DUNGEON.ANY,
     name: "Unlocked Strongbox",
     subtext: "Treasure",
-    description: "A long-forgotten strongbox sits on the cold stone floor, its contents unknown.",
+    description:
+      "A long-forgotten strongbox sits on the cold stone floor, its contents unknown.",
     location: "This curio can only appear inside rooms.",
     image: IMAGE.UNLOCKED_STRONGBOX,
     cleansing: [],
@@ -1063,6 +1076,52 @@ const CURIOS: ICurio[] = [
         outcome: "Blight",
         outcomeDescription: "It's trapped!",
         outcomeImage: IMAGE.BLIGHT,
+        probability: 0.25,
+      },
+    ],
+  },
+  {
+    dungeon: DUNGEON.RUINS,
+    name: "Alchemy Table",
+    subtext: "Knowledge",
+    description: "A partially intact set of experimental equipment.",
+    location: "This curio can only appear along corridors.",
+    image: IMAGE.ALCHEMY_TABLE,
+    cleansing: [
+      {
+        item: "Torch",
+        itemImage: IMAGE.TORCH,
+        outcome: "Increase Light Meter to 100",
+        outcomeDescription:
+          "The torch oil helps create a powerful blazing mixture!",
+        outcomeImage: IMAGE.TORCH_UP,
+      },
+      {
+        item: "Medicinal Herbs",
+        itemImage: IMAGE.MEDICINAL_HERBS,
+        outcome: "Gold/Gems x2",
+        outcomeDescription:
+          "The herbs disinfect the station, allowing for successful research.",
+        outcomeImage: IMAGE.GOLD,
+      },
+    ],
+    withoutCleansing: [
+      {
+        outcome: "BLIGHT",
+        outcomeDescription: "An accident occurs during the experiment.",
+        outcomeImage: IMAGE.BLIGHT,
+        probability: 0.50,
+      },
+      {
+        outcome: "Gold/Gems x1",
+        outcomeDescription: "New metals are synthesized.",
+        outcomeImage: IMAGE.GOLD,
+        probability: 0.25,
+      },
+      {
+        outcome: "Nothing",
+        outcomeDescription: "The experiments do not yield any findings.",
+        outcomeImage: IMAGE.NOTHING,
         probability: 0.25,
       },
     ],
