@@ -4,26 +4,28 @@ export type DungeonLengthKeyType = "SHORT" | "MEDIUM" | "LONG"
 
 export type DungeonLengthType = "Short" | "Medium" | "Long"
 
+export type ImageType = string
+
 export interface ICurio {
   dungeon: IDungeonType
   name: string
   subtext: string
   description: string
   location: string
-  image: IImage
+  image: ImageType
   shouldIgnore?: true
   cleansing: {
     item: string
-    itemImage: IImage
+    itemImage: ImageType
     outcome: string
     outcomeDescription: string
-    outcomeImage: IImage
+    outcomeImage: ImageType
   }[]
   withoutCleansing: {
     probability: number
     outcome: string
     outcomeDescription: string
-    outcomeImage: IImage
+    outcomeImage: ImageType
   }[]
 }
 

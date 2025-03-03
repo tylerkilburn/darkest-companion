@@ -7,6 +7,9 @@ import { CONFIG } from "../config"
 import { DungeonLengthSelect } from "../components/dungeonLengthSelect/dungeonLengthSelect"
 import { ProvisionSuggestionGrid } from "../components/provisionSuggestionGrid/provisionSuggestionGrid"
 import styles from "@styles/landing.module.scss"
+import { Curio } from "../components/curio/curio"
+import { primeSearch } from "../utils/format"
+import { CurioSearch } from "../components/curioSearch/curioSearch"
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -20,12 +23,17 @@ const geistMono = Geist_Mono({
 
 export default function Home() {
   const [dungeon, setDungeon] = useState<DungeonType>(CONFIG.dungeon.RUINS)
+  const [curioSearch, setCurioSearch] = useState<string>("")
   const [dungeonLength, setDungeonLength] = useState<DungeonLengthType>(
     CONFIG.dungeonLength.SHORT
   )
 
   const provisions = CONFIG.dungeonProvisions.find(
     (p) => p.dungeon === dungeon && p.dungeonLength === dungeonLength
+  )
+
+  const curios = CONFIG.curios.filter((c) =>
+    primeSearch(c.name).includes(primeSearch(curioSearch))
   )
 
   return (
@@ -47,12 +55,20 @@ export default function Home() {
             setDungeonLength={setDungeonLength}
           />
           <hr />
-
           {provisions && (
             <ProvisionSuggestionGrid
               provisionSuggestions={provisions.provisionSuggestions}
             />
           )}
+
+          <CurioSearch
+            curioSearch={curioSearch}
+            setCurioSearch={setCurioSearch}
+          />
+
+          {curios.map((curio) => (
+            <Curio curio={curio} />
+          ))}
         </main>
       </div>
     </>

@@ -1,0 +1,128 @@
+%responsiveImage {
+  display: block;
+  height: auto;
+  max-width: 100%;
+  object-fit: contain;
+}
+
+.root {
+  border-bottom: 1px solid white;
+  padding-bottom: 16px;
+  margin-bottom: 16px;
+}
+
+.top {
+  display: flex;
+  gap: 4px;
+}
+
+.bottom {
+  display: flex;
+  margin-top: 8px;
+  gap: 8px;
+
+  > *:first-child {
+    padding-right: 2px;
+    border-right: 1px solid white;
+    width: 52%;
+  }
+
+  > *:last-child {
+    width: 48%;
+  }
+}
+
+.outcomeTitle {
+  font-size: 16px;
+  line-height: 16px;
+  margin-bottom: 8px;
+}
+
+.curioImage {
+  @extend %responsiveImage;
+
+  max-width: 30%;
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.name {
+  font-size: 18px;
+  line-height: 20px;
+}
+
+.subtext {
+  font-size: 12px;
+  line-height: 12px;
+  color: grey;
+}
+
+.description {
+  font-size: 12px;
+  line-height: 14px;
+}
+
+.location {
+  font-size: 10px;
+  line-height: 10px;
+  color: grey;
+}
+
+.itemImage {
+  @extend %responsiveImage;
+
+  max-width: 40px;
+}
+
+.outcomeItem {
+  display: flex;
+  gap: 2px;
+  font-size: 12px;
+  line-height: 12px;
+}
+
+.outcomeImage {
+  @extend %responsiveImage;
+
+  max-height: 16px;
+}
+
+.outcomeDescription {
+  display: flex;
+  margin-left: 8px;
+  margin-top: 4px;
+  font-size: 10px;
+  line-height: 10px;
+  color: grey;
+}
+
+.cleansingOutcome {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.cleansingItem {
+  margin-bottom: 4px;
+}
+
+.cleansingImage {
+  @extend %responsiveImage;
+
+  max-width: 20px;
+  align-self: flex-start;
+}
+
+.cleansingOutcomeImage {
+  @extend %responsiveImage;
+
+  max-width: 24px;
+}
+
+.nonCleansingOutcome {
+  margin-bottom: 8px;
+}

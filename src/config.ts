@@ -1255,7 +1255,6 @@ const CURIOS: ICurio[] = [
       },
     ],
   },
-
   {
     dungeon: DUNGEON.RUINS,
     name: "Decorative Urn",
