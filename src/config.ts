@@ -1582,10 +1582,59 @@ const CURIOS: ICurio[] = [
       },
     ],
   },
-
-
-
-  
+  {
+    dungeon: DUNGEON.WEALD,
+    name: "Beast Carcass",
+    subtext: "Body; Food",
+    description: "Something has recently mutilated this creature...",
+    location: CURIO_LOCATION.CORRIDOR,
+    image: "beast-carcass",
+    cleansing: [
+      {
+        item: "Medicinal Herbs",
+        itemImage: "medicinal-herbs",
+        outcome: "Food",
+        outcomeDescription:
+          "The medicinal herbs rid the carcass of any diseases.",
+        outcomeImage: IMAGE.GOLD,
+      },
+    ],
+    withoutCleansing: [
+      {
+        outcome: "Food x1",
+        outcomeDescription: "There is still some meat on these bones.",
+        outcomeImage: IMAGE.GOLD,
+        probability: 0.429,
+      },
+      {
+        outcome: "Disease: Rabies",
+        outcomeDescription:
+          "Exploring the carcass was not without risk of disease...",
+        outcomeImage: IMAGE.DISEASE,
+        probability: 0.095,
+      },
+      {
+        outcome: "Random Disease",
+        outcomeDescription:
+          "Exploring the carcass was not without risk of disease...",
+        outcomeImage: IMAGE.DISEASE,
+        probability: 0.19,
+      },
+      {
+        outcome: "Negative Quirk: Zoophobia",
+        outcomeDescription:
+          "The hero is distraught by the sight of the carcass.",
+        outcomeImage: IMAGE.NEGATIVE_QUIRK_ADD,
+        probability: 0.143,
+      },
+      {
+        outcome: "Nothing",
+        outcomeDescription: "The beast has nothing left to offer.",
+        outcomeImage: IMAGE.NOTHING,
+        probability: 0.143,
+      },
+    ],
+  },
 ]
 
 interface IConfig {

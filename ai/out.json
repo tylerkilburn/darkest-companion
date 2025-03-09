@@ -1,41 +1,6 @@
 [
   {
     "dungeon": "weald",
-    "name": "Ancient Coffin",
-    "subtext": "Haunted; Body",
-    "description": "An old coffin. It is slightly ajar.",
-    "location": "rooms",
-    "image": "ancient-coffin",
-    "cleansing": [],
-    "withoutCleansing": [
-      {
-        "probability": 0.5,
-        "outcome": "Treasure",
-        "outcomeDescription": "Gold/Heirloom x2. The coffin contains hidden treasures.",
-        "outcomeImage": "loot"
-      },
-      {
-        "probability": 0.083,
-        "outcome": "Positive Quirk: Weald Adventurer",
-        "outcomeDescription": "Findings in the coffin give the hero insight into the nature of this world.",
-        "outcomeImage": "quirk-positive"
-      },
-      {
-        "probability": 0.083,
-        "outcome": "Positive Quirk: Weald Explorer",
-        "outcomeDescription": "Findings in the coffin give the hero insight into the nature of this world.",
-        "outcomeImage": "quirk-positive"
-      },
-      {
-        "probability": 0.333,
-        "outcome": "Nothing",
-        "outcomeDescription": "There is nothing of value inside.",
-        "outcomeImage": "nothing"
-      }
-    ]
-  },
-  {
-    "dungeon": "weald",
     "name": "Beast Carcass",
     "subtext": "Body; Food",
     "description": "Something has recently mutilated this creature...",
