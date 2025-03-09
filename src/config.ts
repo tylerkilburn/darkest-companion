@@ -1,6 +1,7 @@
 import abandonHopeImage from "../public/image/abandon-hope.png"
 import alchemyTableImage from "../public/image/alchemy-table.png"
 import altarOfLightImage from "../public/image/altar-of-light.png"
+import ancientCoffinImage from "../public/image/ancient-coffin.png"
 import antivenomImage from "../public/image/antivenom.png"
 import bandageImage from "../public/image/bandage.png"
 import bleedImage from "../public/image/bleed.png"
@@ -64,6 +65,7 @@ const IMAGE: Record<ImageKeyType, string> = {
   ABANDON_HOPE: abandonHopeImage.src,
   ALCHEMY_TABLE: alchemyTableImage.src,
   ALTAR_OF_LIGHT: altarOfLightImage.src,
+  ANCIENT_COFFIN: ancientCoffinImage.src,
   ANTIVENOM: antivenomImage.src,
   BANDAGE: bandageImage.src,
   BLEED: bleedImage.src,
@@ -1542,6 +1544,48 @@ const CURIOS: ICurio[] = [
       },
     ],
   },
+  {
+    dungeon: DUNGEON.WEALD,
+    name: "Ancient Coffin",
+    subtext: "Haunted; Body",
+    description: "An old coffin. It is slightly ajar.",
+    location: CURIO_LOCATION.ROOM,
+    image: IMAGE.ANCIENT_COFFIN,
+    cleansing: [],
+    withoutCleansing: [
+      {
+        outcome: "Treasure",
+        outcomeDescription:
+          "Gold/Heirloom x2. The coffin contains hidden treasures.",
+        outcomeImage: IMAGE.HEIRLOOM,
+        probability: 0.5,
+      },
+      {
+        outcome: "Positive Quirk: Weald Adventurer",
+        outcomeDescription:
+          "Findings in the coffin give the hero insight into the nature of this world.",
+        outcomeImage: IMAGE.POSITIVE_QUIRK_ADD,
+        probability: 0.083,
+      },
+      {
+        outcome: "Positive Quirk: Weald Explorer",
+        outcomeDescription:
+          "Findings in the coffin give the hero insight into the nature of this world.",
+        outcomeImage: IMAGE.POSITIVE_QUIRK_ADD,
+        probability: 0.083,
+      },
+      {
+        outcome: "Nothing",
+        outcomeDescription: "There is nothing of value inside.",
+        outcomeImage: IMAGE.NOTHING,
+        probability: 0.333,
+      },
+    ],
+  },
+
+
+
+  
 ]
 
 interface IConfig {

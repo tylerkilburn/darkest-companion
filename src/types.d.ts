@@ -89,6 +89,7 @@ export type ImageKeyType =
   | "ABANDON_HOPE"
   | "ALCHEMY_TABLE"
   | "ALTAR_OF_LIGHT"
+  | "ANCIENT_COFFIN"
   | "ANTIVENOM"
   | "BANDAGE"
   | "BLEED"

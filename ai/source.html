@@ -1,531 +1,395 @@
-[
-
-  {
-    "dungeon": "ruins",
-    "name": "Bookshelf",
-    "subtext": "Knowledge.",
-    "description": "A bookshelf full of old, leather-bound books.",
-    "location": "corridors",
-    "image": {
-      "src": "Bookshelf.png",
-      "alt": "Bookshelf"
-    },
-    "cleansing": [],
-    "withoutCleansing": [
-      {
-        "probability": 20,
-        "outcome": "Scouting",
-        "outcomeDescription": "A map is found tucked between the volumes.",
-        "outcomeImage": {
-          "src": "Scout_Ahead.png",
-          "alt": "Scout Ahead"
-        }
-      },
-      {
-        "probability": 20,
-        "outcome": "Stress +15",
-        "outcomeDescription": "The hero reads a most unsettling passage.",
-        "outcomeImage": {
-          "src": "Stress.curio_tracker.png",
-          "alt": "Stress"
-        }
-      },
-      {
-        "probability": 13.3,
-        "outcome": "Positive Quirk",
-        "outcomeDescription": "The knowledge forever changes the hero.",
-        "outcomeImage": {
-          "src": "Quirk_pos.curio_tracker.png",
-          "alt": "Positive Quirk"
-        }
-      },
-      {
-        "probability": 6.7,
-        "outcome": "Negative Quirk",
-        "outcomeDescription": "The knowledge forever changes the hero.",
-        "outcomeImage": {
-          "src": "Quirk_neg.curio_tracker.png",
-          "alt": "Negative Quirk"
-        }
-      },
-      {
-        "probability": 20,
-        "outcome": "Journal Entry",
-        "outcomeDescription": "",
-        "outcomeImage": {
-          "src": "Inv_journal_page.png",
-          "alt": "Journal Entry"
-        }
-      },
-      {
-        "probability": 20,
-        "outcome": "Nothing",
-        "outcomeDescription": "The volumes are dull and uninteresting.",
-        "outcomeImage": {
-          "src": "Nothing.curio_tracker.png",
-          "alt": "Nothing"
-        }
-      }
-    ]
-  },
-  {
-    "dungeon": "ruins",
-    "name": "Confession Booth",
-    "subtext": "Worship; Reflective.",
-    "description": "A forsaken confession booth. It hasn't been used in years.",
-    "location": "corridors",
-    "image": {
-      "src": "Confession_Booth.png",
-      "alt": "Confession Booth"
-    },
-    "cleansing": [
-      {
-        "item": "Holy Water",
-        "itemImage": {
-          "src": "Holy_Water.png",
-          "alt": "Holy Water"
-        },
-        "outcome": "Stress Heal 30",
-        "outcomeDescription": "The ritual relieves the hero.",
-        "outcomeImage": {
-          "src": "Heal_stress.curio_tracker.png",
-          "alt": "Heal stress"
-        }
-      }
-    ],
-    "withoutCleansing": [
-      {
-        "probability": 50,
-        "outcome": "Stress +15",
-        "outcomeDescription": "The hero's history of sins is too much to bear.",
-        "outcomeImage": {
-          "src": "Stress.curio_tracker.png",
-          "alt": "Stress"
-        }
-      },
-      {
-        "probability": 25,
-        "outcome": "Gold/Trinket x6 + Journal Entry",
-        "outcomeDescription": "The booth contains hidden treasure...",
-        "outcomeImage": {
-          "src": "Loot.curio_tracker.png",
-          "alt": "Loot"
-        }
-      },
-      {
-        "probability": 25,
-        "outcome": "Purge Negative Quirk",
-        "outcomeDescription": "The hero is absolved of a sin.",
-        "outcomeImage": {
-          "src": "Purge_neg.curio_tracker.png",
-          "alt": "Purge Negative"
-        }
-      }
-    ]
-  },
-  {
-    "dungeon": "ruins",
-    "name": "Decorative Urn",
-    "subtext": "Haunted; Scrounging.",
-    "description": "An urn holds ashes of the departed.",
-    "location": "corridors",
-    "image": {
-      "src": "Decorative_Urn.png",
-      "alt": "Decorative Urn"
-    },
-    "cleansing": [
-      {
-        "item": "Holy Water",
-        "itemImage": {
-          "src": "Holy_Water.png",
-          "alt": "Holy Water"
-        },
-        "outcome": "Gems/Trinket x2 + Gems x2",
-        "outcomeDescription": "The consecrated water dissolves the ashes. Valuables remain!",
-        "outcomeImage": {
-          "src": "Loot.curio_tracker.png",
-          "alt": "Loot"
-        }
-      },
-      {
-        "item": "Shovel",
-        "itemImage": {
-          "src": "Shovel.png",
-          "alt": "Shovel"
-        },
-        "outcome": "Negative Quirk: Guilty Conscience",
-        "outcomeDescription": "What sort of person defiles the dead?",
-        "outcomeImage": {
-          "src": "Quirk_neg.curio_tracker.png",
-          "alt": "Negative Quirk"
-        }
-      }
-    ],
-    "withoutCleansing": [
-      {
-        "probability": 44.4,
-        "outcome": "Gems/Trinket x1 + Gems x2",
-        "outcomeDescription": "Sentimental gifts are hidden inside.",
-        "outcomeImage": {
-          "src": "Loot.curio_tracker.png",
-          "alt": "Loot"
-        }
-      },
-      {
-        "probability": 22.2,
-        "outcome": "Blight",
-        "outcomeDescription": "The hero becomes infected by the ashes.",
-        "outcomeImage": {
-          "src": "Poptext_poison.png",
-          "alt": "Poison"
-        }
-      },
-      {
-        "probability": 7.4,
-        "outcome": "Disease: Creeping Cough",
-        "outcomeDescription": "The ashes make the hero cough violently.",
-        "outcomeImage": {
-          "src": "Poptext_disease.png",
-          "alt": "Disease"
-        }
-      },
-      {
-        "probability": 3.7,
-        "outcome": "Random Disease",
-        "outcomeDescription": "The hero contracts a deadly disease.",
-        "outcomeImage": {
-          "src": "Poptext_disease.png",
-          "alt": "Disease"
-        }
-      },
-      {
-        "probability": 22.2,
-        "outcome": "Nothing",
-        "outcomeDescription": "The urn's purpose is purely decorative.",
-        "outcomeImage": {
-          "src": "Nothing.curio_tracker.png",
-          "alt": "Nothing"
-        }
-      }
-    ]
-  },
-  {
-    "dungeon": "ruins",
-    "name": "Holy Fountain",
-    "subtext": "Fountain; Worship.",
-    "description": "An ornate fountain of holy purport.",
-    "location": "rooms",
-    "image": {
-      "src": "Holy_Fountain.png",
-      "alt": "Holy Fountain"
-    },
-    "cleansing": [
-      {
-        "item": "Holy Water",
-        "itemImage": {
-          "src": "Holy_Water.png",
-          "alt": "Holy Water"
-        },
-        "outcome": "Stress Heal 20, Cure Status Effects, Heal 12 HP",
-        "outcomeDescription": "Divine benefit!",
-        "outcomeImage": {
-          "src": "Heal_stress.curio_tracker.png",
-          "alt": "Heal stress"
-        }
-      }
-    ],
-    "withoutCleansing": [
-      {
-        "probability": 50,
-        "outcome": "Stress Heal 10, Cure Status Effects, Heal 5 HP",
-        "outcomeDescription": "",
-        "outcomeImage": {
-          "src": "Heal_stress.curio_tracker.png",
-          "alt": "Heal stress"
-        }
-      },
-      {
-        "probability": 50,
-        "outcome": "Gold/Gems x2",
-        "outcomeDescription": "Propitiations are found at the bottom of the fountain.",
-        "outcomeImage": {
-          "src": "Loot.curio_tracker.png",
-          "alt": "Loot"
-        }
-      }
-    ]
-  },
-  {
-    "dungeon": "ruins",
-    "name": "Iron Maiden",
-    "subtext": "Haunted; Torture.",
-    "description": "A rusty iron maiden stands against the wall, clasped shut.",
-    "location": "corridors",
-    "image": {
-      "src": "Iron_Maiden.png",
-      "alt": "Iron Maiden"
-    },
-    "cleansing": [
-      {
-        "item": "Medicinal Herbs",
-        "itemImage": {
-          "src": "Medicinal_Herbs.png",
-          "alt": "Medicinal Herbs"
-        },
-        "outcome": "Any Loot x2",
-        "outcomeDescription": "The herbs cleanse the maiden, allowing a thorough search.",
-        "outcomeImage": {
-          "src": "Loot.curio_tracker.png",
-          "alt": "Loot"
-        }
-      }
-    ],
-    "withoutCleansing": [
-      {
-        "probability": 40,
-        "outcome": "Any Loot x2",
-        "outcomeDescription": "A few treasures are hidden in the iron maiden.",
-        "outcomeImage": {
-          "src": "Loot.curio_tracker.png",
-          "alt": "Loot"
-        }
-      },
-      {
-        "probability": 20,
-        "outcome": "Negative Quirk: Claustrophobia",
-        "outcomeDescription": "",
-        "outcomeImage": {
-          "src": "Quirk_neg.curio_tracker.png",
-          "alt": "Negative Quirk"
-        }
-      },
-      {
-        "probability": 13.3,
-        "outcome": "Disease: Tetanus",
-        "outcomeDescription": "The hero inhales foul vapours.",
-        "outcomeImage": {
-          "src": "Poptext_disease.png",
-          "alt": "Disease"
-        }
-      },
-      {
-        "probability": 6.7,
-        "outcome": "Random Disease",
-        "outcomeDescription": "",
-        "outcomeImage": {
-          "src": "Poptext_disease.png",
-          "alt": "Disease"
-        }
-      },
-      {
-        "probability": 20,
-        "outcome": "Nothing",
-        "outcomeDescription": "",
-        "outcomeImage": {
-          "src": "Nothing.curio_tracker.png",
-          "alt": "Nothing"
-        }
-      }
-    ]
-  },
-  {
-    "dungeon": "ruins",
-    "name": "Locked Display Cabinet",
-    "subtext": "Treasure; Scrounging.",
-    "description": "There could be valuables left inside, but this cabinet is locked.",
-    "location": "corridors",
-    "image": {
-      "src": "Locked_Display_Cabinet.png",
-      "alt": "Locked Display Cabinet"
-    },
-    "cleansing": [
-      {
-        "item": "Skeleton Key",
-        "itemImage": {
-          "src": "Skeleton_Key.png",
-          "alt": "Skeleton Key"
-        },
-        "outcome": "Gold/Heirlooms x3 + Gold/Gems x2",
-        "outcomeDescription": "Treasures are stashed in the cabinet!",
-        "outcomeImage": {
-          "src": "Loot.curio_tracker.png",
-          "alt": "Loot"
-        }
-      },
-      {
-        "item": "Shovel",
-        "itemImage": {
-          "src": "Shovel.png",
-          "alt": "Shovel"
-        },
-        "outcome": "Gold/Heirlooms x2 + Gold/Gems x2",
-        "outcomeDescription": "Smashed the cabinet open...",
-        "outcomeImage": {
-          "src": "Currency.portrait.icon.png",
-          "alt": "Currency"
-        }
-      }
-    ],
-    "withoutCleansing": [
-      {
-        "probability": 50,
-        "outcome": "Bleed",
-        "outcomeDescription": "It's trapped!",
-        "outcomeImage": {
-          "src": "Poptext_bleed.png",
-          "alt": "Bleed"
-        }
-      },
-      {
-        "probability": 50,
-        "outcome": "Blight",
-        "outcomeDescription": "It's trapped!",
-        "outcomeImage": {
-          "src": "Poptext_poison.png",
-          "alt": "Poison"
-        }
-      }
-    ]
-  },
-  {
-    "dungeon": "ruins",
-    "name": "Locked Sarcophagus",
-    "subtext": "Haunted; Reflective.",
-    "description": "An ornate sarcophagus. It's locked.",
-    "location": "rooms",
-    "image": {
-      "src": "Locked_Sarcophagus.png",
-      "alt": "Locked Sarcophagus"
-    },
-    "cleansing": [
-      {
-        "item": "Skeleton Key",
-        "itemImage": {
-          "src": "Skeleton_Key.png",
-          "alt": "Skeleton Key"
-        },
-        "outcome": "Gold/Heirlooms x2 + Gold/Trinket x1",
-        "outcomeDescription": "The Skeleton Key opens the sarcophagus to reveal its contents.",
-        "outcomeImage": {
-          "src": "Loot.curio_tracker.png",
-          "alt": "Loot"
-        }
-      },
-      {
-        "item": "Shovel",
-        "itemImage": {
-          "src": "Shovel.png",
-          "alt": "Shovel"
-        },
-        "outcome": "Gold/Heirlooms x1 + Gold/Trinket x1",
-        "outcomeDescription": "Broke into the sarcophagus...",
-        "outcomeImage": {
-          "src": "Currency.portrait.icon.png",
-          "alt": "Currency"
-        }
-      }
-    ],
-    "withoutCleansing": [
-      {
-        "probability": 50,
-        "outcome": "Bleed",
-        "outcomeDescription": "It's trapped!",
-        "outcomeImage": {
-          "src": "Poptext_bleed.png",
-          "alt": "Bleed"
-        }
-      },
-      {
-        "probability": 50,
-        "outcome": "Blight",
-        "outcomeDescription": "It's trapped!",
-        "outcomeImage": {
-          "src": "Poptext_poison.png",
-          "alt": "Poison"
-        }
-      }
-    ]
-  },
-  {
-    "dungeon": "ruins",
-    "name": "Sarcophagus",
-    "subtext": "Haunted; Reflective; Body.",
-    "description": "An ornate sarcophagus. It is slightly ajar.",
-    "location": "rooms",
-    "image": {
-      "src": "Sarcophagus.png",
-      "alt": "Sarcophagus"
-    },
-    "cleansing": [],
-    "withoutCleansing": [
-      {
-        "probability": 60,
-        "outcome": "Gold/Heirlooms x2",
-        "outcomeDescription": "Hidden treasures!",
-        "outcomeImage": {
-          "src": "Currency.portrait.icon.png",
-          "alt": "Currency"
-        }
-      },
-      {
-        "probability": 20,
-        "outcome": "Negative Quirk: Thanatophobia",
-        "outcomeDescription": "The hero contemplates mortality...",
-        "outcomeImage": {
-          "src": "Quirk_neg.curio_tracker.png",
-          "alt": "Negative Quirk"
-        }
-      },
-      {
-        "probability": 20,
-        "outcome": "Nothing",
-        "outcomeDescription": "",
-        "outcomeImage": {
-          "src": "Nothing.curio_tracker.png",
-          "alt": "Nothing"
-        }
-      }
-    ]
-  },
-  {
-    "dungeon": "ruins",
-    "name": "Suit of Armor",
-    "subtext": "Haunted; Reflective.",
-    "description": "An antique suit of armor stands amidst the ruins.",
-    "location": "rooms",
-    "image": {
-      "src": "Suit_of_Armor.png",
-      "alt": "Suit of Armor"
-    },
-    "cleansing": [],
-    "withoutCleansing": [
-      {
-        "probability": 75,
-        "outcome": "Buff PROT +15% /DODGE +10 Until Camp",
-        "outcomeDescription": "The armor protects the hero with a knightly aura.",
-        "outcomeImage": {
-          "src": "Buff.curio_tracker.png",
-          "alt": "Buff"
-        }
-      },
-      {
-        "probability": 12.5,
-        "outcome": "Positive Quirk: Ruins Adventurer",
-        "outcomeDescription": "",
-        "outcomeImage": {
-          "src": "Quirk_pos.curio_tracker.png",
-          "alt": "Positive Quirk"
-        }
-      },
-      {
-        "probability": 12.5,
-        "outcome": "Positive Quirk: Ruins Tactician",
-        "outcomeDescription": "",
-        "outcomeImage": {
-          "src": "Quirk_pos.curio_tracker.png",
-          "alt": "Positive Quirk"
-        }
-      }
-    ]
-  }
-]
+<table class="wikitable" style="width:100%; text-align:center;">
+  <tbody><tr>
+  <th colspan="5" class="tabletitle" style="font-weight:bold;">Curios found within the <a href="/wiki/Weald" title="Weald">Weald</a>
+  </th></tr>
+  <tr>
+  <th>Curio &amp; type
+  </th>
+  <th>Description
+  </th>
+  <th>Cleansing
+  </th>
+  <th>Without cleansing
+  </th></tr>
+  <tr>
+  <td>
+  <table style="width=100%; width:100%" align="center">
+  <tbody><tr>
+  <td><i id="ancient_coffin"></i><div class="center"><div class="floatnone"><a href="/wiki/File:Ancient_Coffin.png" class="image"><img alt="Ancient Coffin" src="/images/thumb/b/bb/Ancient_Coffin.png/180px-Ancient_Coffin.png" decoding="async" loading="lazy" width="180" height="49" data-file-width="1800" data-file-height="485"></a></div></div><b>Ancient Coffin</b>
+  </td></tr>
+  <tr>
+  <td>Haunted; Body.
+  </td></tr></tbody></table>
+  </td>
+  <td style="text-align:justify;">"An old coffin. It is slightly ajar."
+  <p>(This curio can only appear inside <a href="/wiki/Dungeon_Map#Rooms" title="Dungeon Map">rooms</a>.)
+  </p>
+  </td>
+  <td>
+  <table style="width=100%; text-align:center" align="center">
+  <tbody><tr>
+  <td><div class="center"><div class="floatnone"><img alt="Pass.png" src="/images/thumb/2/2b/Pass.png/40px-Pass.png" decoding="async" loading="lazy" width="40" height="40" data-file-width="72" data-file-height="72"></div></div>
+  <p><br>
+  </p>
+  </td></tr></tbody></table>
+  </td>
+  <td>
+  <table style="width=100%; text-align:left;">
+  <tbody><tr>
+  <td><span class="tooltip"><div class="floatleft"><img alt="Currency.portrait.icon.png" src="/images/thumb/0/01/Currency.portrait.icon.png/25px-Currency.portrait.icon.png" decoding="async" loading="lazy" width="25" height="25" data-file-width="40" data-file-height="40"></div> 50% Gold/Heirloom x2<span class="tooltiptext">. "The coffin contains hidden treasures."</span></span>
+  </td></tr>
+  <tr>
+  <td><span class="tooltip"><div class="floatleft"><img alt="Quirk pos.curio tracker.png" src="/images/thumb/2/2a/Quirk_pos.curio_tracker.png/25px-Quirk_pos.curio_tracker.png" decoding="async" loading="lazy" width="25" height="25" data-file-width="32" data-file-height="32"></div> 8.3% Positive Quirk: Weald Adventurer<span class="tooltiptext">. "Findings in the coffin give the hero insight into the nature of this world."</span></span>
+  </td></tr>
+  <tr>
+  <td><span class="tooltip"><div class="floatleft"><img alt="Quirk pos.curio tracker.png" src="/images/thumb/2/2a/Quirk_pos.curio_tracker.png/25px-Quirk_pos.curio_tracker.png" decoding="async" loading="lazy" width="25" height="25" data-file-width="32" data-file-height="32"></div> 8.3% Positive Quirk: Weald Explorer<span class="tooltiptext">. "Findings in the coffin give the hero insight into the nature of this world."</span></span>
+  </td></tr>
+  <tr>
+  <td><span class="tooltip"><div class="floatleft"><img alt="Nothing.curio tracker.png" src="/images/thumb/9/9c/Nothing.curio_tracker.png/25px-Nothing.curio_tracker.png" decoding="async" loading="lazy" width="25" height="25" data-file-width="32" data-file-height="32"></div> 33.3% Nothing<span class="tooltiptext">. "There is nothing of value inside."</span></span>
+  <p><br>
+  </p>
+  </td></tr></tbody></table>
+  </td></tr>
+  <tr>
+  <td>
+  <table style="width=100%; width:100%" align="center">
+  <tbody><tr>
+  <td><i id="beast_carcass"></i><div class="center"><div class="floatnone"><a href="/wiki/File:Beast_Carcass.png" class="image"><img alt="Beast Carcass" src="/images/thumb/2/24/Beast_Carcass.png/180px-Beast_Carcass.png" decoding="async" loading="lazy" width="180" height="82" data-file-width="344" data-file-height="157"></a></div></div><b>Beast Carcass</b>
+  </td></tr>
+  <tr>
+  <td>Body; Food.
+  </td></tr></tbody></table>
+  </td>
+  <td style="text-align:justify;">"Something has recently mutilated this creature..."
+  <p>(This curio can only appear along <a href="/wiki/Dungeon_Map#Corridors" title="Dungeon Map">corridors</a>.)
+  </p>
+  </td>
+  <td>
+  <table style="width=100%; text-align:center" align="center">
+  <tbody><tr>
+  <td><span class="tooltip"><div class="center"><div class="floatnone"><img alt="Medicinal Herbs.png" src="/images/thumb/d/d7/Medicinal_Herbs.png/40px-Medicinal_Herbs.png" decoding="async" loading="lazy" width="40" height="80" data-file-width="72" data-file-height="144"></div></div><a href="/wiki/Medicinal_Herbs" title="Medicinal Herbs">Medicinal Herbs</a><span class="tooltiptext">. "The medicinal herbs rid the carcass of any diseases."</span></span>
+  </td></tr>
+  <tr>
+  <td colspan="3"><div class="floatleft"><img alt="Loot.curio tracker.png" src="/images/thumb/7/76/Loot.curio_tracker.png/25px-Loot.curio_tracker.png" decoding="async" loading="lazy" width="25" height="25" data-file-width="32" data-file-height="32"></div> Food x2
+  </td></tr></tbody></table>
+  </td>
+  <td>
+  <table style="width=100%; text-align:left;">
+  <tbody><tr>
+  <td><span class="tooltip"><div class="floatleft"><img alt="Loot.curio tracker.png" src="/images/thumb/7/76/Loot.curio_tracker.png/25px-Loot.curio_tracker.png" decoding="async" loading="lazy" width="25" height="25" data-file-width="32" data-file-height="32"></div> 42.9% Food x1<span class="tooltiptext">. "There is still some meat on these bones."</span></span>
+  </td></tr>
+  <tr>
+  <td><span class="tooltip"><div class="floatleft"><img alt="Poptext disease.png" src="/images/thumb/9/94/Poptext_disease.png/25px-Poptext_disease.png" decoding="async" loading="lazy" width="25" height="25" data-file-width="64" data-file-height="64"></div> 9.5% Disease: Rabies<span class="tooltiptext">. "Exploring the carcass was not without risk of disease..."</span></span>
+  </td></tr>
+  <tr>
+  <td><span class="tooltip"><div class="floatleft"><img alt="Poptext disease.png" src="/images/thumb/9/94/Poptext_disease.png/25px-Poptext_disease.png" decoding="async" loading="lazy" width="25" height="25" data-file-width="64" data-file-height="64"></div> 19% Random Disease<span class="tooltiptext">. "Exploring the carcass was not without risk of disease..."</span></span>
+  </td></tr>
+  <tr>
+  <td><span class="tooltip"><div class="floatleft"><img alt="Quirk neg.curio tracker.png" src="/images/thumb/8/83/Quirk_neg.curio_tracker.png/25px-Quirk_neg.curio_tracker.png" decoding="async" loading="lazy" width="25" height="25" data-file-width="32" data-file-height="32"></div> 14.3% Negative Quirk: Zoophobia<span class="tooltiptext">. "The hero is distraught by the sight of the carcass."</span></span>
+  </td></tr>
+  <tr>
+  <td><span class="tooltip"><div class="floatleft"><img alt="Nothing.curio tracker.png" src="/images/thumb/9/9c/Nothing.curio_tracker.png/25px-Nothing.curio_tracker.png" decoding="async" loading="lazy" width="25" height="25" data-file-width="32" data-file-height="32"></div> 14.3% Nothing<span class="tooltiptext">. "The beast has nothing left to offer."</span></span>
+  </td></tr></tbody></table>
+  </td></tr>
+  <tr>
+  <td>
+  <table style="width=100%; width:100%" align="center">
+  <tbody><tr>
+  <td><i id="eerie_spiderweb"></i><div class="center"><div class="floatnone"><a href="/wiki/File:Eerie_Spiderweb.png" class="image"><img alt="Eerie Spiderweb" src="/images/thumb/b/b6/Eerie_Spiderweb.png/180px-Eerie_Spiderweb.png" decoding="async" loading="lazy" width="180" height="105" data-file-width="1200" data-file-height="700"></a></div></div><b>Eerie Spiderweb</b>
+  </td></tr>
+  <tr>
+  <td>None.
+  </td></tr></tbody></table>
+  </td>
+  <td style="text-align:justify;">"A spiderweb with a strange glow to it. There might be something behind it."
+  <p>(This curio can only appear along <a href="/wiki/Dungeon_Map#Corridors" title="Dungeon Map">corridors</a>.)
+  </p>
+  </td>
+  <td>
+  <table style="width=100%; text-align:center" align="center">
+  <tbody><tr>
+  <td><span class="tooltip"><div class="center"><div class="floatnone"><img alt="Bandage.png" src="/images/thumb/0/0c/Bandage.png/40px-Bandage.png" decoding="async" loading="lazy" width="40" height="80" data-file-width="72" data-file-height="144"></div></div><a href="/wiki/Bandage" title="Bandage">Bandage</a><span class="tooltiptext">. "The bandages protect the hero's hands during the search."</span></span>
+  </td></tr>
+  <tr>
+  <td colspan="3"><div class="floatleft"><img alt="Loot.curio tracker.png" src="/images/thumb/7/76/Loot.curio_tracker.png/25px-Loot.curio_tracker.png" decoding="async" loading="lazy" width="25" height="25" data-file-width="32" data-file-height="32"></div> Gold/Gems x2 + Gems/Trinket x1
+  </td></tr></tbody></table>
+  </td>
+  <td>
+  <table style="width=100%; text-align:left;">
+  <tbody><tr>
+  <td><span class="tooltip"><div class="floatleft"><img alt="Loot.curio tracker.png" src="/images/thumb/7/76/Loot.curio_tracker.png/25px-Loot.curio_tracker.png" decoding="async" loading="lazy" width="25" height="25" data-file-width="32" data-file-height="32"></div> 40% Gold/Gems x1 + Gems/Trinket x1<span class="tooltiptext">.</span></span>
+  </td></tr>
+  <tr>
+  <td><span class="tooltip"><div class="floatleft"><img alt="Quirk neg.curio tracker.png" src="/images/thumb/8/83/Quirk_neg.curio_tracker.png/25px-Quirk_neg.curio_tracker.png" decoding="async" loading="lazy" width="25" height="25" data-file-width="32" data-file-height="32"></div> 10% Negative Quirk: Slow Reflexes<span class="tooltiptext">. "The hero is covered in a sticky goo."</span></span>
+  </td></tr>
+  <tr>
+  <td><span class="tooltip"><div class="floatleft"><img alt="Quirk neg.curio tracker.png" src="/images/thumb/8/83/Quirk_neg.curio_tracker.png/25px-Quirk_neg.curio_tracker.png" decoding="async" loading="lazy" width="25" height="25" data-file-width="32" data-file-height="32"></div> 10% Negative Quirk: Slowdraw<span class="tooltiptext">. "The hero is covered in a sticky goo."</span></span>
+  </td></tr>
+  <tr>
+  <td><span class="tooltip"><div class="floatleft"><img alt="Nothing.curio tracker.png" src="/images/thumb/9/9c/Nothing.curio_tracker.png/25px-Nothing.curio_tracker.png" decoding="async" loading="lazy" width="25" height="25" data-file-width="32" data-file-height="32"></div> 40% Nothing<span class="tooltiptext">.</span></span>
+  <p><br>
+  </p>
+  </td></tr></tbody></table>
+  </td></tr>
+  <tr>
+  <td>
+  <table style="width=100%; width:100%" align="center">
+  <tbody><tr>
+  <td><i id="left_luggage"></i><div class="center"><div class="floatnone"><a href="/wiki/File:Left_Luggage.png" class="image"><img alt="Left Luggage" src="/images/thumb/6/68/Left_Luggage.png/180px-Left_Luggage.png" decoding="async" loading="lazy" width="180" height="55" data-file-width="1200" data-file-height="364"></a></div></div><b>Left Luggage</b>
+  </td></tr>
+  <tr>
+  <td>Treasure; Scrounging.
+  </td></tr></tbody></table>
+  </td>
+  <td style="text-align:justify;">"Someone dropped this recently. Probably on the run. It has a lock on it."
+  <p>(This curio can only appear along <a href="/wiki/Dungeon_Map#Corridors" title="Dungeon Map">corridors</a>.)
+  </p>
+  </td>
+  <td>
+  <table style="width=100%; text-align:center" align="center">
+  <tbody><tr>
+  <td><span class="tooltip"><div class="center"><div class="floatnone"><img alt="Skeleton Key.png" src="/images/thumb/d/d9/Skeleton_Key.png/40px-Skeleton_Key.png" decoding="async" loading="lazy" width="40" height="80" data-file-width="72" data-file-height="144"></div></div><a href="/wiki/Skeleton_Key" title="Skeleton Key">Skeleton Key</a><span class="tooltiptext">. "The Skeleton Key unlocks a hidden compartment."</span></span>
+  </td>
+  <td><span class="tooltip"><div class="center"><div class="floatnone"><img alt="Antivenom.png" src="/images/thumb/0/09/Antivenom.png/40px-Antivenom.png" decoding="async" loading="lazy" width="40" height="80" data-file-width="72" data-file-height="144"></div></div><a href="/wiki/Antivenom" title="Antivenom">Antivenom</a><span class="tooltiptext">. "The antivenom neutralizes a poison trap in a hidden compartment!"</span></span>
+  </td></tr>
+  <tr>
+  <td><div class="floatleft"><img alt="Loot.curio tracker.png" src="/images/thumb/7/76/Loot.curio_tracker.png/25px-Loot.curio_tracker.png" decoding="async" loading="lazy" width="25" height="25" data-file-width="32" data-file-height="32"></div> Any Loot x3</td>
+  <td><div class="floatleft"><img alt="Loot.curio tracker.png" src="/images/thumb/7/76/Loot.curio_tracker.png/25px-Loot.curio_tracker.png" decoding="async" loading="lazy" width="25" height="25" data-file-width="32" data-file-height="32"></div> Any Loot x3
+  </td></tr></tbody></table>
+  </td>
+  <td>
+  <table style="width=100%; text-align:left;">
+  <tbody><tr>
+  <td><span class="tooltip"><div class="floatleft"><img alt="Loot.curio tracker.png" src="/images/thumb/7/76/Loot.curio_tracker.png/25px-Loot.curio_tracker.png" decoding="async" loading="lazy" width="25" height="25" data-file-width="32" data-file-height="32"></div> 50% Any Loot x4 + Journal Entry<span class="tooltiptext">. "The luggage clearly shouldn't have been abandoned. Valuables inside!"</span></span>
+  </td></tr>
+  <tr>
+  <td><span class="tooltip"><div class="floatleft"><img alt="Poptext poison.png" src="/images/thumb/8/8e/Poptext_poison.png/25px-Poptext_poison.png" decoding="async" loading="lazy" width="25" height="25" data-file-width="64" data-file-height="64"></div> 50% Blight<span class="tooltiptext">. "It's trapped!"</span></span>
+  <p><br>
+  </p><p><br>
+  </p>
+  </td></tr></tbody></table>
+  </td></tr>
+  <tr>
+  <td>
+  <table style="width=100%; width:100%" align="center">
+  <tbody><tr>
+  <td><i id="mummified_remains"></i><div class="center"><div class="floatnone"><a href="/wiki/File:Mummified_Remains.png" class="image"><img alt="Mummified Remains" src="/images/thumb/a/ac/Mummified_Remains.png/180px-Mummified_Remains.png" decoding="async" loading="lazy" width="180" height="63" data-file-width="288" data-file-height="101"></a></div></div><b>Mummified Remains</b>
+  </td></tr>
+  <tr>
+  <td>Body; Haunted; Unholy.
+  </td></tr></tbody></table>
+  </td>
+  <td style="text-align:justify;">"Ancient remains. The body looks well preserved. "
+  <p>(This curio can only appear along <a href="/wiki/Dungeon_Map#Corridors" title="Dungeon Map">corridors</a>.)
+  </p>
+  </td>
+  <td>
+  <table style="width=100%; text-align:center" align="center">
+  <tbody><tr>
+  <td><span class="tooltip"><div class="center"><div class="floatnone"><img alt="Bandage.png" src="/images/thumb/0/0c/Bandage.png/40px-Bandage.png" decoding="async" loading="lazy" width="40" height="80" data-file-width="72" data-file-height="144"></div></div><a href="/wiki/Bandage" title="Bandage">Bandage</a><span class="tooltiptext">. "A bandage provides protection for a thorough search!"</span></span>
+  </td></tr>
+  <tr>
+  <td colspan="3"><div class="floatleft"><img alt="Loot.curio tracker.png" src="/images/thumb/7/76/Loot.curio_tracker.png/25px-Loot.curio_tracker.png" decoding="async" loading="lazy" width="25" height="25" data-file-width="32" data-file-height="32"></div> Gold/Trinkets x2
+  </td></tr></tbody></table>
+  </td>
+  <td>
+  <table style="width=100%; text-align:left;">
+  <tbody><tr>
+  <td><span class="tooltip"><div class="floatleft"><img alt="Loot.curio tracker.png" src="/images/thumb/7/76/Loot.curio_tracker.png/25px-Loot.curio_tracker.png" decoding="async" loading="lazy" width="25" height="25" data-file-width="32" data-file-height="32"></div> 40% Gold/Trinkets x1<span class="tooltiptext">. "Treasures are encased within the remains."</span></span>
+  </td></tr>
+  <tr>
+  <td><span class="tooltip"><div class="floatleft"><img alt="Poptext poison.png" src="/images/thumb/8/8e/Poptext_poison.png/25px-Poptext_poison.png" decoding="async" loading="lazy" width="25" height="25" data-file-width="64" data-file-height="64"></div> 40% Blight<span class="tooltiptext">.</span></span>
+  </td></tr>
+  <tr>
+  <td><span class="tooltip"><div class="floatleft"><img alt="Nothing.curio tracker.png" src="/images/thumb/9/9c/Nothing.curio_tracker.png/25px-Nothing.curio_tracker.png" decoding="async" loading="lazy" width="25" height="25" data-file-width="32" data-file-height="32"></div> 20% Nothing<span class="tooltiptext">.</span></span>
+  <p><br>
+  </p>
+  </td></tr></tbody></table>
+  </td></tr>
+  <tr>
+  <td>
+  <table style="width=100%; width:100%" align="center">
+  <tbody><tr>
+  <td><i id="old_tree"></i><div class="center"><div class="floatnone"><a href="/wiki/File:Old_Tree.png" class="image"><img alt="Old Tree" src="/images/thumb/2/2f/Old_Tree.png/180px-Old_Tree.png" decoding="async" loading="lazy" width="180" height="69" data-file-width="1900" data-file-height="725"></a></div></div><b>Old Tree</b>
+  </td></tr>
+  <tr>
+  <td>Scrounging.
+  </td></tr></tbody></table>
+  </td>
+  <td style="text-align:justify;">"This tree has a huge hole in the trunk. Perhaps there's something inside..."
+  <p>(This curio can only appear along <a href="/wiki/Dungeon_Map#Corridors" title="Dungeon Map">corridors</a>.)
+  </p>
+  </td>
+  <td>
+  <table style="width=100%; text-align:center" align="center">
+  <tbody><tr>
+  <td><span class="tooltip"><div class="center"><div class="floatnone"><img alt="Antivenom.png" src="/images/thumb/0/09/Antivenom.png/40px-Antivenom.png" decoding="async" loading="lazy" width="40" height="80" data-file-width="72" data-file-height="144"></div></div><a href="/wiki/Antivenom" title="Antivenom">Antivenom</a><span class="tooltiptext">. "The antivenom protects against the poisonous sap, allowing a thorough search..."</span></span>
+  </td></tr>
+  <tr>
+  <td colspan="3"><div class="floatleft"><img alt="Loot.curio tracker.png" src="/images/thumb/7/76/Loot.curio_tracker.png/25px-Loot.curio_tracker.png" decoding="async" loading="lazy" width="25" height="25" data-file-width="32" data-file-height="32"></div> Any Loot x3
+  </td></tr></tbody></table>
+  </td>
+  <td>
+  <table style="width=100%; text-align:left;">
+  <tbody><tr>
+  <td><span class="tooltip"><div class="floatleft"><img alt="Loot.curio tracker.png" src="/images/thumb/7/76/Loot.curio_tracker.png/25px-Loot.curio_tracker.png" decoding="async" loading="lazy" width="25" height="25" data-file-width="32" data-file-height="32"></div> 50% Any Loot x2<span class="tooltiptext">. "Someone couldn't resist stashing treasures inside."</span></span>
+  </td></tr>
+  <tr>
+  <td><span class="tooltip"><div class="floatleft"><img alt="Poptext poison.png" src="/images/thumb/8/8e/Poptext_poison.png/25px-Poptext_poison.png" decoding="async" loading="lazy" width="25" height="25" data-file-width="64" data-file-height="64"></div> 25% Blight<span class="tooltiptext">. "The hero is covered in poisonous sap."</span></span>
+  </td></tr>
+  <tr>
+  <td><span class="tooltip"><div class="floatleft"><img alt="Nothing.curio tracker.png" src="/images/thumb/9/9c/Nothing.curio_tracker.png/25px-Nothing.curio_tracker.png" decoding="async" loading="lazy" width="25" height="25" data-file-width="32" data-file-height="32"></div> 25% Nothing<span class="tooltiptext">. "Sometimes a tree is just a tree."</span></span>
+  <p><br>
+  </p>
+  </td></tr></tbody></table>
+  </td></tr>
+  <tr>
+  <td>
+  <table style="width=100%; width:100%" align="center">
+  <tbody><tr>
+  <td><i id="pristine_fountain"></i><div class="center"><div class="floatnone"><a href="/wiki/File:Pristine_Fountain.png" class="image"><img alt="Pristine Fountain" src="/images/thumb/8/8b/Pristine_Fountain.png/176px-Pristine_Fountain.png" decoding="async" loading="lazy" width="176" height="120" data-file-width="925" data-file-height="633"></a></div></div><b>Pristine Fountain</b>
+  </td></tr>
+  <tr>
+  <td>Fountain.
+  </td></tr></tbody></table>
+  </td>
+  <td style="text-align:justify;">"A beautiful fountain. It looks unaffected by the surrounding chaos. "
+  <p>(This curio can only appear inside <a href="/wiki/Dungeon_Map#Rooms" title="Dungeon Map">rooms</a>.)
+  </p>
+  </td>
+  <td>
+  <table style="width=100%; text-align:center" align="center">
+  <tbody><tr>
+  <td><span class="tooltip"><div class="center"><div class="floatnone"><img alt="Holy Water.png" src="/images/thumb/2/25/Holy_Water.png/40px-Holy_Water.png" decoding="async" loading="lazy" width="40" height="80" data-file-width="72" data-file-height="144"></div></div><a href="/wiki/Holy_Water" title="Holy Water">Holy Water</a><span class="tooltiptext">.</span></span>
+  </td></tr>
+  <tr>
+  <td colspan="3"><div class="floatleft"><img alt="Heal stress.curio tracker.png" src="/images/thumb/9/90/Heal_stress.curio_tracker.png/25px-Heal_stress.curio_tracker.png" decoding="async" loading="lazy" width="25" height="25" data-file-width="32" data-file-height="32"></div> Stress Heal 30
+  </td></tr></tbody></table>
+  </td>
+  <td>
+  <table style="width=100%; text-align:left;">
+  <tbody><tr>
+  <td><span class="tooltip"><div class="floatleft"><img alt="Heal stress.curio tracker.png" src="/images/thumb/9/90/Heal_stress.curio_tracker.png/25px-Heal_stress.curio_tracker.png" decoding="async" loading="lazy" width="25" height="25" data-file-width="32" data-file-height="32"></div> 100% Stress Heal 20<span class="tooltiptext">. "The fountain reinvigorates the hero."</span></span>
+  <p><br>
+  </p><p><br>
+  </p>
+  </td></tr></tbody></table>
+  </td></tr>
+  <tr>
+  <td>
+  <table style="width=100%; width:100%" align="center">
+  <tbody><tr>
+  <td><i id="shallow_grave"></i><div class="center"><div class="floatnone"><a href="/wiki/File:Shallow_Grave.png" class="image"><img alt="Shallow Grave" src="/images/thumb/f/f7/Shallow_Grave.png/180px-Shallow_Grave.png" decoding="async" loading="lazy" width="180" height="63" data-file-width="1350" data-file-height="474"></a></div></div><b>Shallow Grave</b>
+  </td></tr>
+  <tr>
+  <td>Body; Haunted; Scrounging.
+  </td></tr></tbody></table>
+  </td>
+  <td style="text-align:justify;">"A grave, dug in haste. "
+  <p>(This curio can only appear along <a href="/wiki/Dungeon_Map#Corridors" title="Dungeon Map">corridors</a>.)
+  </p>
+  </td>
+  <td>
+  <table style="width=100%; text-align:center" align="center">
+  <tbody><tr>
+  <td><span class="tooltip"><div class="center"><div class="floatnone"><img alt="Shovel.png" src="/images/thumb/7/77/Shovel.png/40px-Shovel.png" decoding="async" loading="lazy" width="40" height="80" data-file-width="72" data-file-height="144"></div></div><a href="/wiki/Shovel" title="Shovel">Shovel</a><span class="tooltiptext">. "Looks like grave robbing pays off sometimes!"</span></span>
+  </td></tr>
+  <tr>
+  <td colspan="3"><div class="floatleft"><img alt="Currency.portrait.icon.png" src="/images/thumb/0/01/Currency.portrait.icon.png/25px-Currency.portrait.icon.png" decoding="async" loading="lazy" width="25" height="25" data-file-width="40" data-file-height="40"></div> Gems/Heirlooms x3
+  </td></tr></tbody></table>
+  </td>
+  <td>
+  <table style="width=100%; text-align:left;">
+  <tbody><tr>
+  <td><span class="tooltip"><div class="floatleft"><img alt="Poptext poison.png" src="/images/thumb/8/8e/Poptext_poison.png/25px-Poptext_poison.png" decoding="async" loading="lazy" width="25" height="25" data-file-width="64" data-file-height="64"></div> 50% Blight<span class="tooltiptext">. "Gravedigging is not the healthiest of professions..."</span></span>
+  </td></tr>
+  <tr>
+  <td><span class="tooltip"><div class="floatleft"><img alt="Poptext disease.png" src="/images/thumb/9/94/Poptext_disease.png/25px-Poptext_disease.png" decoding="async" loading="lazy" width="25" height="25" data-file-width="64" data-file-height="64"></div> 50% Random Disease<span class="tooltiptext">. "Grave digging is not the healthiest of professions..."</span></span>
+  <p><br>
+  </p><p><br>
+  </p>
+  </td></tr></tbody></table>
+  </td></tr>
+  <tr>
+  <td>
+  <table style="width=100%; width:100%" align="center">
+  <tbody><tr>
+  <td><i id="traveler's_tent"></i><div class="center"><div class="floatnone"><a href="/wiki/File:Traveler%27s_Tent.png" class="image"><img alt="Traveler's Tent" src="/images/thumb/3/37/Traveler%27s_Tent.png/180px-Traveler%27s_Tent.png" decoding="async" loading="lazy" width="180" height="59" data-file-width="1000" data-file-height="325"></a></div></div><b>Traveler's Tent</b>
+  </td></tr>
+  <tr>
+  <td>Scrounging.
+  </td></tr></tbody></table>
+  </td>
+  <td style="text-align:justify;">"Someone has camped here recently."
+  <p>(This curio can only appear inside <a href="/wiki/Dungeon_Map#Rooms" title="Dungeon Map">rooms</a>.)
+  </p>
+  </td>
+  <td>
+  <table style="width=100%; text-align:center" align="center">
+  <tbody><tr>
+  <td><div class="center"><div class="floatnone"><img alt="Pass.png" src="/images/thumb/2/2b/Pass.png/40px-Pass.png" decoding="async" loading="lazy" width="40" height="40" data-file-width="72" data-file-height="72"></div></div>
+  <p><br>
+  </p>
+  </td></tr></tbody></table>
+  </td>
+  <td>
+  <table style="width=100%; text-align:left;">
+  <tbody><tr>
+  <td><span class="tooltip"><div class="floatleft"><img alt="Currency.portrait.icon.png" src="/images/thumb/0/01/Currency.portrait.icon.png/25px-Currency.portrait.icon.png" decoding="async" loading="lazy" width="25" height="25" data-file-width="40" data-file-height="40"></div> 37.5% Gold/Supplies x4 + Gold/Heirlooms x4 + Journal Entry<span class="tooltiptext">. "Someone left valuables inside the tent."</span></span>
+  </td></tr>
+  <tr>
+  <td><span class="tooltip"><div class="floatleft"><img alt="Scout Ahead.png" src="/images/thumb/f/fa/Scout_Ahead.png/25px-Scout_Ahead.png" decoding="async" loading="lazy" width="25" height="25" data-file-width="72" data-file-height="72"></div> 37.5% Scouting<span class="tooltiptext">. "A map of the area is found inside the tent."</span></span>
+  </td></tr>
+  <tr>
+  <td><span class="tooltip"><div class="floatleft"><img alt="Stress.curio tracker.png" src="/images/thumb/a/af/Stress.curio_tracker.png/25px-Stress.curio_tracker.png" decoding="async" loading="lazy" width="25" height="25" data-file-width="32" data-file-height="32"></div> 12.5% Stress +25<span class="tooltiptext">. "The fate of the tent's occupant is found inside..."</span></span>
+  </td></tr>
+  <tr>
+  <td><span class="tooltip"><div class="floatleft"><img alt="Nothing.curio tracker.png" src="/images/thumb/9/9c/Nothing.curio_tracker.png/25px-Nothing.curio_tracker.png" decoding="async" loading="lazy" width="25" height="25" data-file-width="32" data-file-height="32"></div> 12.5% Nothing<span class="tooltiptext">. "Nothing is left inside the tent."</span></span>
+  <p><br>
+  </p>
+  </td></tr></tbody></table>
+  </td></tr>
+  <tr>
+  <td>
+  <table style="width=100%; width:100%" align="center">
+  <tbody><tr>
+  <td><i id="troubling_effigy"></i><div class="center"><div class="floatnone"><a href="/wiki/File:Troubling_Effigy.png" class="image"><img alt="Troubling Effigy" src="/images/thumb/d/dc/Troubling_Effigy.png/180px-Troubling_Effigy.png" decoding="async" loading="lazy" width="180" height="100" data-file-width="1050" data-file-height="585"></a></div></div><b>Troubling Effigy</b>
+  </td></tr>
+  <tr>
+  <td>Unholy; Worship.
+  </td></tr></tbody></table>
+  </td>
+  <td style="text-align:justify;">"An unsettling effigy erected in service to a mysterious god."
+  <p>(This curio can only appear along <a href="/wiki/Dungeon_Map#Corridors" title="Dungeon Map">corridors</a>.)
+  </p>
+  </td>
+  <td>
+  <table style="width=100%; text-align:center" align="center">
+  <tbody><tr>
+  <td><span class="tooltip"><div class="center"><div class="floatnone"><img alt="Holy Water.png" src="/images/thumb/2/25/Holy_Water.png/40px-Holy_Water.png" decoding="async" loading="lazy" width="40" height="80" data-file-width="72" data-file-height="144"></div></div><a href="/wiki/Holy_Water" title="Holy Water">Holy Water</a><span class="tooltiptext">. "The holy water has a powerful effect!"</span></span>
+  </td></tr>
+  <tr>
+  <td colspan="3"><div class="floatleft"><img alt="Quirk pos.curio tracker.png" src="/images/thumb/2/2a/Quirk_pos.curio_tracker.png/25px-Quirk_pos.curio_tracker.png" decoding="async" loading="lazy" width="25" height="25" data-file-width="32" data-file-height="32"></div> Random Positive Quirk
+  </td></tr></tbody></table>
+  </td>
+  <td>
+  <table style="width=100%; text-align:left;">
+  <tbody><tr>
+  <td><span class="tooltip"><div class="floatleft"><img alt="Quirk pos.curio tracker.png" src="/images/thumb/2/2a/Quirk_pos.curio_tracker.png/25px-Quirk_pos.curio_tracker.png" decoding="async" loading="lazy" width="25" height="25" data-file-width="32" data-file-height="32"></div> 18.8% Random Positive Quirk<span class="tooltiptext">. "The effigy imbues the hero with energy..."</span></span>
+  </td></tr>
+  <tr>
+  <td><span class="tooltip"><div class="floatleft"><img alt="Quirk neg.curio tracker.png" src="/images/thumb/8/83/Quirk_neg.curio_tracker.png/25px-Quirk_neg.curio_tracker.png" decoding="async" loading="lazy" width="25" height="25" data-file-width="32" data-file-height="32"></div> 18.8% Random Negative Quirk<span class="tooltiptext">. "The effigy imbues the hero with energy..."</span></span>
+  </td></tr>
+  <tr>
+  <td><span class="tooltip"><div class="floatleft"><img alt="Poptext bleed.png" src="/images/thumb/a/aa/Poptext_bleed.png/25px-Poptext_bleed.png" decoding="async" loading="lazy" width="25" height="25" data-file-width="64" data-file-height="64"></div> 18.8% Bleed<span class="tooltiptext">. "The effigy lashes out, rejecting the hero!"</span></span>
+  </td></tr>
+  <tr>
+  <td><span class="tooltip"><div class="floatleft"><img alt="Poptext poison.png" src="/images/thumb/8/8e/Poptext_poison.png/25px-Poptext_poison.png" decoding="async" loading="lazy" width="25" height="25" data-file-width="64" data-file-height="64"></div> 9.4% Blight<span class="tooltiptext">. "The effigy lashes out, rejecting the hero!"</span></span>
+  </td></tr>
+  <tr>
+  <td><span class="tooltip"><div class="floatleft"><img alt="Stress.curio tracker.png" src="/images/thumb/a/af/Stress.curio_tracker.png/25px-Stress.curio_tracker.png" decoding="async" loading="lazy" width="25" height="25" data-file-width="32" data-file-height="32"></div> 9.4% Stress +15<span class="tooltiptext">. "The effigy lashes out, rejecting the hero!"</span></span>
+  </td></tr>
+  <tr>
+  <td><span class="tooltip"><div class="floatleft"><img alt="Nothing.curio tracker.png" src="/images/thumb/9/9c/Nothing.curio_tracker.png/25px-Nothing.curio_tracker.png" decoding="async" loading="lazy" width="25" height="25" data-file-width="32" data-file-height="32"></div> 25% Nothing<span class="tooltiptext">. "Any power the effigy once had is now lost."</span></span>
+  </td></tr></tbody></table>
+  </td></tr></tbody></table>

@@ -1,83 +1,386 @@
 [
   {
-    "dungeon": "ruins",
-    "name": "Sarcophagus",
-    "subtext": "Haunted; Reflective; Body.",
-    "description": "An ornate sarcophagus. It is slightly ajar.",
+    "dungeon": "weald",
+    "name": "Ancient Coffin",
+    "subtext": "Haunted; Body",
+    "description": "An old coffin. It is slightly ajar.",
     "location": "rooms",
-    "image": {
-      "src": "Sarcophagus.png",
-      "alt": "Sarcophagus"
-    },
+    "image": "ancient-coffin",
     "cleansing": [],
     "withoutCleansing": [
       {
-        "probability": 60,
-        "outcome": "Gold/Heirlooms x2",
-        "outcomeDescription": "Hidden treasures!",
-        "outcomeImage": {
-          "src": "Currency.portrait.icon.png",
-          "alt": "Currency"
-        }
+        "probability": 0.5,
+        "outcome": "Treasure",
+        "outcomeDescription": "Gold/Heirloom x2. The coffin contains hidden treasures.",
+        "outcomeImage": "loot"
       },
       {
-        "probability": 20,
-        "outcome": "Negative Quirk: Thanatophobia",
-        "outcomeDescription": "The hero contemplates mortality...",
-        "outcomeImage": {
-          "src": "Quirk_neg.curio_tracker.png",
-          "alt": "Negative Quirk"
-        }
+        "probability": 0.083,
+        "outcome": "Positive Quirk: Weald Adventurer",
+        "outcomeDescription": "Findings in the coffin give the hero insight into the nature of this world.",
+        "outcomeImage": "quirk-positive"
       },
       {
-        "probability": 20,
+        "probability": 0.083,
+        "outcome": "Positive Quirk: Weald Explorer",
+        "outcomeDescription": "Findings in the coffin give the hero insight into the nature of this world.",
+        "outcomeImage": "quirk-positive"
+      },
+      {
+        "probability": 0.333,
         "outcome": "Nothing",
-        "outcomeDescription": "",
-        "outcomeImage": {
-          "src": "Nothing.curio_tracker.png",
-          "alt": "Nothing"
-        }
+        "outcomeDescription": "There is nothing of value inside.",
+        "outcomeImage": "nothing"
       }
     ]
   },
   {
-    "dungeon": "ruins",
-    "name": "Suit of Armor",
-    "subtext": "Haunted; Reflective.",
-    "description": "An antique suit of armor stands amidst the ruins.",
+    "dungeon": "weald",
+    "name": "Beast Carcass",
+    "subtext": "Body; Food",
+    "description": "Something has recently mutilated this creature...",
+    "location": "corridors",
+    "image": "beast-carcass",
+    "cleansing": [
+      {
+        "item": "Medicinal Herbs",
+        "itemImage": "medicinal-herbs",
+        "outcome": "Food",
+        "outcomeDescription": "The medicinal herbs rid the carcass of any diseases.",
+        "outcomeImage": "loot"
+      }
+    ],
+    "withoutCleansing": [
+      {
+        "probability": 0.429,
+        "outcome": "Food x1",
+        "outcomeDescription": "There is still some meat on these bones.",
+        "outcomeImage": "loot"
+      },
+      {
+        "probability": 0.095,
+        "outcome": "Disease: Rabies",
+        "outcomeDescription": "Exploring the carcass was not without risk of disease...",
+        "outcomeImage": "disease"
+      },
+      {
+        "probability": 0.19,
+        "outcome": "Random Disease",
+        "outcomeDescription": "Exploring the carcass was not without risk of disease...",
+        "outcomeImage": "disease"
+      },
+      {
+        "probability": 0.143,
+        "outcome": "Negative Quirk: Zoophobia",
+        "outcomeDescription": "The hero is distraught by the sight of the carcass.",
+        "outcomeImage": "quirk-negative"
+      },
+      {
+        "probability": 0.143,
+        "outcome": "Nothing",
+        "outcomeDescription": "The beast has nothing left to offer.",
+        "outcomeImage": "nothing"
+      }
+    ]
+  },
+  {
+    "dungeon": "weald",
+    "name": "Eerie Spiderweb",
+    "subtext": "None",
+    "description": "A spiderweb with a strange glow to it. There might be something behind it.",
+    "location": "corridors",
+    "image": "eerie-spiderweb",
+    "cleansing": [
+      {
+        "item": "Bandage",
+        "itemImage": "bandage",
+        "outcome": "Gold/Gems x2 + Gems/Trinket x1",
+        "outcomeDescription": "The bandages protect the hero's hands during the search.",
+        "outcomeImage": "loot"
+      }
+    ],
+    "withoutCleansing": [
+      {
+        "probability": 0.4,
+        "outcome": "Gold/Gems x1 + Gems/Trinket x1",
+        "outcomeDescription": "",
+        "outcomeImage": "loot"
+      },
+      {
+        "probability": 0.1,
+        "outcome": "Negative Quirk: Slow Reflexes",
+        "outcomeDescription": "The hero is covered in a sticky goo.",
+        "outcomeImage": "quirk-negative"
+      },
+      {
+        "probability": 0.1,
+        "outcome": "Negative Quirk: Slowdraw",
+        "outcomeDescription": "The hero is covered in a sticky goo.",
+        "outcomeImage": "quirk-negative"
+      },
+      {
+        "probability": 0.4,
+        "outcome": "Nothing",
+        "outcomeDescription": "",
+        "outcomeImage": "nothing"
+      }
+    ]
+  },
+  {
+    "dungeon": "weald",
+    "name": "Left Luggage",
+    "subtext": "Treasure; Scrounging",
+    "description": "Someone dropped this recently. Probably on the run. It has a lock on it.",
+    "location": "corridors",
+    "image": "left-luggage",
+    "cleansing": [
+      {
+        "item": "Skeleton Key",
+        "itemImage": "skeleton-key",
+        "outcome": "Any Loot x3",
+        "outcomeDescription": "The Skeleton Key unlocks a hidden compartment.",
+        "outcomeImage": "loot"
+      },
+      {
+        "item": "Antivenom",
+        "itemImage": "antivenom",
+        "outcome": "Any Loot x3",
+        "outcomeDescription": "The antivenom neutralizes a poison trap in a hidden compartment!",
+        "outcomeImage": "loot"
+      }
+    ],
+    "withoutCleansing": [
+      {
+        "probability": 0.5,
+        "outcome": "Any Loot x4 + Journal Entry",
+        "outcomeDescription": "The luggage clearly shouldn't have been abandoned. Valuables inside!",
+        "outcomeImage": "loot"
+      },
+      {
+        "probability": 0.5,
+        "outcome": "Blight",
+        "outcomeDescription": "It's trapped!",
+        "outcomeImage": "blight"
+      }
+    ]
+  },
+  {
+    "dungeon": "weald",
+    "name": "Mummified Remains",
+    "subtext": "Body; Haunted; Unholy",
+    "description": "Ancient remains. The body looks well preserved.",
+    "location": "corridors",
+    "image": "mummified-remains",
+    "cleansing": [
+      {
+        "item": "Bandage",
+        "itemImage": "bandage",
+        "outcome": "Gold/Trinkets x2",
+        "outcomeDescription": "A bandage provides protection for a thorough search!",
+        "outcomeImage": "loot"
+      }
+    ],
+    "withoutCleansing": [
+      {
+        "probability": 0.4,
+        "outcome": "Gold/Trinkets x1",
+        "outcomeDescription": "Treasures are encased within the remains.",
+        "outcomeImage": "loot"
+      },
+      {
+        "probability": 0.4,
+        "outcome": "Blight",
+        "outcomeDescription": "",
+        "outcomeImage": "blight"
+      },
+      {
+        "probability": 0.2,
+        "outcome": "Nothing",
+        "outcomeDescription": "",
+        "outcomeImage": "nothing"
+      }
+    ]
+  },
+  {
+    "dungeon": "weald",
+    "name": "Old Tree",
+    "subtext": "Scrounging",
+    "description": "This tree has a huge hole in the trunk. Perhaps there's something inside...",
+    "location": "corridors",
+    "image": "old-tree",
+    "cleansing": [
+      {
+        "item": "Antivenom",
+        "itemImage": "antivenom",
+        "outcome": "Any Loot x3",
+        "outcomeDescription": "The antivenom protects against the poisonous sap, allowing a thorough search...",
+        "outcomeImage": "loot"
+      }
+    ],
+    "withoutCleansing": [
+      {
+        "probability": 0.5,
+        "outcome": "Any Loot x2",
+        "outcomeDescription": "Someone couldn't resist stashing treasures inside.",
+        "outcomeImage": "loot"
+      },
+      {
+        "probability": 0.25,
+        "outcome": "Blight",
+        "outcomeDescription": "The hero is covered in poisonous sap.",
+        "outcomeImage": "blight"
+      },
+      {
+        "probability": 0.25,
+        "outcome": "Nothing",
+        "outcomeDescription": "Sometimes a tree is just a tree.",
+        "outcomeImage": "nothing"
+      }
+    ]
+  },
+  {
+    "dungeon": "weald",
+    "name": "Pristine Fountain",
+    "subtext": "Fountain",
+    "description": "A beautiful fountain. It looks unaffected by the surrounding chaos.",
     "location": "rooms",
-    "image": {
-      "src": "Suit_of_Armor.png",
-      "alt": "Suit of Armor"
-    },
+    "image": "pristine-fountain",
+    "cleansing": [
+      {
+        "item": "Holy Water",
+        "itemImage": "holy-water",
+        "outcome": "Stress Heal 30",
+        "outcomeDescription": "",
+        "outcomeImage": "stress-heal"
+      }
+    ],
+    "withoutCleansing": [
+      {
+        "probability": 1,
+        "outcome": "Stress Heal 20",
+        "outcomeDescription": "The fountain reinvigorates the hero.",
+        "outcomeImage": "stress-heal"
+      }
+    ]
+  },
+  {
+    "dungeon": "weald",
+    "name": "Shallow Grave",
+    "subtext": "Body; Haunted; Scrounging",
+    "description": "A grave, dug in haste.",
+    "location": "corridors",
+    "image": "shallow-grave",
+    "cleansing": [
+      {
+        "item": "Shovel",
+        "itemImage": "shovel",
+        "outcome": "Gems/Heirlooms x3",
+        "outcomeDescription": "Looks like grave robbing pays off sometimes!",
+        "outcomeImage": "loot"
+      }
+    ],
+    "withoutCleansing": [
+      {
+        "probability": 0.5,
+        "outcome": "Blight",
+        "outcomeDescription": "Gravedigging is not the healthiest of professions...",
+        "outcomeImage": "blight"
+      },
+      {
+        "probability": 0.5,
+        "outcome": "Random Disease",
+        "outcomeDescription": "Grave digging is not the healthiest of professions...",
+        "outcomeImage": "disease"
+      }
+    ]
+  },
+  {
+    "dungeon": "weald",
+    "name": "Traveler's Tent",
+    "subtext": "Scrounging",
+    "description": "Someone has camped here recently.",
+    "location": "rooms",
+    "image": "travelers-tent",
     "cleansing": [],
     "withoutCleansing": [
       {
-        "probability": 75,
-        "outcome": "Buff PROT +15% /DODGE +10 Until Camp",
-        "outcomeDescription": "The armor protects the hero with a knightly aura.",
-        "outcomeImage": {
-          "src": "Buff.curio_tracker.png",
-          "alt": "Buff"
-        }
+        "probability": 0.375,
+        "outcome": "Gold/Supplies x4 + Gold/Heirlooms x4 + Journal Entry",
+        "outcomeDescription": "Someone left valuables inside the tent.",
+        "outcomeImage": "loot"
       },
       {
-        "probability": 12.5,
-        "outcome": "Positive Quirk: Ruins Adventurer",
-        "outcomeDescription": "",
-        "outcomeImage": {
-          "src": "Quirk_pos.curio_tracker.png",
-          "alt": "Positive Quirk"
-        }
+        "probability": 0.375,
+        "outcome": "Scouting",
+        "outcomeDescription": "A map of the area is found inside the tent.",
+        "outcomeImage": "scouting"
       },
       {
-        "probability": 12.5,
-        "outcome": "Positive Quirk: Ruins Tactician",
-        "outcomeDescription": "",
-        "outcomeImage": {
-          "src": "Quirk_pos.curio_tracker.png",
-          "alt": "Positive Quirk"
-        }
+        "probability": 0.125,
+        "outcome": "Stress +25",
+        "outcomeDescription": "The fate of the tent's occupant is found inside...",
+        "outcomeImage": "stress"
+      },
+      {
+        "probability": 0.125,
+        "outcome": "Nothing",
+        "outcomeDescription": "Nothing is left inside the tent.",
+        "outcomeImage": "nothing"
+      }
+    ]
+  },
+  {
+    "dungeon": "weald",
+    "name": "Troubling Effigy",
+    "subtext": "Unholy; Worship",
+    "description": "An unsettling effigy erected in service to a mysterious god.",
+    "location": "corridors",
+    "image": "troubling-effigy",
+    "cleansing": [
+      {
+        "item": "Holy Water",
+        "itemImage": "holy-water",
+        "outcome": "Random Positive Quirk",
+        "outcomeDescription": "The holy water has a powerful effect!",
+        "outcomeImage": "quirk-positive"
+      }
+    ],
+    "withoutCleansing": [
+      {
+        "probability": 0.188,
+        "outcome": "Random Positive Quirk",
+        "outcomeDescription": "The effigy imbues the hero with energy...",
+        "outcomeImage": "quirk-positive"
+      },
+      {
+        "probability": 0.188,
+        "outcome": "Random Negative Quirk",
+        "outcomeDescription": "The effigy imbues the hero with energy...",
+        "outcomeImage": "quirk-negative"
+      },
+      {
+        "probability": 0.188,
+        "outcome": "Bleed",
+        "outcomeDescription": "The effigy lashes out, rejecting the hero!",
+        "outcomeImage": "bleed"
+      },
+      {
+        "probability": 0.094,
+        "outcome": "Blight",
+        "outcomeDescription": "The effigy lashes out, rejecting the hero!",
+        "outcomeImage": "blight"
+      },
+      {
+        "probability": 0.094,
+        "outcome": "Stress +15",
+        "outcomeDescription": "The effigy lashes out, rejecting the hero!",
+        "outcomeImage": "stress"
+      },
+      {
+        "probability": 0.25,
+        "outcome": "Nothing",
+        "outcomeDescription": "Any power the effigy once had is now lost.",
+        "outcomeImage": "nothing"
       }
     ]
   }
