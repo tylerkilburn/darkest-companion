@@ -32,6 +32,7 @@ import negativeQuirkAddImage from "../public/image/negative-quirk-add.png"
 import negativeQuirkRemovalImage from "../public/image/negative-quirk-removal.png"
 import positiveQuirkAddImage from "../public/image/positive-quirk-add.png"
 import sackImage from "../public/image/sack.png"
+import sarcophagusImage from "../public/image/sarcophagus.png"
 import shamblersAltarImage from "../public/image/shamblers-altar.png"
 import summonImage from "../public/image/summon.png"
 import sconceImage from "../public/image/sconce.png"
@@ -93,6 +94,7 @@ const IMAGE: Record<ImageKeyType, string> = {
   NOTHING: nothingImage.src,
   POSITIVE_QUIRK_ADD: positiveQuirkAddImage.src,
   SACK: sackImage.src,
+  SARCOPHAGUS: sarcophagusImage.src,
   SCONCE: sconceImage.src,
   SCOUTING: scoutingImage.src,
   SHAMBLERS_ALTAR: shamblersAltarImage.src,
@@ -1477,6 +1479,36 @@ const CURIOS: ICurio[] = [
         outcomeDescription: "It's trapped!",
         outcomeImage: IMAGE.BLIGHT,
         probability: 0.5,
+      },
+    ],
+  },
+
+  {
+    dungeon: DUNGEON.RUINS,
+    name: "Sarcophagus",
+    subtext: "Haunted; Reflective; Body.",
+    description: "An ornate sarcophagus. It is slightly ajar.",
+    location: CURIO_LOCATION.ROOM,
+    image: IMAGE.SARCOPHAGUS,
+    cleansing: [],
+    withoutCleansing: [
+      {
+        outcome: "Gold/Heirlooms x2",
+        outcomeDescription: "Hidden treasures!",
+        outcomeImage: IMAGE.HEIRLOOM,
+        probability: 0.6,
+      },
+      {
+        outcome: "Negative Quirk: Thanatophobia",
+        outcomeDescription: "The hero contemplates mortality...",
+        outcomeImage: IMAGE.NEGATIVE_QUIRK_ADD,
+        probability: 0.2,
+      },
+      {
+        outcome: "Nothing",
+        outcomeDescription: "",
+        outcomeImage: IMAGE.NOTHING,
+        probability: 0.2,
       },
     ],
   },

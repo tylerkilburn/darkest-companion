@@ -120,6 +120,7 @@ export type ImageKeyType =
   | "NOTHING"
   | "POSITIVE_QUIRK_ADD"
   | "SACK"
+  | "SARCOPHAGUS"
   | "SCONCE"
   | "SCOUTING"
   | "SHAMBLERS_ALTAR"
