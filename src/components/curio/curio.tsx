@@ -1,6 +1,5 @@
 import { ICurio, ImageType } from "@/src/types"
 import styles from "./curio.module.scss"
-import { CONFIG } from "@config"
 import type { FC } from "react"
 import { formatPercent } from "@utils/format"
 

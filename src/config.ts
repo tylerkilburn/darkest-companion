@@ -16,6 +16,7 @@ import dogTreatsImage from "../public/image/dog-treats.png"
 import eldritchAlterImage from "../public/image/eldritch-alter.png"
 import firewoodImage from "../public/image/firewood.png"
 import foodImage from "../public/image/food.png"
+import holyFountainImage from "../public/image/holy-fountain.png"
 import goldImage from "../public/image/gold.png"
 import journalEntry from "../public/image/journal-entry.png"
 import portraitImage from "../public/image/portrait.png"
@@ -74,8 +75,9 @@ const IMAGE: Record<ImageKeyType, string> = {
   FIREWOOD: firewoodImage.src,
   FOOD: foodImage.src,
   GOLD: goldImage.src,
-  HEIRLOOM: portraitImage.src,
   HEIRLOOM_CHEST: heirloomChestImage.src,
+  HEIRLOOM: portraitImage.src,
+  HOLY_FOUNTAIN: holyFountainImage.src,
   HOLY_WATER: holyWaterImage.src,
   JOURNAL_ENTRY: journalEntry.src,
   LAUDANUM: laudanumImage.src,
@@ -1312,6 +1314,40 @@ const CURIOS: ICurio[] = [
       },
     ],
   },
+  {
+    dungeon: DUNGEON.RUINS,
+    name: "Holy Fountain",
+    subtext: "Fountain; Worship.",
+    description: "An ornate fountain of holy purport.",
+    location: CURIO_LOCATION.ROOM,
+    image: IMAGE.HOLY_FOUNTAIN,
+    cleansing: [
+      {
+        item: "Holy Water",
+        itemImage: IMAGE.HOLY_WATER,
+        outcome: "Stress Heal 20, Cure Status Effects, Heal 12 HP",
+        outcomeDescription: "Divine benefit!",
+        outcomeImage: IMAGE.STRESS_HEAL,
+      },
+    ],
+    withoutCleansing: [
+      {
+        probability: 50,
+        outcome: "Stress Heal 10, Cure Status Effects, Heal 5 HP",
+        outcomeDescription: "",
+        outcomeImage: IMAGE.STRESS_HEAL,
+      },
+      {
+        probability: 50,
+        outcome: "Gold/Gems x2",
+        outcomeDescription:
+          "Propitiations are found at the bottom of the fountain.",
+        outcomeImage: IMAGE.GOLD,
+      },
+    ],
+  },
+
+  
 ]
 
 interface IConfig {

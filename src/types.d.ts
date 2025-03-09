@@ -107,6 +107,7 @@ export type ImageKeyType =
   | "GOLD"
   | "HEIRLOOM"
   | "HEIRLOOM_CHEST"
+  | "HOLY_FOUNTAIN"
   | "HOLY_WATER"
   | "JOURNAL_ENTRY"
   | "LAUDANUM"
