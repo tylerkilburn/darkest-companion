@@ -4,6 +4,7 @@ import altarOfLightImage from "../public/image/altar-of-light.png"
 import ancientCoffinImage from "../public/image/ancient-coffin.png"
 import antivenomImage from "../public/image/antivenom.png"
 import bandageImage from "../public/image/bandage.png"
+import beastCarcassImage from "../public/image/beast-carcass.png"
 import bleedImage from "../public/image/bleed.png"
 import blightImage from "../public/image/blight.png"
 import bookshelfImage from "../public/image/bookshelf.png"
@@ -34,6 +35,7 @@ import mummifiedRemainsImage from "../public/image/mummified-remains.png"
 import nothingImage from "../public/image/nothing.png"
 import negativeQuirkAddImage from "../public/image/negative-quirk-add.png"
 import negativeQuirkRemovalImage from "../public/image/negative-quirk-removal.png"
+import oldTreeImage from "../public/image/old-tree.png"
 import positiveQuirkAddImage from "../public/image/positive-quirk-add.png"
 import sackImage from "../public/image/sack.png"
 import sarcophagusImage from "../public/image/sarcophagus.png"
@@ -71,6 +73,7 @@ const IMAGE: Record<ImageKeyType, string> = {
   ANCIENT_COFFIN: ancientCoffinImage.src,
   ANTIVENOM: antivenomImage.src,
   BANDAGE: bandageImage.src,
+  BEAST_CARCASS: beastCarcassImage.src,
   BLEED: bleedImage.src,
   BLIGHT: blightImage.src,
   BOOKSHELF: bookshelfImage.src,
@@ -86,11 +89,11 @@ const IMAGE: Record<ImageKeyType, string> = {
   FIREWOOD: firewoodImage.src,
   FOOD: foodImage.src,
   GOLD: goldImage.src,
-  HEIRLOOM_CHEST: heirloomChestImage.src,
   HEIRLOOM: portraitImage.src,
+  HEIRLOOM_CHEST: heirloomChestImage.src,
   HOLY_FOUNTAIN: holyFountainImage.src,
-  IRON_MAIDEN: ironMaidenImage.src,
   HOLY_WATER: holyWaterImage.src,
+  IRON_MAIDEN: ironMaidenImage.src,
   JOURNAL_ENTRY: journalEntry.src,
   LAUDANUM: laudanumImage.src,
   LEFT_LUGGAGE: leftLuggageImage.src,
@@ -101,6 +104,7 @@ const IMAGE: Record<ImageKeyType, string> = {
   NEGATIVE_QUIRK_ADD: negativeQuirkAddImage.src,
   NEGATIVE_QUIRK_REMOVAL: negativeQuirkRemovalImage.src,
   NOTHING: nothingImage.src,
+  OLD_TREE: oldTreeImage.src,
   POSITIVE_QUIRK_ADD: positiveQuirkAddImage.src,
   SACK: sackImage.src,
   SARCOPHAGUS: sarcophagusImage.src,
@@ -1593,7 +1597,7 @@ const CURIOS: ICurio[] = [
     subtext: "Body; Food",
     description: "Something has recently mutilated this creature...",
     location: CURIO_LOCATION.CORRIDOR,
-    image: "beast-carcass",
+    image: IMAGE.BEAST_CARCASS,
     cleansing: [
       {
         item: "Medicinal Herbs",
@@ -1726,7 +1730,6 @@ const CURIOS: ICurio[] = [
       },
     ],
   },
-
   {
     dungeon: DUNGEON.WEALD,
     name: "Mummified Remains",
@@ -1762,6 +1765,46 @@ const CURIOS: ICurio[] = [
         outcomeDescription: "",
         outcomeImage: IMAGE.NOTHING,
         probability: 0.2,
+      },
+    ],
+  },
+  {
+    dungeon: DUNGEON.WEALD,
+    name: "Old Tree",
+    subtext: "Scrounging",
+    description:
+      "This tree has a huge hole in the trunk. Perhaps there's something inside...",
+    location: CURIO_LOCATION.CORRIDOR,
+    image: IMAGE.OLD_TREE,
+    cleansing: [
+      {
+        item: "Antivenom",
+        itemImage: IMAGE.ANTIVENOM,
+        outcome: "Any Loot x3",
+        outcomeDescription:
+          "The antivenom protects against the poisonous sap, allowing a thorough search...",
+        outcomeImage: IMAGE.GOLD
+      },
+    ],
+    withoutCleansing: [
+      {
+        outcome: "Any Loot x2",
+        outcomeDescription:
+          "Someone couldn't resist stashing treasures inside.",
+        outcomeImage: IMAGE.GOLD,
+        probability: 0.5,
+      },
+      {
+        outcome: "Blight",
+        outcomeDescription: "The hero is covered in poisonous sap.",
+        outcomeImage: IMAGE.BLIGHT,
+        probability: 0.25,
+      },
+      {
+        outcome: "Nothing",
+        outcomeDescription: "Sometimes a tree is just a tree.",
+        outcomeImage: IMAGE.NOTHING,
+        probability: 0.25,
       },
     ],
   },
