@@ -24,6 +24,7 @@ import portraitImage from "../public/image/portrait.png"
 import heirloomChestImage from "../public/image/heirloom-chest.png"
 import holyWaterImage from "../public/image/holy-water.png"
 import laudanumImage from "../public/image/laudanum.png"
+import lockedDisplayCabinetImage from "../public/image/locked-display-cabinet.png"
 import medicinalHerbsImage from "../public/image/medicinal-herbs.png"
 import nothingImage from "../public/image/nothing.png"
 import negativeQuirkAddImage from "../public/image/negative-quirk-add.png"
@@ -83,6 +84,7 @@ const IMAGE: Record<ImageKeyType, string> = {
   HOLY_WATER: holyWaterImage.src,
   JOURNAL_ENTRY: journalEntry.src,
   LAUDANUM: laudanumImage.src,
+  LOCKED_DISPLAY_CABINET: lockedDisplayCabinetImage.src,
   MEDICINAL_HERBS: medicinalHerbsImage.src,
   NEGATIVE_QUIRK_ADD: negativeQuirkAddImage.src,
   NEGATIVE_QUIRK_REMOVAL: negativeQuirkRemovalImage.src,
@@ -1395,6 +1397,46 @@ const CURIOS: ICurio[] = [
         outcomeDescription: "",
         outcomeImage: IMAGE.NOTHING,
         probability: 0.2,
+      },
+    ],
+  },
+
+  {
+    dungeon: DUNGEON.RUINS,
+    name: "Locked Display Cabinet",
+    subtext: "Treasure; Scrounging.",
+    description:
+      "There could be valuables left inside, but this cabinet is locked.",
+    location: CURIO_LOCATION.CORRIDOR,
+    image: IMAGE.LOCKED_DISPLAY_CABINET,
+    cleansing: [
+      {
+        item: "Skeleton Key",
+        itemImage: IMAGE.SKELETON_KEY,
+        outcome: "Gold/Heirlooms x3 + Gold/Gems x2",
+        outcomeDescription: "Treasures are stashed in the cabinet!",
+        outcomeImage: IMAGE.HEIRLOOM,
+      },
+      {
+        item: "Shovel",
+        itemImage: IMAGE.SHOVEL,
+        outcome: "Gold/Heirlooms x2 + Gold/Gems x2",
+        outcomeDescription: "Smashed the cabinet open...",
+        outcomeImage: IMAGE.HEIRLOOM,
+      },
+    ],
+    withoutCleansing: [
+      {
+        outcome: "Bleed",
+        outcomeDescription: "It's trapped!",
+        outcomeImage: IMAGE.BLEED,
+        probability: 0.5,
+      },
+      {
+        outcome: "Blight",
+        outcomeDescription: "It's trapped!",
+        outcomeImage: IMAGE.BLIGHT,
+        probability: 0.5,
       },
     ],
   },
