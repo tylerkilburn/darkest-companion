@@ -30,6 +30,7 @@ import leftLuggageImage from "../public/image/left-luggage.png"
 import lockedDisplayCabinetImage from "../public/image/locked-display-cabinet.png"
 import lockedSarcophagusImage from "../public/image/locked-sarcophagus.png"
 import medicinalHerbsImage from "../public/image/medicinal-herbs.png"
+import mummifiedRemainsImage from "../public/image/mummified-remains.png"
 import nothingImage from "../public/image/nothing.png"
 import negativeQuirkAddImage from "../public/image/negative-quirk-add.png"
 import negativeQuirkRemovalImage from "../public/image/negative-quirk-removal.png"
@@ -96,6 +97,7 @@ const IMAGE: Record<ImageKeyType, string> = {
   LOCKED_DISPLAY_CABINET: lockedDisplayCabinetImage.src,
   LOCKED_SARCOPHAGUS: lockedSarcophagusImage.src,
   MEDICINAL_HERBS: medicinalHerbsImage.src,
+  MUMMIFIED_REMAINS: mummifiedRemainsImage.src,
   NEGATIVE_QUIRK_ADD: negativeQuirkAddImage.src,
   NEGATIVE_QUIRK_REMOVAL: negativeQuirkRemovalImage.src,
   NOTHING: nothingImage.src,
@@ -1034,7 +1036,6 @@ const CURIOS: ICurio[] = [
       },
     ],
   },
-
   {
     dungeon: DUNGEON.ANY,
     name: "Stack of Books",
@@ -1722,6 +1723,45 @@ const CURIOS: ICurio[] = [
         outcomeDescription: "It's trapped!",
         outcomeImage: IMAGE.BLIGHT,
         probability: 0.5,
+      },
+    ],
+  },
+
+  {
+    dungeon: DUNGEON.WEALD,
+    name: "Mummified Remains",
+    subtext: "Body; Haunted; Unholy",
+    description: "Ancient remains. The body looks well preserved.",
+    location: CURIO_LOCATION.CORRIDOR,
+    image: IMAGE.MUMMIFIED_REMAINS,
+    cleansing: [
+      {
+        item: "Bandage",
+        itemImage: IMAGE.BANDAGE,
+        outcome: "Gold/Trinkets x2",
+        outcomeDescription:
+          "A bandage provides protection for a thorough search!",
+        outcomeImage: IMAGE.GOLD,
+      },
+    ],
+    withoutCleansing: [
+      {
+        outcome: "Gold/Trinkets x1",
+        outcomeDescription: "Treasures are encased within the remains.",
+        outcomeImage: IMAGE.GOLD,
+        probability: 0.4,
+      },
+      {
+        outcome: "Blight",
+        outcomeDescription: "",
+        outcomeImage: IMAGE.BLIGHT,
+        probability: 0.4,
+      },
+      {
+        outcome: "Nothing",
+        outcomeDescription: "",
+        outcomeImage: IMAGE.NOTHING,
+        probability: 0.2,
       },
     ],
   },

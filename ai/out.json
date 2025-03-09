@@ -1,44 +1,6 @@
 [
   {
     "dungeon": "weald",
-    "name": "Left Luggage",
-    "subtext": "Treasure; Scrounging",
-    "description": "Someone dropped this recently. Probably on the run. It has a lock on it.",
-    "location": "corridors",
-    "image": "left-luggage",
-    "cleansing": [
-      {
-        "item": "Skeleton Key",
-        "itemImage": "skeleton-key",
-        "outcome": "Any Loot x3",
-        "outcomeDescription": "The Skeleton Key unlocks a hidden compartment.",
-        "outcomeImage": "loot"
-      },
-      {
-        "item": "Antivenom",
-        "itemImage": "antivenom",
-        "outcome": "Any Loot x3",
-        "outcomeDescription": "The antivenom neutralizes a poison trap in a hidden compartment!",
-        "outcomeImage": "loot"
-      }
-    ],
-    "withoutCleansing": [
-      {
-        "probability": 0.5,
-        "outcome": "Any Loot x4 + Journal Entry",
-        "outcomeDescription": "The luggage clearly shouldn't have been abandoned. Valuables inside!",
-        "outcomeImage": "loot"
-      },
-      {
-        "probability": 0.5,
-        "outcome": "Blight",
-        "outcomeDescription": "It's trapped!",
-        "outcomeImage": "blight"
-      }
-    ]
-  },
-  {
-    "dungeon": "weald",
     "name": "Mummified Remains",
     "subtext": "Body; Haunted; Unholy",
     "description": "Ancient remains. The body looks well preserved.",
