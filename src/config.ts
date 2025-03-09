@@ -38,6 +38,7 @@ import summonImage from "../public/image/summon.png"
 import sconceImage from "../public/image/sconce.png"
 import scoutingImage from "../public/image/scouting.png"
 import shovelImage from "../public/image/shovel.png"
+import suitOfArmorImage from "../public/image/suit-of-armor.png"
 import skeletonKeyImage from "../public/image/skeleton-key.png"
 import stackOfBooksImage from "../public/image/stack-of-books.png"
 import stressImage from "../public/image/stress.png"
@@ -101,8 +102,9 @@ const IMAGE: Record<ImageKeyType, string> = {
   SHOVEL: shovelImage.src,
   SKELETON_KEY: skeletonKeyImage.src,
   STACK_OF_BOOKS: stackOfBooksImage.src,
-  STRESS: stressImage.src,
   STRESS_HEAL: stressHealImage.src,
+  STRESS: stressImage.src,
+  SUIT_OF_ARMOR: suitOfArmorImage.src,
   SUMMON: summonImage.src,
   TORCH: torchImage.src,
   TORCH_UP: torchUpImage.src,
@@ -1482,7 +1484,6 @@ const CURIOS: ICurio[] = [
       },
     ],
   },
-
   {
     dungeon: DUNGEON.RUINS,
     name: "Sarcophagus",
@@ -1509,6 +1510,35 @@ const CURIOS: ICurio[] = [
         outcomeDescription: "",
         outcomeImage: IMAGE.NOTHING,
         probability: 0.2,
+      },
+    ],
+  },
+  {
+    dungeon: DUNGEON.RUINS,
+    name: "Suit of Armor",
+    subtext: "Haunted; Reflective.",
+    description: "An antique suit of armor stands amidst the ruins.",
+    location: CURIO_LOCATION.ROOM,
+    image: IMAGE.SUIT_OF_ARMOR,
+    cleansing: [],
+    withoutCleansing: [
+      {
+        outcome: "Buff PROT +15% /DODGE +10 Until Camp",
+        outcomeDescription: "The armor protects the hero with a knightly aura.",
+        outcomeImage: IMAGE.BUFF,
+        probability: 0.75,
+      },
+      {
+        outcome: "Positive Quirk: Ruins Adventurer",
+        outcomeDescription: "",
+        outcomeImage: IMAGE.POSITIVE_QUIRK_ADD,
+        probability: 0.125,
+      },
+      {
+        outcome: "Positive Quirk: Ruins Tactician",
+        outcomeDescription: "",
+        outcomeImage: IMAGE.POSITIVE_QUIRK_ADD,
+        probability: 0.125,
       },
     ],
   },
