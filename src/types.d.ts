@@ -102,6 +102,7 @@ export type ImageKeyType =
   | "DISCARDED_PACK"
   | "DISEASE"
   | "DOG_TREATS"
+  | "EERIE_SPIDERWEB"
   | "ELDRITCH_ALTER"
   | "FIREWOOD"
   | "FOOD"

@@ -14,6 +14,7 @@ import decorativeUrnImage from "../public/image/decorative-urn.png"
 import discardedPackImage from "../public/image/discarded-pack.png"
 import diseaseImages from "../public/image/disease.png"
 import dogTreatsImage from "../public/image/dog-treats.png"
+import eerieSpiderwebImage from "../public/image/eerie-spiderweb.png"
 import eldritchAlterImage from "../public/image/eldritch-alter.png"
 import firewoodImage from "../public/image/firewood.png"
 import foodImage from "../public/image/food.png"
@@ -78,6 +79,7 @@ const IMAGE: Record<ImageKeyType, string> = {
   DISCARDED_PACK: discardedPackImage.src,
   DISEASE: diseaseImages.src,
   DOG_TREATS: dogTreatsImage.src,
+  EERIE_SPIDERWEB: eerieSpiderwebImage.src,
   ELDRITCH_ALTER: eldritchAlterImage.src,
   FIREWOOD: firewoodImage.src,
   FOOD: foodImage.src,
@@ -1632,6 +1634,51 @@ const CURIOS: ICurio[] = [
         outcomeDescription: "The beast has nothing left to offer.",
         outcomeImage: IMAGE.NOTHING,
         probability: 0.143,
+      },
+    ],
+  },
+  {
+    dungeon: DUNGEON.WEALD,
+    name: "Eerie Spiderweb",
+    subtext: "None",
+    description:
+      "A spiderweb with a strange glow to it. There might be something behind it.",
+    location: CURIO_LOCATION.CORRIDOR,
+    image: IMAGE.EERIE_SPIDERWEB,
+    cleansing: [
+      {
+        item: "Bandage",
+        itemImage: "bandage",
+        outcome: "Gold/Gems x2 + Gems/Trinket x1",
+        outcomeDescription:
+          "The bandages protect the hero's hands during the search.",
+        outcomeImage: IMAGE.GOLD
+      },
+    ],
+    withoutCleansing: [
+      {
+        outcome: "Gold/Gems x1 + Gems/Trinket x1",
+        outcomeDescription: "",
+        outcomeImage: IMAGE.GOLD,
+        probability: 0.4,
+      },
+      {
+        outcome: "Negative Quirk: Slow Reflexes",
+        outcomeDescription: "The hero is covered in a sticky goo.",
+        outcomeImage: IMAGE.NEGATIVE_QUIRK_ADD,
+        probability: 0.1,
+      },
+      {
+        outcome: "Negative Quirk: Slowdraw",
+        outcomeDescription: "The hero is covered in a sticky goo.",
+        outcomeImage: IMAGE.NEGATIVE_QUIRK_ADD,
+        probability: 0.1,
+      },
+      {
+        outcome: "Nothing",
+        outcomeDescription: "",
+        outcomeImage: IMAGE.NOTHING,
+        probability: 0.4,
       },
     ],
   },
