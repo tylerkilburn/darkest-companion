@@ -26,6 +26,7 @@ import portraitImage from "../public/image/portrait.png"
 import heirloomChestImage from "../public/image/heirloom-chest.png"
 import holyWaterImage from "../public/image/holy-water.png"
 import laudanumImage from "../public/image/laudanum.png"
+import leftLuggageImage from "../public/image/left-luggage.png"
 import lockedDisplayCabinetImage from "../public/image/locked-display-cabinet.png"
 import lockedSarcophagusImage from "../public/image/locked-sarcophagus.png"
 import medicinalHerbsImage from "../public/image/medicinal-herbs.png"
@@ -91,6 +92,7 @@ const IMAGE: Record<ImageKeyType, string> = {
   HOLY_WATER: holyWaterImage.src,
   JOURNAL_ENTRY: journalEntry.src,
   LAUDANUM: laudanumImage.src,
+  LEFT_LUGGAGE: leftLuggageImage.src,
   LOCKED_DISPLAY_CABINET: lockedDisplayCabinetImage.src,
   LOCKED_SARCOPHAGUS: lockedSarcophagusImage.src,
   MEDICINAL_HERBS: medicinalHerbsImage.src,
@@ -1594,7 +1596,7 @@ const CURIOS: ICurio[] = [
     cleansing: [
       {
         item: "Medicinal Herbs",
-        itemImage: "medicinal-herbs",
+        itemImage: IMAGE.MEDICINAL_HERBS,
         outcome: "Food",
         outcomeDescription:
           "The medicinal herbs rid the carcass of any diseases.",
@@ -1648,11 +1650,11 @@ const CURIOS: ICurio[] = [
     cleansing: [
       {
         item: "Bandage",
-        itemImage: "bandage",
+        itemImage: IMAGE.BANDAGE,
         outcome: "Gold/Gems x2 + Gems/Trinket x1",
         outcomeDescription:
           "The bandages protect the hero's hands during the search.",
-        outcomeImage: IMAGE.GOLD
+        outcomeImage: IMAGE.GOLD,
       },
     ],
     withoutCleansing: [
@@ -1679,6 +1681,47 @@ const CURIOS: ICurio[] = [
         outcomeDescription: "",
         outcomeImage: IMAGE.NOTHING,
         probability: 0.4,
+      },
+    ],
+  },
+  {
+    dungeon: DUNGEON.WEALD,
+    name: "Left Luggage",
+    subtext: "Treasure; Scrounging",
+    description:
+      "Someone dropped this recently. Probably on the run. It has a lock on it.",
+    location: CURIO_LOCATION.CORRIDOR,
+    image: IMAGE.LEFT_LUGGAGE,
+    cleansing: [
+      {
+        item: "Skeleton Key",
+        itemImage: IMAGE.SKELETON_KEY,
+        outcome: "Any Loot x3",
+        outcomeDescription: "The Skeleton Key unlocks a hidden compartment.",
+        outcomeImage: IMAGE.GOLD,
+      },
+      {
+        item: "Antivenom",
+        itemImage: IMAGE.ANTIVENOM,
+        outcome: "Any Loot x3",
+        outcomeDescription:
+          "The antivenom neutralizes a poison trap in a hidden compartment!",
+        outcomeImage: IMAGE.GOLD,
+      },
+    ],
+    withoutCleansing: [
+      {
+        outcome: "Any Loot x4 + Journal Entry",
+        outcomeDescription:
+          "The luggage clearly shouldn't have been abandoned. Valuables inside!",
+        outcomeImage: IMAGE.GOLD,
+        probability: 0.5,
+      },
+      {
+        outcome: "Blight",
+        outcomeDescription: "It's trapped!",
+        outcomeImage: IMAGE.BLIGHT,
+        probability: 0.5,
       },
     ],
   },
