@@ -25,6 +25,7 @@ import heirloomChestImage from "../public/image/heirloom-chest.png"
 import holyWaterImage from "../public/image/holy-water.png"
 import laudanumImage from "../public/image/laudanum.png"
 import lockedDisplayCabinetImage from "../public/image/locked-display-cabinet.png"
+import lockedSarcophagusImage from "../public/image/locked-sarcophagus.png"
 import medicinalHerbsImage from "../public/image/medicinal-herbs.png"
 import nothingImage from "../public/image/nothing.png"
 import negativeQuirkAddImage from "../public/image/negative-quirk-add.png"
@@ -85,6 +86,7 @@ const IMAGE: Record<ImageKeyType, string> = {
   JOURNAL_ENTRY: journalEntry.src,
   LAUDANUM: laudanumImage.src,
   LOCKED_DISPLAY_CABINET: lockedDisplayCabinetImage.src,
+  LOCKED_SARCOPHAGUS: lockedSarcophagusImage.src,
   MEDICINAL_HERBS: medicinalHerbsImage.src,
   NEGATIVE_QUIRK_ADD: negativeQuirkAddImage.src,
   NEGATIVE_QUIRK_REMOVAL: negativeQuirkRemovalImage.src,
@@ -1400,7 +1402,6 @@ const CURIOS: ICurio[] = [
       },
     ],
   },
-
   {
     dungeon: DUNGEON.RUINS,
     name: "Locked Display Cabinet",
@@ -1422,6 +1423,45 @@ const CURIOS: ICurio[] = [
         itemImage: IMAGE.SHOVEL,
         outcome: "Gold/Heirlooms x2 + Gold/Gems x2",
         outcomeDescription: "Smashed the cabinet open...",
+        outcomeImage: IMAGE.HEIRLOOM,
+      },
+    ],
+    withoutCleansing: [
+      {
+        outcome: "Bleed",
+        outcomeDescription: "It's trapped!",
+        outcomeImage: IMAGE.BLEED,
+        probability: 0.5,
+      },
+      {
+        outcome: "Blight",
+        outcomeDescription: "It's trapped!",
+        outcomeImage: IMAGE.BLIGHT,
+        probability: 0.5,
+      },
+    ],
+  },
+  {
+    dungeon: DUNGEON.RUINS,
+    name: "Locked Sarcophagus",
+    subtext: "Haunted; Reflective.",
+    description: "An ornate sarcophagus. It's locked.",
+    location: CURIO_LOCATION.ROOM,
+    image: IMAGE.LOCKED_SARCOPHAGUS,
+    cleansing: [
+      {
+        item: "Skeleton Key",
+        itemImage: IMAGE.SKELETON_KEY,
+        outcome: "Gold/Heirlooms x2 + Gold/Trinket x1",
+        outcomeDescription:
+          "The Skeleton Key opens the sarcophagus to reveal its contents.",
+        outcomeImage: IMAGE.HEIRLOOM,
+      },
+      {
+        item: "Shovel",
+        itemImage: IMAGE.SHOVEL,
+        outcome: "Gold/Heirlooms x1 + Gold/Trinket x1",
+        outcomeDescription: "Broke into the sarcophagus...",
         outcomeImage: IMAGE.HEIRLOOM,
       },
     ],
