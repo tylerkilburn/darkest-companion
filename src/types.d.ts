@@ -109,6 +109,7 @@ export type ImageKeyType =
   | "HEIRLOOM_CHEST"
   | "HOLY_FOUNTAIN"
   | "HOLY_WATER"
+  | "IRON_MAIDEN"
   | "JOURNAL_ENTRY"
   | "LAUDANUM"
   | "MEDICINAL_HERBS"

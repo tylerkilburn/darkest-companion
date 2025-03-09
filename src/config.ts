@@ -17,6 +17,7 @@ import eldritchAlterImage from "../public/image/eldritch-alter.png"
 import firewoodImage from "../public/image/firewood.png"
 import foodImage from "../public/image/food.png"
 import holyFountainImage from "../public/image/holy-fountain.png"
+import ironMaidenImage from "../public/image/iron-maiden.png"
 import goldImage from "../public/image/gold.png"
 import journalEntry from "../public/image/journal-entry.png"
 import portraitImage from "../public/image/portrait.png"
@@ -78,6 +79,7 @@ const IMAGE: Record<ImageKeyType, string> = {
   HEIRLOOM_CHEST: heirloomChestImage.src,
   HEIRLOOM: portraitImage.src,
   HOLY_FOUNTAIN: holyFountainImage.src,
+  IRON_MAIDEN: ironMaidenImage.src,
   HOLY_WATER: holyWaterImage.src,
   JOURNAL_ENTRY: journalEntry.src,
   LAUDANUM: laudanumImage.src,
@@ -1332,22 +1334,70 @@ const CURIOS: ICurio[] = [
     ],
     withoutCleansing: [
       {
-        probability: 50,
         outcome: "Stress Heal 10, Cure Status Effects, Heal 5 HP",
         outcomeDescription: "",
         outcomeImage: IMAGE.STRESS_HEAL,
+        probability: 0.5,
       },
       {
-        probability: 50,
         outcome: "Gold/Gems x2",
         outcomeDescription:
           "Propitiations are found at the bottom of the fountain.",
         outcomeImage: IMAGE.GOLD,
+        probability: 0.5,
       },
     ],
   },
-
-  
+  {
+    dungeon: DUNGEON.RUINS,
+    name: "Iron Maiden",
+    subtext: "Haunted; Torture.",
+    description: "A rusty iron maiden stands against the wall, clasped shut.",
+    location: CURIO_LOCATION.CORRIDOR,
+    image: IMAGE.IRON_MAIDEN,
+    cleansing: [
+      {
+        item: "Medicinal Herbs",
+        itemImage: IMAGE.MEDICINAL_HERBS,
+        outcome: "Any Loot x2",
+        outcomeDescription:
+          "The herbs cleanse the maiden, allowing a thorough search.",
+        outcomeImage: IMAGE.GOLD,
+      },
+    ],
+    withoutCleansing: [
+      {
+        outcome: "Any Loot x2",
+        outcomeDescription: "A few treasures are hidden in the iron maiden.",
+        outcomeImage: IMAGE.GOLD,
+        probability: 0.4,
+      },
+      {
+        outcome: "Negative Quirk: Claustrophobia",
+        outcomeDescription: "",
+        outcomeImage: IMAGE.NEGATIVE_QUIRK_ADD,
+        probability: 0.2,
+      },
+      {
+        outcome: "Disease: Tetanus",
+        outcomeDescription: "The hero inhales foul vapours.",
+        outcomeImage: IMAGE.DISEASE,
+        probability: 0.133,
+      },
+      {
+        probability: 6.7,
+        outcome: "Random Disease",
+        outcomeDescription: "",
+        outcomeImage: IMAGE.DISEASE,
+      },
+      {
+        outcome: "Nothing",
+        outcomeDescription: "",
+        outcomeImage: IMAGE.NOTHING,
+        probability: 0.2,
+      },
+    ],
+  },
 ]
 
 interface IConfig {
